@@ -1,10 +1,9 @@
 body {
     background-color: #000;
     color: #fff;
-    overflow-y: scroll; /* Убирает дергание страницы при длинном скролле */
+    overflow-y: scroll;
 }
 
-/* Скроллбары */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
@@ -17,7 +16,6 @@ body {
 .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
 .custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
 
-/* Хедер Glass Effect */
 .glass-header {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(12px);
@@ -25,7 +23,6 @@ body {
     border-bottom: 1px solid #222;
 }
 
-/* Кастомные Dropdowns Vercel Style */
 .dropdown-menu {
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8), 0 0 0 1px #333;
 }
@@ -40,7 +37,6 @@ body {
 .custom-dropdown.open .dropdown-trigger i {
     transform: rotate(180deg);
 }
-/* Выбранный пункт меню синий */
 .dropdown-item.active {
     background-color: #0070F3;
     color: white;
@@ -49,7 +45,6 @@ body {
     background-color: #0060df;
 }
 
-/* Теги Vercel Style */
 .tag-btn {
     border: 1px solid #222;
     background-color: #0A0A0A;
@@ -61,18 +56,15 @@ body {
     position: relative;
     overflow: hidden;
 }
-/* Анимация при нажатии */
 .tag-btn:active {
     transform: scale(0.95);
 }
-/* Активное состояние тега */
 .tag-btn.tag-active {
     background-color: currentColor;
-    color: #000 !important; /* Текст становится черным для контраста */
+    color: #000 !important;
     border-color: transparent;
     font-weight: 500;
 }
-/* Чтобы hover не портил активный тег */
 .tag-btn.tag-active:hover {
     opacity: 0.9;
 }

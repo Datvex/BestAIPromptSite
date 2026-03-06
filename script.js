@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTags();
 });
 
-// --- Кастомные Dropdowns ---
 function initCustomDropdowns() {
     const dropdowns = document.querySelectorAll('.custom-dropdown');
     
@@ -35,21 +34,16 @@ function initCustomDropdowns() {
         const selectedText = dropdown.querySelector('.dropdown-selected');
         const items = dropdown.querySelectorAll('.dropdown-item');
 
-        // Открытие/Закрытие
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
             const isOpen = dropdown.classList.contains('open');
-            // Закрываем все остальные
             document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('open'));
-            // Переключаем текущий
             if (!isOpen) dropdown.classList.add('open');
         });
 
-        // Выбор элемента (для тех, что уже в HTML)
         setupDropdownItems(dropdown, items, selectedText);
     });
 
-    // Закрытие при клике вне меню
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.custom-dropdown')) {
             document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('open'));
@@ -60,19 +54,14 @@ function initCustomDropdowns() {
 function setupDropdownItems(dropdown, items, selectedText) {
     items.forEach(item => {
         item.addEventListener('click', () => {
-            // Снимаем выделение со всех
             dropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
-            // Делаем активным нажатый
             item.classList.add('active');
-            // Меняем текст в кнопке
             selectedText.textContent = item.textContent;
-            // Закрываем
             dropdown.classList.remove('open');
         });
     });
 }
 
-// --- Загрузка Категорий из JSON ---
 async function loadCategories() {
     try {
         const response = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/categories.json');
@@ -83,20 +72,16 @@ async function loadCategories() {
         const dropdown = document.getElementById('dropdown-category');
         const selectedText = dropdown.querySelector('.dropdown-selected');
 
-        // Сохраняем кнопку "Все"
         categoryList.innerHTML = `<li class="dropdown-item active px-3 py-2 cursor-pointer transition-colors duration-150" data-value="all">Все</li>`;
 
         data.forEach(groupData => {
-            // Заголовок группы (не кликабельный)
             categoryList.innerHTML += `<li class="px-3 pt-3 pb-1 text-[#666] font-semibold text-[10px] uppercase tracking-wider select-none">${groupData.group}</li>`;
             
-            // Элементы группы
             groupData.items.forEach(item => {
                 categoryList.innerHTML += `<li class="dropdown-item px-3 py-2 hover:bg-[#111] cursor-pointer transition-colors duration-150" data-value="${item.id}">${item.name}</li>`;
             });
         });
 
-        // Переназначаем логику кликов для новых элементов
         const newItems = categoryList.querySelectorAll('.dropdown-item');
         setupDropdownItems(dropdown, newItems, selectedText);
 
@@ -105,7 +90,6 @@ async function loadCategories() {
     }
 }
 
-// --- Умный Горизонтальный Скролл с Градиентами ---
 function setupHorizontalScroll() {
     const scrollContainer = document.getElementById('category-scroll');
     const gradLeft = document.getElementById('grad-left');
@@ -113,24 +97,20 @@ function setupHorizontalScroll() {
     
     if (!scrollContainer) return;
 
-    // Прокрутка колесиком
     scrollContainer.addEventListener('wheel', (evt) => {
         evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY * 2; // Умножение для скорости
+        scrollContainer.scrollLeft += evt.deltaY * 2;
     });
 
-    // Логика скрытия/показа градиентов
     const handleScroll = () => {
         const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
         
-        // Показываем левый градиент если проскроллили > 0
         if (scrollLeft > 5) {
             gradLeft.style.opacity = '1';
         } else {
             gradLeft.style.opacity = '0';
         }
 
-        // Показываем правый если есть куда скроллить
         if (Math.ceil(scrollLeft + clientWidth) >= scrollWidth - 5) {
             gradRight.style.opacity = '0';
         } else {
@@ -141,17 +121,14 @@ function setupHorizontalScroll() {
     scrollContainer.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleScroll);
     
-    // Инициализация при загрузке
     setTimeout(handleScroll, 100); 
 }
 
-// --- Анимация и логика Тегов ---
 function initTags() {
     const tags = document.querySelectorAll('.tag-btn');
     
     tags.forEach(tag => {
         tag.addEventListener('click', () => {
-            // Переключаем класс (цвет и прозрачность настроены в CSS)
             tag.classList.toggle('tag-active');
         });
     });
