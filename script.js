@@ -99,7 +99,11 @@ function setupHorizontalScroll() {
 
     scrollContainer.addEventListener('wheel', (evt) => {
         evt.preventDefault();
-        scrollContainer.scrollLeft += evt.deltaY * 2;
+        // Добавлено плавное поведение (smooth) для прокрутки
+        scrollContainer.scrollBy({
+            left: evt.deltaY * 2,
+            behavior: 'smooth'
+        });
     });
 
     const handleScroll = () => {
@@ -128,6 +132,10 @@ function initTags() {
     const tags = document.querySelectorAll('.tag-btn');
     
     tags.forEach(tag => {
+        // Вычисляем и сохраняем исходный цвет кнопки в CSS-переменную
+        const color = window.getComputedStyle(tag).color;
+        tag.style.setProperty('--base-color', color);
+
         tag.addEventListener('click', () => {
             tag.classList.toggle('tag-active');
         });
