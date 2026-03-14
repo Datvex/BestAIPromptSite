@@ -51,7 +51,8 @@ const translations = {
         counter_found: "Found: ",
         modal_copy_title: "Prompt copied",
         modal_cancel: "Cancel",
-        modal_open: "Open "
+        modal_open: "Open ",
+        modal_desc: "Prompt copied to clipboard. Paste it into {name} after opening."
     },
     ru: {
         lang_menu: "Язык интерфейса",
@@ -102,7 +103,8 @@ const translations = {
         model_voice_desc: "Промпты для генерации голоса",
         modal_copy_title: "Промпт скопирован",
         modal_cancel: "Отмена",
-        modal_open: "Открыть "
+        modal_open: "Открыть ",
+        modal_desc: "Промпт скопирован в буфер обмена. Вставьте его в {name} после открытия."
     },
     zh: {
         lang_menu: "界面语言",
@@ -153,7 +155,8 @@ const translations = {
         model_voice_desc: "用于语音生成的提示词",
         modal_copy_title: "提示词已复制",
         modal_cancel: "取消",
-        modal_open: "打开 "
+        modal_open: "打开 ",
+        modal_desc: "提示词已复制到剪贴板。打开 {name} 后粘贴。"
     },
     es: {
         lang_menu: "Idioma de la interfaz",
@@ -204,7 +207,8 @@ const translations = {
         model_voice_desc: "Prompts para generación de voz",
         modal_copy_title: "Prompt copiado",
         modal_cancel: "Cancelar",
-        modal_open: "Abrir "
+        modal_open: "Abrir ",
+        modal_desc: "Prompt copiado al portapapeles. Pégalo en {name} después de abrirlo."
     },
     de: {
         lang_menu: "Oberflächensprache",
@@ -255,7 +259,8 @@ const translations = {
         model_voice_desc: "Prompts für die Spracherstellung",
         modal_copy_title: "Prompt kopiert",
         modal_cancel: "Abbrechen",
-        modal_open: "Öffnen "
+        modal_open: "Öffnen ",
+        modal_desc: "Prompt in die Zwischenablage kopiert. Fügen Sie ihn nach dem Öffnen in {name} ein."
     },
     hi: {
         lang_menu: "इंटरफ़ेस भाषा",
@@ -306,7 +311,8 @@ const translations = {
         model_voice_desc: "आवाज़ जनरेशन के लिए प्रॉम्ट्स",
         modal_copy_title: "प्रॉम्ट कॉपी किया गया",
         modal_cancel: "रद्द करें",
-        modal_open: "खोलें "
+        modal_open: "खोलें ",
+        modal_desc: "प्रॉम्ट क्लिपबोर्ड पर कॉपी किया गया। {name} खोलने के बाद पेस्ट करें।"
     },
     fr: {
         lang_menu: "Langue de l'interface",
@@ -357,7 +363,8 @@ const translations = {
         model_voice_desc: "Prompts pour la génération de voix",
         modal_copy_title: "Prompt copié",
         modal_cancel: "Annuler",
-        modal_open: "Ouvrir "
+        modal_open: "Ouvrir ",
+        modal_desc: "Prompt copié dans le presse-papiers. Collez-le dans {name} après ouverture."
     },
     it: {
         lang_menu: "Lingua dell'interfaccia",
@@ -408,7 +415,8 @@ const translations = {
         model_voice_desc: "Prompt per la generazione di voce",
         modal_copy_title: "Prompt copiato",
         modal_cancel: "Annulla",
-        modal_open: "Apri "
+        modal_open: "Apri ",
+        modal_desc: "Prompt copiato negli appunti. Incollalo in {name} dopo l'apertura."
     },
     pt: {
         lang_menu: "Idioma da interface",
@@ -459,7 +467,8 @@ const translations = {
         model_voice_desc: "Prompts para geração de voz",
         modal_copy_title: "Prompt copiado",
         modal_cancel: "Cancelar",
-        modal_open: "Abrir "
+        modal_open: "Abrir ",
+        modal_desc: "Prompt copiado para a área de transferência. Cole no {name} após abrir."
     },
     ja: {
         lang_menu: "インターフェース言語",
@@ -510,7 +519,8 @@ const translations = {
         model_voice_desc: "音声生成用のプロンプト",
         modal_copy_title: "プロンプトをコピーしました",
         modal_cancel: "キャンセル",
-        modal_open: "開く "
+        modal_open: "開く ",
+        modal_desc: "プロンプトがクリップボードにコピーされました。{name} を開いた後に貼り付けてください。"
     },
     ko: {
         lang_menu: "인터페이스 언어",
@@ -561,7 +571,8 @@ const translations = {
         model_voice_desc: "음성 생성을 위한 프롬프트",
         modal_copy_title: "프롬프트가 복사되었습니다",
         modal_cancel: "취소",
-        modal_open: "열기 "
+        modal_open: "열기 ",
+        modal_desc: "프롬프트가 클립보드에 복사되었습니다. {name}을 연 후 붙여넣으세요."
     }
 };
 
@@ -585,19 +596,19 @@ function setLanguage(lang, animate) {
     currentLang = lang;
     localStorage.setItem('appLang', lang);
 
-    const langBtns = $$('.lang-btn');
+    const langBtns = $('.lang-btn');
     for (let i = 0; i < langBtns.length; i++) {
         const btn = langBtns[i];
         const isActive = btn.getAttribute('data-lang') === lang;
         btn.className = 'lang-btn w-full text-left px-3 py-2 text-[13px] rounded-md transition-colors ' +
-            (isActive ? 'text-white bg-[#111]' : 'text-[#EDEDED] hover:bg-[#111] hover:text-white');
+            (isActive ? 'text-white bg-[#2A2A2A]' : 'text-[#EDEDED] hover:bg-[#2A2A2A] hover:text-white');
     }
 
     const doUpdate = () => {
         const indicator = $('#current-lang-indicator');
         if (indicator) indicator.textContent = lang.toUpperCase();
 
-        const els = $$('[data-i18n]');
+        const els = $('[data-i18n]');
         const t = translations[lang];
         for (let i = 0; i < els.length; i++) {
             const el = els[i];
@@ -607,11 +618,25 @@ function setLanguage(lang, animate) {
             if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
                 el.placeholder = val;
             } else {
-                const icon = el.querySelector('i');
+                var icon = el.querySelector('svg') || el.querySelector('i');
                 if (icon) {
+                    var hasTextBefore = false;
+                    var sib = icon.previousSibling;
+                    while (sib) {
+                        if (sib.nodeType === 3 && sib.textContent.trim()) {
+                            hasTextBefore = true;
+                            break;
+                        }
+                        sib = sib.previousSibling;
+                    }
                     el.textContent = '';
-                    el.appendChild(icon);
-                    el.append(' ' + val);
+                    if (hasTextBefore) {
+                        el.append(val + ' ');
+                        el.appendChild(icon);
+                    } else {
+                        el.appendChild(icon);
+                        el.append(' ' + val);
+                    }
                 } else {
                     el.textContent = val;
                 }
@@ -648,9 +673,10 @@ function setLanguage(lang, animate) {
 }
 
 function switchView(viewId) {
-    const views = ['main-view', 'tags-view', 'categories-view'];
-    for (let i = 0; i < views.length; i++) {
-        const el = document.getElementById(views[i]);
+    var views = ['main-view', 'tags-view', 'categories-view'];
+    var header = document.getElementById('main-page-header');
+    for (var i = 0; i < views.length; i++) {
+        var el = document.getElementById(views[i]);
         if (!el) continue;
         if (views[i] === viewId) {
             el.classList.remove('hidden');
@@ -660,26 +686,28 @@ function switchView(viewId) {
             el.classList.remove('flex');
         }
     }
+    if (header) {
+        header.style.display = viewId === 'main-view' ? '' : 'none';
+    }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    lucide.createIcons();
+document.addEventListener('DOMContentLoaded', function() {
     initDropdowns();
     loadCategories();
-    initHorizontalScroll();
     initSidebarTags();
     initRadixNav();
     generateTagsPage();
-    generateCategoriesPage(); // <--- Добавляем эту строку
+    generateCategoriesPage();
     initViewSwitcher();
-    initAISelector(); // <--- Добавляем инициализацию логики ИИ меню
+    initAISelector();
     setLanguage(currentLang, false);
+    lucide.createIcons();
 
-    $('#lang-buttons').addEventListener('click', e => {
-        const btn = e.target.closest('.lang-btn');
+    $('#lang-buttons').addEventListener('click', function(e) {
+        var btn = e.target.closest('.lang-btn');
         if (!btn) return;
         e.preventDefault();
-        const lang = btn.getAttribute('data-lang');
+        var lang = btn.getAttribute('data-lang');
         if (lang !== currentLang) setLanguage(lang, true);
     });
 });
@@ -720,7 +748,15 @@ async function loadCategories() {
         const cached = sessionStorage.getItem(cacheKey);
 
         if (cached) {
-            data = JSON.parse(cached);
+            try {
+                data = JSON.parse(cached);
+            } catch(e) {
+                sessionStorage.removeItem(cacheKey);
+                var r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/categories.json');
+                if (!r.ok) throw new Error('Network error');
+                data = await r.json();
+                try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); } catch(e) {}
+            }
         } else {
             const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/categories.json');
             if (!r.ok) throw new Error('Network error');
@@ -732,13 +768,13 @@ async function loadCategories() {
         if (!list) return;
 
         const allText = translations[currentLang]?.filter_all || 'Все';
-        let html = '<li data-i18n="filter_all" class="dropdown-item active px-3 py-2 cursor-pointer transition-colors duration-150" data-value="all">' + allText + '</li>';
+        let html = '<li data-i18n="filter_all" class="dropdown-item active px-3 py-2 hover:bg-[#2A2A2A] cursor-pointer transition-colors duration-150 rounded-md" data-value="all">' + allText + '</li>';
 
         for (let g = 0; g < data.length; g++) {
             html += '<li class="px-3 pt-3 pb-1 text-[#666] font-semibold text-[10px] uppercase tracking-wider select-none">' + data[g].group + '</li>';
             const items = data[g].items;
             for (let i = 0; i < items.length; i++) {
-                html += '<li class="dropdown-item px-3 py-2 hover:bg-[#111] cursor-pointer transition-colors duration-150" data-value="' + items[i].id + '">' + items[i].name + '</li>';
+                html += '<li class="dropdown-item px-3 py-2 hover:bg-[#2A2A2A] cursor-pointer transition-colors duration-150 rounded-md" data-value="' + items[i].id + '">' + items[i].name + '</li>';
             }
         }
 
@@ -852,41 +888,34 @@ function initRadixNav() {
     }
 }
 
-function initHorizontalScroll() {
-    const el = $('#category-scroll');
-    const gL = $('#grad-left');
-    const gR = $('#grad-right');
-    if (!el) return;
-
-    el.addEventListener('wheel', e => {
-        e.preventDefault();
-        el.scrollBy({ left: e.deltaY * 2, behavior: 'smooth' });
-    }, { passive: false });
-
-    const onScroll = debounce(() => {
-        const { scrollLeft, scrollWidth, clientWidth } = el;
-        gL.style.opacity = scrollLeft > 5 ? '1' : '0';
-        gR.style.opacity = Math.ceil(scrollLeft + clientWidth) >= scrollWidth - 5 ? '0' : '1';
-    }, 16);
-
-    el.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
-    setTimeout(onScroll, 100);
-}
-
 function initSidebarTags() {
-    const container = $('#tags-container');
+    var container = $('#tags-container');
     if (!container) return;
 
-    const tags = container.querySelectorAll('.tag-btn');
-    for (let i = 0; i < tags.length; i++) {
-        tags[i].style.setProperty('--base-color', getComputedStyle(tags[i]).color);
+    var tags = container.querySelectorAll('.tag-btn');
+    var colors = new Array(tags.length);
+    for (var i = 0; i < tags.length; i++) {
+        colors[i] = getComputedStyle(tags[i]).color;
+    }
+    for (var i = 0; i < tags.length; i++) {
+        tags[i].style.setProperty('--base-color', colors[i]);
     }
 
-    container.addEventListener('click', e => {
-        const tag = e.target.closest('.tag-btn');
+    container.addEventListener('click', function(e) {
+        var tag = e.target.closest('.tag-btn');
         if (tag) tag.classList.toggle('tag-active');
     });
+
+    var searchInput = $('#sidebar-tag-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(function() {
+            var query = this.value.toLowerCase().trim();
+            var btns = container.querySelectorAll('.tag-btn');
+            for (var i = 0; i < btns.length; i++) {
+                btns[i].style.display = (!query || btns[i].textContent.toLowerCase().indexOf(query) !== -1) ? '' : 'none';
+            }
+        }, 150));
+    }
 }
 
 function generateTagsPage() {
@@ -1026,59 +1055,60 @@ function generateCategoriesPage() {
     });
 
     container.innerHTML = html;
-    
-    // Инициализируем новые иконки chevron-right, которые мы только что вставили
-    if (window.lucide) {
-        lucide.createIcons();
+}
+
+function setTypeFilter(value) {
+    var dropdown = $('#dropdown-type');
+    if (!dropdown) return;
+    var items = $('.dropdown-item', dropdown);
+    var sel = $('.dropdown-selected', dropdown);
+    for (var i = 0; i < items.length; i++) {
+        if (items[i].dataset.value === value) {
+            items[i].classList.add('active');
+            if (sel) sel.textContent = items[i].textContent;
+        } else {
+            items[i].classList.remove('active');
+        }
     }
 }
 
 function initViewSwitcher() {
-    const home = $('#home-link');
+    var home = $('#home-link');
     if (home) {
-        home.addEventListener('click', e => {
+        home.addEventListener('click', function(e) {
             e.preventDefault();
             switchView('main-view');
         });
     }
 
-    const linkCat = $('#nav-link-categories');
+    var linkCat = $('#nav-link-categories');
     if (linkCat) {
-        linkCat.addEventListener('click', e => {
+        linkCat.addEventListener('click', function(e) {
             e.preventDefault();
             if (closeRadixMenu) closeRadixMenu();
             switchView('categories-view');
         });
     }
 
-    const linkTags = $('#nav-link-tags');
+    var linkTags = $('#nav-link-tags');
     if (linkTags) {
-        linkTags.addEventListener('click', e => {
+        linkTags.addEventListener('click', function(e) {
             e.preventDefault();
             if (closeRadixMenu) closeRadixMenu();
             switchView('tags-view');
         });
     }
-}
 
-// Функция для обновления счетчика промптов
-function updatePromptCounter(count, isFiltered = false) {
-    const counterEl = document.getElementById('prompt-counter');
-    if (!counterEl) return;
-    
-    const t = translations[currentLang];
-    // Берем перевод из словаря или используем дефолтные значения
-    const prefix = isFiltered ? (t.counter_found || "Found: ") : (t.counter_total || "Total: ");
-    
-    counterEl.textContent = prefix + count;
-    
-    // Меняем цвет при активном поиске/фильтре для привлечения внимания
-    if (isFiltered) {
-        counterEl.classList.remove('text-[#888]');
-        counterEl.classList.add('text-blue-400');
-    } else {
-        counterEl.classList.add('text-[#888]');
-        counterEl.classList.remove('text-blue-400');
+    var modelLinks = $('#content-models a[data-filter]');
+    for (var i = 0; i < modelLinks.length; i++) {
+        (function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (closeRadixMenu) closeRadixMenu();
+                setTypeFilter(link.dataset.filter);
+                switchView('main-view');
+            });
+        })(modelLinks[i]);
     }
 }
 
@@ -1189,7 +1219,37 @@ function initAISelector() {
         requestAnimationFrame(() => menu.classList.add('active'));
     }
 
+    let menuLeaveTimer = null;
+
+    menu.addEventListener('mouseenter', function() {
+        if (menuLeaveTimer) {
+            clearTimeout(menuLeaveTimer);
+            menuLeaveTimer = null;
+        }
+    });
+
+    menu.addEventListener('mouseleave', function() {
+        menuLeaveTimer = setTimeout(function() {
+            closeMenu();
+            menuLeaveTimer = null;
+        }, 200);
+    });
+
     document.addEventListener('click', e => {
+        var copyBtn = e.target.closest('[data-action="copy"]');
+        if (copyBtn) {
+            e.preventDefault();
+            var card = copyBtn.closest('.group');
+            var content = card && card.querySelector('.prompt-content');
+            if (content) {
+                navigator.clipboard.writeText(content.textContent).then(function() {
+                    copyBtn.style.color = '#22c55e';
+                    setTimeout(function() { copyBtn.style.color = ''; }, 1500);
+                });
+            }
+            return;
+        }
+
         const triggerBtn = e.target.closest('.ai-trigger-btn');
         if (triggerBtn) {
             e.preventDefault();
@@ -1211,17 +1271,28 @@ function initAISelector() {
             if (type === 'web') {
                 const linkBuilder = webLinks[modelId];
                 if (linkBuilder) {
-                    window.open(linkBuilder(currentPromptText), '_blank');
+                    window.open(linkBuilder(currentPromptText), '_blank', 'noopener');
                 }
             } else if (type === 'modal') {
-                navigator.clipboard.writeText(currentPromptText).then(() => {
-                    const aiName = modelBtn.dataset.name;
-                    const aiUrl = modelBtn.dataset.url;
-                    const t = translations[currentLang] || translations.ru;
+                navigator.clipboard.writeText(currentPromptText).then(function() {
+                    var aiName = modelBtn.dataset.name;
+                    var aiUrl = modelBtn.dataset.url;
+                    var t = translations[currentLang] || translations.ru;
 
-                    $('#ai-modal-name').textContent = aiName;
                     $('#ai-modal-btn-text').textContent = (t.modal_open || 'Открыть ') + aiName;
                     $('#ai-modal-open').href = aiUrl;
+
+                    var descEl = $('#ai-modal-desc');
+                    var descParts = (t.modal_desc || 'Промпт скопирован в буфер обмена. Вставьте его в {name} после открытия.').split('{name}');
+                    descEl.textContent = '';
+                    descEl.append(descParts[0]);
+                    var nameSpan = document.createElement('span');
+                    nameSpan.id = 'ai-modal-name';
+                    nameSpan.className = 'text-[#EDEDED] font-medium';
+                    nameSpan.textContent = aiName;
+                    descEl.appendChild(nameSpan);
+                    if (descParts[1]) descEl.append(descParts[1]);
+
                     modal.classList.add('active');
                 });
             } else if (type === 'app') {
@@ -1249,7 +1320,17 @@ function initAISelector() {
     $('#ai-modal-open').addEventListener('click', closeModal);
     $('#ai-modal-backdrop').addEventListener('click', closeModal);
 
-    window.addEventListener('resize', () => {
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (modal.classList.contains('active')) {
+                closeModal();
+            } else if (menu.classList.contains('active')) {
+                closeMenu();
+            }
+        }
+    });
+
+    window.addEventListener('resize', function() {
         if (!menu.classList.contains('active')) return;
         const activeContent = menu.dataset.tab === 'code' ? codeTabContent : chatTabContent;
         tabsViewport.style.height = getTabHeight(activeContent) + 'px';
