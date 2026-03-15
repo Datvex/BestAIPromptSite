@@ -6,6 +6,7 @@ const translations = {
         nav_categories: "Categories",
         nav_models: "Models",
         nav_tags: "Tags",
+        nav_sources: "Sources",
         nav_repo: "Repository",
         sidebar_title: "Prompts",
         counter_total: "Total: ",
@@ -35,6 +36,8 @@ const translations = {
         dropdown_tags_desc: "Go to the tags list",
         categories_page_title: "Categories",
         categories_page_desc: "Category list",
+        sources_page_title: "Sources",
+        sources_page_desc: "List of resources where prompts were sourced from",
         themes_count: "themes",
         model_text_title: "Text",
         model_text_desc: "Prompts for text generation",
@@ -61,6 +64,7 @@ const translations = {
         nav_categories: "Категории",
         nav_models: "Модели",
         nav_tags: "Теги",
+        nav_sources: "Источники",
         nav_repo: "Репозиторий",
         sidebar_title: "Промпты",
         counter_total: "Всего: ",
@@ -90,6 +94,8 @@ const translations = {
         dropdown_tags_desc: "Перейти в список тегов",
         categories_page_title: "Категории",
         categories_page_desc: "Список категорий",
+        sources_page_title: "Источники",
+        sources_page_desc: "Список ресурсов, откуда были взяты промпты",
         themes_count: "тем",
         model_text_title: "Текст",
         model_text_desc: "Промпты для генерации текста",
@@ -113,6 +119,7 @@ const translations = {
         nav_categories: "类别",
         nav_models: "模型",
         nav_tags: "标签",
+        nav_sources: "来源",
         nav_repo: "代码库",
         sidebar_title: "提示词",
         counter_total: "总计: ",
@@ -142,6 +149,8 @@ const translations = {
         dropdown_tags_desc: "前往标签列表",
         categories_page_title: "类别",
         categories_page_desc: "类别列表",
+        sources_page_title: "来源",
+        sources_page_desc: "提示词来源资源列表",
         themes_count: "个主题",
         model_text_title: "文本",
         model_text_desc: "用于文本生成的提示词",
@@ -165,6 +174,7 @@ const translations = {
         nav_categories: "Categorías",
         nav_models: "Modelos",
         nav_tags: "Etiquetas",
+        nav_sources: "Fuentes",
         nav_repo: "Repositorio",
         sidebar_title: "Prompts",
         counter_total: "Total: ",
@@ -194,6 +204,8 @@ const translations = {
         dropdown_tags_desc: "Ir a la lista de etiquetas",
         categories_page_title: "Categorías",
         categories_page_desc: "Lista de categorías",
+        sources_page_title: "Fuentes",
+        sources_page_desc: "Lista de recursos de donde se obtuvieron los prompts",
         themes_count: "temas",
         model_text_title: "Texto",
         model_text_desc: "Prompts para generación de texto",
@@ -217,6 +229,7 @@ const translations = {
         nav_categories: "Kategorien",
         nav_models: "Modelle",
         nav_tags: "Tags",
+        nav_sources: "Quellen",
         nav_repo: "Repository",
         sidebar_title: "Prompts",
         counter_total: "Gesamt: ",
@@ -246,6 +259,8 @@ const translations = {
         dropdown_tags_desc: "Zur Tag-Liste",
         categories_page_title: "Kategorien",
         categories_page_desc: "Kategorienliste",
+        sources_page_title: "Quellen",
+        sources_page_desc: "Liste der Ressourcen, aus denen die Prompts stammen",
         themes_count: "Themen",
         model_text_title: "Text",
         model_text_desc: "Prompts für die Texterstellung",
@@ -269,6 +284,7 @@ const translations = {
         nav_categories: "श्रेणियाँ",
         nav_models: "मॉडल",
         nav_tags: "टैग",
+        nav_sources: "स्रोत",
         nav_repo: "रिपॉजिटरी",
         sidebar_title: "प्रॉम्प्ट्स",
         counter_total: "कुल: ",
@@ -298,6 +314,8 @@ const translations = {
         dropdown_tags_desc: "टैग सूची पर जाएं",
         categories_page_title: "श्रेणियाँ",
         categories_page_desc: "श्रेणी सूची",
+        sources_page_title: "स्रोत",
+        sources_page_desc: "उन संसाधनों की सूची जहां से प्रॉम्प्ट प्राप्त किए गए थे",
         themes_count: "विषय",
         model_text_title: "टेक्स्ट",
         model_text_desc: "टेक्स्ट जनरेशन के लिए प्रॉम्ट्स",
@@ -321,6 +339,7 @@ const translations = {
         nav_categories: "Catégories",
         nav_models: "Modèles",
         nav_tags: "Balises",
+        nav_sources: "Sources",
         nav_repo: "Dépôt",
         sidebar_title: "Prompts",
         counter_total: "Total: ",
@@ -350,6 +369,8 @@ const translations = {
         dropdown_tags_desc: "Aller à la liste des balises",
         categories_page_title: "Catégories",
         categories_page_desc: "Liste des catégories",
+        sources_page_title: "Sources",
+        sources_page_desc: "Liste des ressources dont proviennent les prompts",
         themes_count: "thèmes",
         model_text_title: "Texte",
         model_text_desc: "Prompts pour la génération de texte",
@@ -373,6 +394,7 @@ const translations = {
         nav_categories: "Categorie",
         nav_models: "Modelli",
         nav_tags: "Tag",
+        nav_sources: "Fonti",
         nav_repo: "Repository",
         sidebar_title: "Prompt",
         counter_total: "Totale: ",
@@ -402,6 +424,8 @@ const translations = {
         dropdown_tags_desc: "Vai all'elenco dei tag",
         categories_page_title: "Categorie",
         categories_page_desc: "Elenco categorie",
+        sources_page_title: "Fonti",
+        sources_page_desc: "Elenco delle risorse da cui sono stati presi i prompt",
         themes_count: "temi",
         model_text_title: "Testo",
         model_text_desc: "Prompt per la generazione di testo",
@@ -425,6 +449,7 @@ const translations = {
         nav_categories: "Categorias",
         nav_models: "Modelos",
         nav_tags: "Tags",
+        nav_sources: "Fontes",
         nav_repo: "Repositório",
         sidebar_title: "Prompts",
         counter_total: "Total: ",
@@ -454,6 +479,8 @@ const translations = {
         dropdown_tags_desc: "Ir para a lista de tags",
         categories_page_title: "Categorias",
         categories_page_desc: "Lista de categorias",
+        sources_page_title: "Fontes",
+        sources_page_desc: "Lista de recursos de onde os prompts foram obtidos",
         themes_count: "temas",
         model_text_title: "Texto",
         model_text_desc: "Prompts para geração de texto",
@@ -477,6 +504,7 @@ const translations = {
         nav_categories: "カテゴリー",
         nav_models: "モデル",
         nav_tags: "タグ",
+        nav_sources: "ソース",
         nav_repo: "リポジトリ",
         sidebar_title: "プロンプト",
         counter_total: "合計: ",
@@ -506,6 +534,8 @@ const translations = {
         dropdown_tags_desc: "タグ一覧へ移動",
         categories_page_title: "カテゴリー",
         categories_page_desc: "カテゴリ一覧",
+        sources_page_title: "ソース",
+        sources_page_desc: "プロンプトの取得元リソースのリスト",
         themes_count: "テーマ",
         model_text_title: "テキスト",
         model_text_desc: "テキスト生成用のプロンプト",
@@ -529,6 +559,7 @@ const translations = {
         nav_categories: "카테고리",
         nav_models: "모델",
         nav_tags: "태그",
+        nav_sources: "출처",
         nav_repo: "저장소",
         sidebar_title: "프롬프트",
         counter_total: "전체: ",
@@ -558,6 +589,8 @@ const translations = {
         dropdown_tags_desc: "태그 목록으로 이동",
         categories_page_title: "카테고리",
         categories_page_desc: "카테고리 목록",
+        sources_page_title: "출처",
+        sources_page_desc: "프롬프트를 가져온 리소스 목록",
         themes_count: "개 주제",
         model_text_title: "텍스트",
         model_text_desc: "텍스트 생성을 위한 프롬프트",
@@ -692,7 +725,7 @@ function setLanguage(lang, animate) {
 }
 
 function switchView(viewId) {
-    var views = ['main-view', 'tags-view', 'categories-view'];
+    var views = ['main-view', 'tags-view', 'categories-view', 'sources-view'];
     var header = document.getElementById('main-page-header');
     for (var i = 0; i < views.length; i++) {
         var el = document.getElementById(views[i]);
@@ -1199,6 +1232,15 @@ function initViewSwitcher() {
             e.preventDefault();
             if (closeRadixMenu) closeRadixMenu();
             switchView('tags-view');
+        });
+    }
+
+    var linkSources = $('#nav-link-sources');
+    if (linkSources) {
+        linkSources.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (closeRadixMenu) closeRadixMenu();
+            switchView('sources-view');
         });
     }
 

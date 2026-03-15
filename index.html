@@ -64,6 +64,10 @@
                         <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70 transition-transform duration-200"></i>
                     </button>
 
+                    <button id="nav-link-sources" data-i18n="nav_sources" class="flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
+                        Источники
+                    </button>
+
                     <div id="radix-positioner" class="absolute top-full left-0 pt-3 z-50" style="pointer-events: none;">
                         <div id="radix-viewport" class="radix-viewport bg-[#1A1A1A] border border-[#333] rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.8)] relative overflow-hidden pointer-events-auto" data-state="closed" style="display: none;">
 
@@ -331,6 +335,31 @@
             
             <!-- Контейнер для нашего сгенерированного списка -->
             <div id="categories-container" class="flex flex-col gap-8 max-w-4xl w-full"></div>
+        </div>
+
+        <div id="sources-view" class="hidden flex-col w-full">
+            <section class="mb-10 text-center md:text-left">
+                <h1 data-i18n="sources_page_title" class="text-[32px] font-semibold mb-2 text-white tracking-tight">Источники</h1>
+                <p data-i18n="sources_page_desc" class="text-[15px] text-[#888]">Список ресурсов, откуда были взяты промпты</p>
+            </section>
+            
+            <div class="flex flex-col gap-4 max-w-4xl w-full mx-auto md:mx-0">
+                <a href="https://github.com/YouMind-OpenLab/awesome-nano-banana-pro-prompts" target="_blank" rel="noopener" class="group bg-[#1A1A1A] border border-[#333] hover:border-[#555] rounded-xl p-5 transition-all duration-300 flex items-center justify-between">
+                    <div class="flex flex-col gap-1">
+                        <h3 class="text-[16px] font-medium text-[#EDEDED] group-hover:text-white transition-colors">awesome-nano-banana-pro-prompts</h3>
+                        <span class="text-[13px] text-[#888]">github.com/YouMind-OpenLab</span>
+                    </div>
+                    <i data-lucide="external-link" class="w-5 h-5 text-[#666] group-hover:text-white transition-colors"></i>
+                </a>
+
+                <a href="https://github.com/f/prompts.chat?tab=readme-ov-file" target="_blank" rel="noopener" class="group bg-[#1A1A1A] border border-[#333] hover:border-[#555] rounded-xl p-5 transition-all duration-300 flex items-center justify-between">
+                    <div class="flex flex-col gap-1">
+                        <h3 class="text-[16px] font-medium text-[#EDEDED] group-hover:text-white transition-colors">prompts.chat</h3>
+                        <span class="text-[13px] text-[#888]">github.com/f</span>
+                    </div>
+                    <i data-lucide="external-link" class="w-5 h-5 text-[#666] group-hover:text-white transition-colors"></i>
+                </a>
+            </div>
         </div>
 
         <!-- Меню выбора нейросети -->
