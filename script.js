@@ -594,9 +594,9 @@ function debounce(fn, ms) {
 function setLanguage(lang, animate) {
     if (!translations[lang]) return;
     currentLang = lang;
-    localStorage.setItem('appLang', lang);
+    try { localStorage.setItem('appLang', lang); } catch(e) {}
 
-    const langBtns = $('.lang-btn');
+    const langBtns = document.querySelectorAll('.lang-btn');
     for (let i = 0; i < langBtns.length; i++) {
         const btn = langBtns[i];
         const isActive = btn.getAttribute('data-lang') === lang;
@@ -605,56 +605,74 @@ function setLanguage(lang, animate) {
     }
 
     const doUpdate = () => {
-        const indicator = $('#current-lang-indicator');
+        const indicator = document.querySelector('#current-lang-indicator');
         if (indicator) indicator.textContent = lang.toUpperCase();
 
-        const els = $('[data-i18n]');
+        const els = document.querySelectorAll('[data-i18n]');
         const t = translations[lang];
         for (let i = 0; i < els.length; i++) {
             const el = els[i];
             const key = el.getAttribute('data-i18n');
             const val = t[key];
             if (!val) continue;
-            if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
-                el.placeholder = val;
-            } else {
-                var icon = el.querySelector('svg') || el.querySelector('i');
-                if (icon) {
-                    var hasTextBefore = false;
-                    var sib = icon.previousSibling;
-                    while (sib) {
-                        if (sib.nodeType === 3 && sib.textContent.trim()) {
-                            hasTextBefore = true;
-                            break;
-                        }
-                        sib = sib.previousSibling;
-                    }
-                    el.textContent = '';
-                    if (hasTextBefore) {
-                        el.append(val + ' ');
-                        el.appendChild(icon);
-                    } else {
-                        el.appendChild(icon);
-                        el.append(' ' + val);
-                    }
+            
+            try {
+                if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+                    el.placeholder = val;
                 } else {
-                    el.textContent = val;
+                    const icon = el.querySelector('svg') || el.querySelector('i');
+                    if (icon) {
+                        let topIcon = icon;
+                        while (topIcon.parentNode && topIcon.parentNode !== el) {
+                            topIcon = topIcon.parentNode;
+                        }
+
+                        let hasTextBefore = false;
+                        let sib = topIcon.previousSibling;
+                        while (sib) {
+                            if (sib.nodeType === 3 && sib.textContent.trim()) {
+                                hasTextBefore = true;
+                                break;
+                            }
+                            sib = sib.previousSibling;
+                        }
+                        
+                        let child = el.firstChild;
+                        while (child) {
+                            let next = child.nextSibling;
+                            if (child !== topIcon) {
+                                el.removeChild(child);
+                            }
+                            child = next;
+                        }
+                        
+                        if (hasTextBefore) {
+                            el.insertBefore(document.createTextNode(val + ' '), topIcon);
+                        } else {
+                            el.appendChild(document.createTextNode(' ' + val));
+                        }
+                    } else {
+                        el.textContent = val;
+                    }
                 }
-            }
+            } catch(e) {}
         }
 
-        const dropdowns = $$('.custom-dropdown');
+        const dropdowns = document.querySelectorAll('.custom-dropdown');
         for (let i = 0; i < dropdowns.length; i++) {
-            const active = $('.dropdown-item.active', dropdowns[i]);
-            const sel = $('.dropdown-selected', dropdowns[i]);
-            if (active && sel) sel.textContent = active.textContent;
+            const active = dropdowns[i].querySelector('.dropdown-item.active');
+            const sel = dropdowns[i].querySelector('.dropdown-selected');
+            if (active && sel) {
+                sel.textContent = active.textContent;
+            }
         }
     };
 
     if (animate) {
-        const targets = $$('[data-i18n], .dropdown-selected, #current-lang-indicator');
+        const targets = document.querySelectorAll('[data-i18n], .dropdown-selected, #current-lang-indicator');
         for (let i = 0; i < targets.length; i++) {
-            targets[i].style.cssText = 'transition:opacity .15s;opacity:0';
+            targets[i].style.transition = 'opacity .15s ease-in-out';
+            targets[i].style.opacity = '0';
         }
         setTimeout(() => {
             doUpdate();
@@ -663,7 +681,8 @@ function setLanguage(lang, animate) {
             }
             setTimeout(() => {
                 for (let i = 0; i < targets.length; i++) {
-                    targets[i].style.cssText = '';
+                    targets[i].style.transition = '';
+                    targets[i].style.opacity = '';
                 }
             }, 150);
         }, 150);
@@ -691,12 +710,12 @@ function switchView(viewId) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     initDropdowns();
     loadCategories();
     initSidebarTags();
     initRadixNav();
-    generateTagsPage();
+    await generateTagsPage();
     generateCategoriesPage();
     initViewSwitcher();
     initAISelector();
@@ -918,9 +937,28 @@ function initSidebarTags() {
     }
 }
 
-function generateTagsPage() {
+async function generateTagsPage() {
     const container = $('#all-tags-container');
     if (!container) return;
+
+    let data = [];
+    try {
+        const cacheKey = 'datvex_tags';
+        const cached = sessionStorage.getItem(cacheKey);
+        
+        if (cached) {
+            data = JSON.parse(cached);
+        } else {
+            const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/tags.json');
+            if (r.ok) {
+                data = await r.json();
+                try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); } catch(e) {}
+            }
+        }
+    } catch (e) {
+        console.error('Failed to load tags:', e);
+        return;
+    }
 
     const colors = [
         [59,130,246], [239,68,68], [245,158,11], [34,197,94], [168,85,247],
@@ -929,9 +967,9 @@ function generateTagsPage() {
 
     const frag = document.createDocumentFragment();
 
-    // Возвращаем ваши 250 тегов
-    for (let i = 1; i <= 250; i++) {
-        const c = colors[(Math.random() * colors.length) | 0];
+    for (let i = 0; i < data.length; i++) {
+        const item = data[i];
+        const c = colors[i % colors.length];
         const a = document.createElement('a');
         a.href = '#';
         a.className = 'custom-tag-pill';
@@ -942,12 +980,10 @@ function generateTagsPage() {
 
         const label = document.createElement('span');
         label.className = 'tag-label';
-        // Возвращаем оригинальный текст
-        label.textContent = 'text' + i;
+        label.textContent = item.name;
 
         const count = document.createElement('span');
         count.className = 'tag-count';
-        // Возвращаем оригинальный счетчик
         count.textContent = '0';
 
         a.appendChild(dot);
