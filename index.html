@@ -407,6 +407,471 @@
             </div>
         </div>
 
+        <div id="usecase-developers-view" class="hidden flex-col w-full">
+            <section class="relative flex flex-col items-center justify-center text-center py-32 px-4 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6 max-w-4xl leading-[1.05]">Code, meet<br/>Intelligence.</h1>
+                <p class="text-lg md:text-xl text-[#888] max-w-xl mb-10 leading-relaxed">Supercharge your development workflow with curated AI prompts built for engineers who ship.</p>
+                <div class="flex items-center gap-4">
+                    <button onclick="switchView('main-view')" class="bg-white text-black font-semibold text-[15px] px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">Browse Prompts</button>
+                    <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="bg-black text-white border border-[#333] hover:border-[#555] font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors">View Repository</a>
+                </div>
+            </section>
+
+            <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222]"></div>
+
+            <section class="max-w-5xl mx-auto w-full py-24 px-4 flex flex-col gap-32">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col gap-5">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Write less boilerplate.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">Access hundreds of prompts for code generation, refactoring, documentation, and debugging — organized by language and framework.</p>
+                    </div>
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 font-mono text-sm text-[#A0A0A0] leading-relaxed">
+                        <div class="flex items-center gap-2 mb-4"><span class="w-3 h-3 rounded-full bg-[#333]"></span><span class="w-3 h-3 rounded-full bg-[#333]"></span><span class="w-3 h-3 rounded-full bg-[#333]"></span></div>
+                        <span class="text-[#4ADE80]">→</span> Act as a senior TypeScript engineer...<br/>
+                        <span class="text-[#60A5FA]">→</span> Review this code for security issues...<br/>
+                        <span class="text-[#FBBF24]">→</span> Write unit tests for this function...<br/>
+                        <span class="text-[#C084FC]">→</span> Refactor using SOLID principles...
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 order-2 md:order-1">
+                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i data-lucide="cpu" class="w-5 h-5 text-[#60A5FA]"></i><span class="text-[#EDEDED] text-sm">ChatGPT · Claude · Gemini · Grok</span></div>
+                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i data-lucide="monitor" class="w-5 h-5 text-[#4ADE80]"></i><span class="text-[#EDEDED] text-sm">Cursor · Windsurf · Copilot · v0</span></div>
+                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i data-lucide="layers" class="w-5 h-5 text-[#FBBF24]"></i><span class="text-[#EDEDED] text-sm">All prompt types: text, image, video</span></div>
+                    </div>
+                    <div class="flex flex-col gap-5 order-1 md:order-2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">One prompt, any model.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">Send any prompt directly to your preferred AI — ChatGPT, Claude, Cursor, or Windsurf — with a single click from the catalog.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="github" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Open Source</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Fork the repo, add your own prompts, and contribute to a growing community of developers.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="search" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Instant Search</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Find the exact prompt you need in milliseconds with real-time full-text search.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="tag" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Tagged & Filtered</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Browse by language, framework, or task type with a powerful tag and category system.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="usecase-designers-view" class="hidden flex-col w-full">
+            <section class="relative flex flex-col items-center justify-center text-center py-32 px-4 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6 max-w-4xl leading-[1.05]">Design, meet<br/>Imagination.</h1>
+                <p class="text-lg md:text-xl text-[#888] max-w-xl mb-10 leading-relaxed">From concept to pixel-perfect output — prompts crafted for designers who create visuals, brands, and experiences.</p>
+                <div class="flex items-center gap-4">
+                    <button onclick="switchView('main-view')" class="bg-white text-black font-semibold text-[15px] px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">Browse Prompts</button>
+                    <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="bg-black text-white border border-[#333] hover:border-[#555] font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors">View Repository</a>
+                </div>
+            </section>
+
+            <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222]"></div>
+
+            <section class="max-w-5xl mx-auto w-full py-24 px-4 flex flex-col gap-32">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col gap-5">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Generate. Iterate. Ship.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">Prompts for Midjourney, DALL·E, Stable Diffusion, and more. Describe the exact mood, style, and composition you need.</p>
+                    </div>
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 grid grid-cols-2 gap-3">
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-[#333] flex items-center justify-center"><i data-lucide="image" class="w-8 h-8 text-[#60A5FA]"></i></div>
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a1a1a] to-[#2d1b69] border border-[#333] flex items-center justify-center"><i data-lucide="palette" class="w-8 h-8 text-[#C084FC]"></i></div>
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a2a1a] to-[#0d3321] border border-[#333] flex items-center justify-center"><i data-lucide="layers" class="w-8 h-8 text-[#4ADE80]"></i></div>
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#2a1a1a] to-[#3d1515] border border-[#333] flex items-center justify-center"><i data-lucide="sparkles" class="w-8 h-8 text-[#F87171]"></i></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-4 order-2 md:order-1">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i data-lucide="zap" class="w-4 h-4 text-[#FBBF24]"></i></div>
+                            <div><p class="text-[#EDEDED] text-sm font-medium mb-1">Logos & Branding</p><p class="text-[#888] text-xs">Minimal, geometric, wordmark, emblem styles</p></div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i data-lucide="camera" class="w-4 h-4 text-[#60A5FA]"></i></div>
+                            <div><p class="text-[#EDEDED] text-sm font-medium mb-1">Photography Styles</p><p class="text-[#888] text-xs">Lighting, composition, mood presets</p></div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i data-lucide="pen-tool" class="w-4 h-4 text-[#C084FC]"></i></div>
+                            <div><p class="text-[#EDEDED] text-sm font-medium mb-1">Illustration & Concept Art</p><p class="text-[#888] text-xs">Character design, environments, UI illustration</p></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-5 order-1 md:order-2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Every visual style, covered.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">From logo concepts to cinematic photography — structured prompt categories for every design discipline.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="image" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Image Prompts</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Hundreds of curated prompts for Midjourney, DALL·E, Firefly, and Stable Diffusion.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="video" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Video & Motion</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Prompts for Sora, Runway, and Kling — storyboards, shot lists, cinematic styles.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="shopping-bag" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Product & E-commerce</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Generate professional product shots and marketing visuals without a photo studio.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="usecase-creators-view" class="hidden flex-col w-full">
+            <section class="relative flex flex-col items-center justify-center text-center py-32 px-4 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6 max-w-4xl leading-[1.05]">Create more.<br/>Create faster.</h1>
+                <p class="text-lg md:text-xl text-[#888] max-w-xl mb-10 leading-relaxed">From scripts to thumbnails to voiceovers — the complete AI prompt toolkit for modern content creators.</p>
+                <div class="flex items-center gap-4">
+                    <button onclick="switchView('main-view')" class="bg-white text-black font-semibold text-[15px] px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">Browse Prompts</button>
+                    <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="bg-black text-white border border-[#333] hover:border-[#555] font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors">View Repository</a>
+                </div>
+            </section>
+
+            <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222]"></div>
+
+            <section class="max-w-5xl mx-auto w-full py-24 px-4 flex flex-col gap-32">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col gap-5">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Your entire pipeline, prompted.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">Script writing, SEO optimization, thumbnail ideation, voiceover direction — every step of your content workflow has a prompt.</p>
+                    </div>
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 font-mono text-xs text-[#888]">
+                        <div class="flex items-center gap-2 text-[#EDEDED]"><span class="text-[#4ADE80]">01</span> Write YouTube script for...</div>
+                        <div class="flex items-center gap-2 text-[#EDEDED]"><span class="text-[#60A5FA]">02</span> Generate 10 hook variations...</div>
+                        <div class="flex items-center gap-2 text-[#EDEDED]"><span class="text-[#FBBF24]">03</span> Create thumbnail concept...</div>
+                        <div class="flex items-center gap-2 text-[#EDEDED]"><span class="text-[#C084FC]">04</span> Write SEO description...</div>
+                        <div class="flex items-center gap-2 text-[#EDEDED]"><span class="text-[#F87171]">05</span> Generate voiceover tone guide...</div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-4 order-2 md:order-1">
+                        <div class="p-4 bg-[#111] border border-[#333] rounded-xl">
+                            <p class="text-[11px] text-[#888] uppercase tracking-wider mb-2">Writing & Content</p>
+                            <p class="text-[#EDEDED] text-sm">Blog posts, newsletters, social captions, ad copy</p>
+                        </div>
+                        <div class="p-4 bg-[#111] border border-[#333] rounded-xl">
+                            <p class="text-[11px] text-[#888] uppercase tracking-wider mb-2">Marketing & SEO</p>
+                            <p class="text-[#EDEDED] text-sm">Growth strategies, keyword research, funnel copy</p>
+                        </div>
+                        <div class="p-4 bg-[#111] border border-[#333] rounded-xl">
+                            <p class="text-[11px] text-[#888] uppercase tracking-wider mb-2">Audio & Music</p>
+                            <p class="text-[#EDEDED] text-sm">Lyrics, jingles, podcast intros, SFX descriptions</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-5 order-1 md:order-2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Text, image, video, audio.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">Whether you're a YouTuber, podcaster, or newsletter writer — we've got prompts for every content format.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="pen-line" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Writing Prompts</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Blog articles, email sequences, social posts, and long-form content at scale.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="mic" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Audio & Voice</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Voiceover scripts, podcast outlines, music mood descriptions, and SFX prompts.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="trending-up" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Growth & Marketing</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">SEO, ad copy, growth hacks, and audience-building strategies — all prompted.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="usecase-businesses-view" class="hidden flex-col w-full">
+            <section class="relative flex flex-col items-center justify-center text-center py-32 px-4 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6 max-w-4xl leading-[1.05]">AI, at<br/>enterprise scale.</h1>
+                <p class="text-lg md:text-xl text-[#888] max-w-xl mb-10 leading-relaxed">Structured, production-ready prompts for teams that build customer support, strategy, and operations with AI.</p>
+                <div class="flex items-center gap-4">
+                    <button onclick="switchView('main-view')" class="bg-white text-black font-semibold text-[15px] px-8 py-3.5 rounded-full hover:bg-gray-200 transition-colors">Browse Prompts</button>
+                    <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="bg-black text-white border border-[#333] hover:border-[#555] font-semibold text-[15px] px-8 py-3.5 rounded-full transition-colors">View Repository</a>
+                </div>
+            </section>
+
+            <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222]"></div>
+
+            <section class="max-w-5xl mx-auto w-full py-24 px-4 flex flex-col gap-32">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="flex flex-col gap-5">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Automate the repetitive.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">From customer support scripts to internal documentation — deploy AI across your entire organization with battle-tested prompts.</p>
+                    </div>
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-3">
+                        <div class="flex items-center justify-between p-3 bg-[#111] border border-[#333] rounded-xl">
+                            <div class="flex items-center gap-3"><i data-lucide="headphones" class="w-4 h-4 text-[#60A5FA]"></i><span class="text-[#EDEDED] text-sm">Customer Support</span></div>
+                            <span class="text-[10px] text-[#4ADE80] uppercase tracking-wider font-medium">Active</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-[#111] border border-[#333] rounded-xl">
+                            <div class="flex items-center gap-3"><i data-lucide="bar-chart-2" class="w-4 h-4 text-[#FBBF24]"></i><span class="text-[#EDEDED] text-sm">Strategy & Analysis</span></div>
+                            <span class="text-[10px] text-[#4ADE80] uppercase tracking-wider font-medium">Active</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-[#111] border border-[#333] rounded-xl">
+                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-[#C084FC]"></i><span class="text-[#EDEDED] text-sm">HR & Hiring</span></div>
+                            <span class="text-[10px] text-[#4ADE80] uppercase tracking-wider font-medium">Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-5 order-2 md:order-1">
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[#888] text-xs uppercase tracking-wider">Business & Strategy</span>
+                            <div class="w-full bg-[#222] rounded-full h-1.5 mt-1"><div class="bg-white h-1.5 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[#888] text-xs uppercase tracking-wider">Customer Support & Success</span>
+                            <div class="w-full bg-[#222] rounded-full h-1.5 mt-1"><div class="bg-white h-1.5 rounded-full" style="width: 72%"></div></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[#888] text-xs uppercase tracking-wider">Productivity & Workflow</span>
+                            <div class="w-full bg-[#222] rounded-full h-1.5 mt-1"><div class="bg-white h-1.5 rounded-full" style="width: 91%"></div></div>
+                        </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-[#888] text-xs uppercase tracking-wider">Career & Hiring</span>
+                            <div class="w-full bg-[#222] rounded-full h-1.5 mt-1"><div class="bg-white h-1.5 rounded-full" style="width: 68%"></div></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-5 order-1 md:order-2">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Built for every department.</h2>
+                        <p class="text-[#888] text-[16px] leading-relaxed">Sales, HR, operations, marketing — structured prompt categories designed for real business workflows and team collaboration.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="briefcase" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Business Strategy</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Market analysis, competitive research, OKR planning, and executive communication.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="headphones" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Customer Success</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">Support scripts, onboarding flows, FAQ generation, and churn prevention templates.</p>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
+                        <i data-lucide="workflow" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <h3 class="text-white font-semibold text-[17px]">Workflow Automation</h3>
+                        <p class="text-[#888] text-sm leading-relaxed">SOPs, meeting summaries, reporting templates, and productivity systems at scale.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="company-about-view" class="hidden flex-col w-full">
+            <section class="relative w-full flex flex-col items-center justify-center text-center py-32 px-4 overflow-hidden">
+                <div class="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#222_1px,transparent_1px),linear-gradient(to_bottom,#222_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20"></div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tighter text-white mb-6 max-w-4xl leading-[1.05]">Datvex enables everyone to<br/>use AI to the fullest.</h1>
+                <p class="text-lg md:text-xl text-[#888] max-w-2xl leading-relaxed">Datvex Prompt LAB provides the structured repository and tools to <strong class="text-white font-semibold">discover</strong>, <strong class="text-white font-semibold">deploy</strong>, and <strong class="text-white font-semibold">master</strong> AI prompts for any task.</p>
+            </section>
+
+            <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222]"></div>
+
+            <section class="w-full py-16 px-4">
+                <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 border border-[#222] divide-y md:divide-y-0 md:divide-x divide-[#222]">
+                    <div class="p-10 flex flex-col gap-4 bg-[#0A0A0A]/50">
+                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                        <p class="text-[16px] text-[#A0A0A0] leading-relaxed"><strong class="text-white font-semibold">Simple.</strong> Finding and using the perfect AI prompt should be as easy as a single click.</p>
+                    </div>
+                    <div class="p-10 flex flex-col gap-4 bg-[#0A0A0A]/50">
+                        <i data-lucide="globe" class="w-8 h-8 text-white"></i>
+                        <p class="text-[16px] text-[#A0A0A0] leading-relaxed"><strong class="text-white font-semibold">Universal.</strong> To connect the world, AI prompts should work across every model and use case.</p>
+                    </div>
+                    <div class="p-10 flex flex-col gap-4 bg-[#0A0A0A]/50">
+                        <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                        <p class="text-[16px] text-[#A0A0A0] leading-relaxed"><strong class="text-white font-semibold">Open.</strong> Great knowledge, shared openly, enables everyone to build better with AI.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222]"></div>
+
+            <section class="max-w-5xl mx-auto w-full py-24 px-4 flex flex-col gap-16">
+                <div class="flex flex-col gap-6 max-w-3xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Our mission.</h2>
+                    <p class="text-[#888] text-[16px] leading-relaxed">Datvex Prompt LAB was created with one goal in mind: to make the power of AI accessible to everyone — developers, designers, content creators, and businesses alike.</p>
+                    <p class="text-[#888] text-[16px] leading-relaxed">We believe that the right prompt is the difference between a mediocre result and a transformative one. Our structured, open-source repository is designed to be the most comprehensive and curated collection of production-ready prompts available anywhere.</p>
+                    <p class="text-[#888] text-[16px] leading-relaxed">Every prompt in our library has been carefully selected, categorized, and tested against the world's leading AI models — from ChatGPT and Claude to Midjourney and Sora.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-8 flex flex-col gap-2 hover:border-[#333] transition-colors">
+                        <span class="text-4xl font-bold text-white tracking-tighter">500+</span>
+                        <span class="text-[#888] text-[15px]">Curated prompts</span>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-8 flex flex-col gap-2 hover:border-[#333] transition-colors">
+                        <span class="text-4xl font-bold text-white tracking-tighter">11</span>
+                        <span class="text-[#888] text-[15px]">Supported languages</span>
+                    </div>
+                    <div class="bg-[#111] border border-[#222] rounded-2xl p-8 flex flex-col gap-2 hover:border-[#333] transition-colors">
+                        <span class="text-4xl font-bold text-white tracking-tighter">10+</span>
+                        <span class="text-[#888] text-[15px]">AI models supported</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-6 max-w-3xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Open source, always.</h2>
+                    <p class="text-[#888] text-[16px] leading-relaxed">Datvex Prompt LAB is fully open source. Every prompt, every category, every tag — all available on GitHub for anyone to use, fork, and contribute to. We believe the best libraries are built by communities, not just companies.</p>
+                    <div class="flex items-center gap-4 pt-2">
+                        <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="flex items-center gap-2 bg-white text-black font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-gray-200 transition-colors">
+                            <i data-lucide="github" class="w-4 h-4"></i>
+                            View on GitHub
+                        </a>
+                        <button onclick="switchView('main-view')" class="flex items-center gap-2 bg-black text-white border border-[#333] hover:border-[#555] font-semibold text-[14px] px-6 py-3 rounded-full transition-colors">
+                            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                            Browse Prompts
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222]"></div>
+
+            <section class="w-full pt-20 pb-0 -mb-12 px-4">
+                <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+                    <p class="text-2xl md:text-3xl font-bold text-white tracking-tight">Join us and shape the future of AI.</p>
+                    <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="flex items-center gap-2 bg-[#111] border border-[#333] hover:border-[#555] text-white font-semibold text-[14px] px-6 py-3 rounded-full transition-colors whitespace-nowrap">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                        Contribute on GitHub
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div id="company-privacy-view" class="hidden flex-col w-full">
+            <section class="max-w-3xl mx-auto w-full py-16 px-4 flex flex-col gap-10">
+                <div class="flex flex-col gap-3 pb-8 border-b border-[#222]">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tighter">Privacy Policy</h1>
+                    <p class="text-[#888] text-[14px]">Last updated: June 2025</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">1. Overview</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">Datvex Prompt LAB ("we", "our", or "us") is a fully static, open-source web application. We are committed to protecting your privacy. This policy explains what information we collect, how we use it, and your rights.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">2. Information We Collect</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">Datvex Prompt LAB does not collect, store, or transmit any personal information. The application runs entirely in your browser as a static site. The only data stored is your selected interface language, saved locally in your browser's <code class="bg-[#1A1A1A] px-1.5 py-0.5 rounded text-[13px] text-[#EDEDED] border border-[#333] font-mono">localStorage</code>.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">3. Data Fetching</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">Prompt data, categories, and tags are fetched from GitHub's public raw content CDN at runtime. This is a read-only operation. No data you enter or interact with is sent to any server controlled by Datvex.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">4. Third-Party Services</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">When you choose to send a prompt to an AI model (ChatGPT, Claude, Gemini, etc.), you are redirected to that third-party service. Their respective privacy policies apply. We do not share your data with these services — you initiate the interaction directly.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">5. Cookies & Tracking</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">We do not use cookies, tracking pixels, analytics scripts, or any third-party tracking technologies. Your browsing activity within Datvex Prompt LAB is entirely private.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">6. Session Storage</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">To improve performance, fetched prompt and category data is cached in your browser's <code class="bg-[#1A1A1A] px-1.5 py-0.5 rounded text-[13px] text-[#EDEDED] border border-[#333] font-mono">sessionStorage</code>. This data is automatically cleared when you close your browser tab and never leaves your device.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">7. Changes to This Policy</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. We encourage you to review this policy periodically.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">8. Contact</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">If you have any questions about this Privacy Policy, please open an issue on our <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="text-white underline underline-offset-4 hover:text-[#888] transition-colors">GitHub repository</a>.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="company-terms-view" class="hidden flex-col w-full">
+            <section class="max-w-3xl mx-auto w-full py-16 px-4 flex flex-col gap-10">
+                <div class="flex flex-col gap-3 pb-8 border-b border-[#222]">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tighter">Terms of Service</h1>
+                    <p class="text-[#888] text-[14px]">Last updated: June 2025</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">1. Acceptance of Terms</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">By accessing or using Datvex Prompt LAB ("the Service"), you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the Service.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">2. Description of Service</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">Datvex Prompt LAB is a free, open-source, static web application that provides a curated repository of AI prompts. The Service allows users to browse, search, filter, and deploy prompts to various AI models.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">3. Open Source License</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">The Datvex Prompt LAB codebase and prompt content are available on GitHub. Use of the repository is subject to the license specified therein. You are free to fork, modify, and distribute the project in accordance with that license.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">4. Use of Prompts</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">The prompts provided in this repository are for informational and creative purposes. You are responsible for how you use these prompts with third-party AI services. Datvex is not responsible for outputs generated by AI models using our prompts.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">5. Third-Party AI Services</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">Datvex Prompt LAB integrates links to third-party AI platforms (ChatGPT, Claude, Gemini, Midjourney, etc.). These services are governed by their own terms and privacy policies. We are not affiliated with, endorsed by, or responsible for these services.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">6. Intellectual Property</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">The Datvex name, logo, and branding are the property of Datvex. Prompts sourced from third-party repositories are attributed to their respective authors and governed by their original licenses. Original prompts created by Datvex are released under the project's open-source license.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">7. Disclaimer of Warranties</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">The Service is provided "as is" without warranties of any kind. We do not guarantee that the Service will be error-free, uninterrupted, or that prompts will produce specific results when used with AI models.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">8. Limitation of Liability</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">To the fullest extent permitted by law, Datvex shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the Service or any prompts contained therein.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">9. Changes to Terms</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">We reserve the right to modify these Terms at any time. Continued use of the Service after changes constitutes your acceptance of the updated Terms.</p>
+                </div>
+
+                <div class="flex flex-col gap-4">
+                    <h2 class="text-xl font-semibold text-white">10. Contact</h2>
+                    <p class="text-[#A0A0A0] text-[15px] leading-relaxed">For questions regarding these Terms, please open an issue on our <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="text-white underline underline-offset-4 hover:text-[#888] transition-colors">GitHub repository</a>.</p>
+                </div>
+            </section>
+        </div>
+
         <div id="docs-view" class="hidden w-full max-w-[1400px] mx-auto flex-col md:flex-row gap-8 lg:gap-16 pt-8 md:pt-12 px-4 md:px-8">
             <aside class="w-full md:w-[220px] flex-shrink-0 hidden md:block">
                 <div class="sticky top-[100px] flex flex-col gap-5 text-[14px] max-h-[calc(100vh-120px)] overflow-y-auto custom-scrollbar">
@@ -677,7 +1142,8 @@ npx serve .</pre>
             </div>
         </div>
 
-            <footer class="w-full max-w-[1200px] mx-auto mt-32 border-t border-[#222] pt-16 pb-12 flex flex-col px-4 md:px-0 text-left">
+        <div class="w-screen relative left-1/2 -translate-x-1/2 h-px bg-[#222] mt-32"></div>
+            <footer class="w-full max-w-[1200px] mx-auto pt-16 pb-12 flex flex-col px-4 md:px-0 text-left">
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-12 w-full">
                     
                     <div class="flex flex-col gap-4">
@@ -704,17 +1170,17 @@ npx serve .</pre>
                     
                     <div class="flex flex-col gap-4">
                         <h4 class="text-[12px] font-semibold text-white uppercase tracking-wider mb-1">Use Cases</h4>
-                        <span class="text-[14px] text-[#555] cursor-default w-fit">Developers</span>
-                        <span class="text-[14px] text-[#555] cursor-default w-fit">Designers</span>
-                        <span class="text-[14px] text-[#555] cursor-default w-fit">Content Creators</span>
-                        <span class="text-[14px] text-[#555] cursor-default w-fit">Businesses</span>
+                        <a href="#" id="footer-link-developers" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Developers</a>
+                        <a href="#" id="footer-link-designers" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Designers</a>
+                        <a href="#" id="footer-link-creators" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Content Creators</a>
+                        <a href="#" id="footer-link-businesses" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Businesses</a>
                     </div>
 
                     <div class="flex flex-col gap-4">
                         <h4 class="text-[12px] font-semibold text-white uppercase tracking-wider mb-1">Company</h4>
-                        <span class="text-[14px] text-[#555] cursor-default w-fit">About</span>
-                        <span class="text-[14px] text-[#555] cursor-default w-fit">Privacy Policy</span>
-                        <span class="text-[14px] text-[#555] cursor-default w-fit">Terms of Service</span>
+                        <a href="#" id="footer-link-about" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">About</a>
+                        <a href="#" id="footer-link-privacy" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Privacy Policy</a>
+                        <a href="#" id="footer-link-terms" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Terms of Service</a>
                     </div>
 
                     <div class="flex flex-col gap-4">

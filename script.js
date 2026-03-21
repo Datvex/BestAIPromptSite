@@ -834,7 +834,9 @@ function switchView(viewId, pushHistory = true) {
         } catch (e) {}
     }
     
-    var views =['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view'];
+    var views =['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view',
+                'usecase-developers-view', 'usecase-designers-view', 'usecase-creators-view', 'usecase-businesses-view',
+                'company-about-view', 'company-privacy-view', 'company-terms-view'];
     var header = document.getElementById('main-page-header');
     
     var targetEl = document.getElementById(viewId);
@@ -919,11 +921,13 @@ window.addEventListener('popstate', function(e) {
         return;
     }
     
-    const validViews = ['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view'];
+    const validViews = ['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view',
+        'usecase-developers-view', 'usecase-designers-view', 'usecase-creators-view', 'usecase-businesses-view',
+        'company-about-view', 'company-privacy-view', 'company-terms-view'];
     if (!validViews.includes(view)) {
         view = 'home-view';
     }
-    
+
     switchView(view, false);
 });
 
@@ -963,7 +967,9 @@ document.addEventListener('DOMContentLoaded', async function() {
             if (el) el.scrollIntoView({ behavior: 'smooth' });
         }, 300);
     } else {
-        const validViews = ['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view'];
+        const validViews = ['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view',
+            'usecase-developers-view', 'usecase-designers-view', 'usecase-creators-view', 'usecase-businesses-view',
+            'company-about-view', 'company-privacy-view', 'company-terms-view'];
         if (!validViews.includes(initialView)) {
             initialView = 'home-view';
         }
@@ -1603,6 +1609,62 @@ function initViewSwitcher() {
         footerDocs.addEventListener('click', function(e) {
             e.preventDefault();
             switchView('docs-view');
+        });
+    }
+
+    var footerDevelopers = $('#footer-link-developers');
+    if (footerDevelopers) {
+        footerDevelopers.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchView('usecase-developers-view');
+        });
+    }
+
+    var footerDesigners = $('#footer-link-designers');
+    if (footerDesigners) {
+        footerDesigners.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchView('usecase-designers-view');
+        });
+    }
+
+    var footerCreators = $('#footer-link-creators');
+    if (footerCreators) {
+        footerCreators.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchView('usecase-creators-view');
+        });
+    }
+
+    var footerBusinesses = $('#footer-link-businesses');
+    if (footerBusinesses) {
+        footerBusinesses.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchView('usecase-businesses-view');
+        });
+    }
+
+    var footerAbout = $('#footer-link-about');
+    if (footerAbout) {
+        footerAbout.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchView('company-about-view');
+        });
+    }
+
+    var footerPrivacy = $('#footer-link-privacy');
+    if (footerPrivacy) {
+        footerPrivacy.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchView('company-privacy-view');
+        });
+    }
+
+    var footerTerms = $('#footer-link-terms');
+    if (footerTerms) {
+        footerTerms.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchView('company-terms-view');
         });
     }
 
