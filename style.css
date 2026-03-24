@@ -273,3 +273,23 @@ body {
 #prompt-modal.active #prompt-modal-content {
   transform: scale(1);
 }
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.ph-bold {
+    font-size: 1rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ph-bold.icon-xs { font-size: 0.75rem; }
+.ph-bold.icon-sm { font-size: 0.875rem; }
+.ph-bold.icon-md { font-size: 1rem; }
+.ph-bold.icon-lg { font-size: 1.25rem; }
+.ph-bold.icon-xl { font-size: 1.5rem; }
+.ph-bold.icon-2xl { font-size: 2rem; }

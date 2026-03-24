@@ -932,6 +932,7 @@ window.addEventListener('popstate', function(e) {
 });
 
 document.addEventListener('DOMContentLoaded', async function() {
+    loadHeroCounter();
     loadPrompts();
     initDropdowns();
     loadCategories();
@@ -1391,6 +1392,19 @@ async function generateTagsPage() {
     container.appendChild(frag);
 }
 
+function pluralThemes(count, lang) {
+    if (lang === 'ru') {
+        const mod10 = count % 10;
+        const mod100 = count % 100;
+        if (mod100 >= 11 && mod100 <= 14) return count + ' тем';
+        if (mod10 === 1) return count + ' тема';
+        if (mod10 >= 2 && mod10 <= 4) return count + ' темы';
+        return count + ' тем';
+    }
+    const t = translations[lang]?.themes_count || 'themes';
+    return count + ' ' + t;
+}
+
 function generateCategoriesPage() {
     const container = $('#categories-container');
     if (!container) return;
@@ -1398,7 +1412,7 @@ function generateCategoriesPage() {
     const categoriesData = [
         {
             "group": "Text / LLM (Language Models)",
-            "icon": "📝",
+            "icon": "ph-article",
             "items": [
                 { "id": "programming", "name": "Programming & Tech" },
                 { "id": "writing", "name": "Writing & Content" },
@@ -1412,7 +1426,7 @@ function generateCategoriesPage() {
         },
         {
             "group": "Image Generation",
-            "icon": "🎨",
+            "icon": "ph-image",
             "items": [
                 { "id": "image_general", "name": "Image Prompts (General)" },
                 { "id": "image_product", "name": "Product & E-commerce" },
@@ -1423,7 +1437,7 @@ function generateCategoriesPage() {
         },
         {
             "group": "Video Generation",
-            "icon": "🎬",
+            "icon": "ph-video",
             "items": [
                 { "id": "video_general", "name": "Video Prompts (General)" },
                 { "id": "video_storyboard", "name": "Storyboards & Shot Lists" },
@@ -1433,22 +1447,13 @@ function generateCategoriesPage() {
         },
         {
             "group": "Audio / Music Generation",
-            "icon": "🎵",
+            "icon": "ph-music-note",
             "items": [
                 { "id": "music_general", "name": "Music Prompts (General)" },
                 { "id": "music_genres", "name": "Genres, Mood & Structure" },
                 { "id": "music_lyrics", "name": "Lyrics & Songwriting" },
-                { "id": "audio_sfx", "name": "Sound Effects (SFX)" }
-            ]
-        },
-        {
-            "group": "Voice Generation",
-            "icon": "🎙️",
-            "items": [
-                { "id": "voice_general", "name": "Voice Prompts (General)" },
-                { "id": "voiceover", "name": "Voiceovers & Narration" },
-                { "id": "voice_characters", "name": "Characters & Acting" },
-                { "id": "voice_dubbing", "name": "Dubbing & Localization" }
+                { "id": "audio_sfx", "name": "Sound Effects (SFX)" },
+                { "id": "voice_general", "name": "Voice Generation" }
             ]
         }
     ];
@@ -1473,10 +1478,10 @@ function generateCategoriesPage() {
         html += `
             <div class="flex flex-col border-b border-[#222] pb-6 last:border-0">
                 <div class="flex items-center gap-2 mb-3">
-                    <span class="text-xl">${cat.icon}</span>
+                    <i class="ph-bold ${cat.icon} icon-lg text-[#888]"></i>
                     <h2 class="text-lg font-semibold text-white tracking-tight">${cat.group}</h2>
-                    <i data-lucide="chevron-right" class="w-4 h-4 text-[#666]"></i>
-                    <span class="text-[13px] text-[#888]">${cat.items.length} <span data-i18n="themes_count">тем</span></span>
+                    <i class="ph-bold ph-caret-right icon-md text-[#666]"></i>
+                    <span class="text-[13px] text-[#888]">${pluralThemes(cat.items.length, currentLang)}</span>
                 </div>
                 <div class="flex flex-col">
                     ${itemsHtml}
@@ -2037,6 +2042,50 @@ function shuffleArray(array) {
     return array;
 }
 
+async function loadHeroCounter() {
+    const el = document.getElementById('hero-prompt-count');
+    if (!el) return;
+    
+    try {
+        const cacheKey = 'datvex_prompts';
+        const cached = sessionStorage.getItem(cacheKey);
+        let count = 0;
+        
+        if (cached) {
+            const data = JSON.parse(cached);
+            count = Array.isArray(data) ? data.length : 0;
+        } else {
+            const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/prompts.json');
+            if (r.ok) {
+                const data = await r.json();
+                count = Array.isArray(data) ? data.length : 0;
+            }
+        }
+        
+        if (count > 0) {
+            const duration = 1500;
+            let startTime = null;
+            function tick(now) {
+                if (!startTime) startTime = now;
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.floor(eased * count).toLocaleString();
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    el.textContent = count.toLocaleString();
+                }
+            }
+            requestAnimationFrame(tick);
+        } else {
+            el.textContent = '0';
+        }
+    } catch(e) {
+        const el2 = document.getElementById('hero-prompt-count');
+        if (el2) el2.textContent = '0';
+    }
+}
+
 async function loadPrompts() {
     const grid = document.querySelector('#prompts-grid');
     if (!grid) {
@@ -2062,6 +2111,7 @@ async function loadPrompts() {
     }
 
     if (!Array.isArray(allPrompts)) allPrompts = [];
+
     allPrompts = shuffleArray(allPrompts);
     filteredPrompts = allPrompts;
     currentPromptIndex = 0;
@@ -2077,6 +2127,17 @@ async function loadPrompts() {
 
 function setAppReady() {
     isAppReady = true;
+    
+    const count = allPrompts.length;
+    const el = document.getElementById('hero-prompt-count');
+    if (el) {
+        if (count > 0) {
+            animateHeroCounter(count);
+        } else {
+            el.textContent = '0';
+        }
+    }
+
     if (pendingViewSwitch) {
         const targetView = pendingViewSwitch;
         pendingViewSwitch = null;
@@ -2094,6 +2155,34 @@ function setAppReady() {
         
         switchView(targetView);
     }
+}
+
+function animateHeroCounter(target) {
+    const el = document.getElementById('hero-prompt-count');
+    if (!el) return;
+    if (target <= 0) {
+        el.textContent = '0';
+        return;
+    }
+    
+    el.textContent = '0';
+    
+    const duration = 1500;
+    let startTime = null;
+
+    function tick(now) {
+        if (!startTime) startTime = now;
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target).toLocaleString();
+        if (progress < 1) {
+            requestAnimationFrame(tick);
+        } else {
+            el.textContent = target.toLocaleString();
+        }
+    }
+    
+    requestAnimationFrame(tick);
 }
 
 function loadMorePrompts(forceInitial) {
@@ -2140,14 +2229,14 @@ function loadMorePrompts(forceInitial) {
                         <div class="relative">
                             <div class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
                                 <button data-action="copy" class="p-1.5 bg-[#1A1A1A] border border-[#333] rounded-lg hover:bg-[#2A2A2A] hover:text-white transition-colors text-[#888]">
-                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                    <i class="ph-bold ph-copy icon-sm"></i>
                                 </button>
                             </div>
                             <pre class="prompt-content bg-[#0A0A0A] border border-[#222] group-hover:border-[#333] rounded-xl p-4 text-xs font-mono text-[#A0A0A0] overflow-x-auto h-32 whitespace-pre-wrap transition-colors duration-300">${promptText}</pre>
                         </div>
                         <div class="flex justify-end">
                             <button class="ai-trigger-btn flex items-center justify-center w-9 h-9 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] hover:text-white transition-all duration-200 text-[#888] cursor-pointer shadow-sm">
-                                <i data-lucide="play" class="w-4 h-4 ml-0.5"></i>
+                                <i class="ph-bold ph-play icon-sm"></i>
                             </button>
                         </div>
                     </div>

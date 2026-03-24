@@ -33,7 +33,7 @@
     };
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -55,17 +55,17 @@
 
                     <button data-menu="categories" data-i18n="nav_categories" class="nav-trigger flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
                         Категории
-                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70 transition-transform duration-200"></i>
+                        <i class="ph-bold ph-caret-down icon-sm opacity-70 transition-transform duration-200"></i>
                     </button>
 
                     <button data-menu="models" data-i18n="nav_models" class="nav-trigger flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
                         Модели
-                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70 transition-transform duration-200"></i>
+                        <i class="ph-bold ph-caret-down icon-sm opacity-70 transition-transform duration-200"></i>
                     </button>
 
                     <button data-menu="tags" data-i18n="nav_tags" class="nav-trigger flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
                         Теги
-                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70 transition-transform duration-200"></i>
+                        <i class="ph-bold ph-caret-down icon-sm opacity-70 transition-transform duration-200"></i>
                     </button>
 
                     <button id="nav-link-sources" data-i18n="nav_sources" class="flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
@@ -80,7 +80,7 @@
                                 <div class="flex flex-col gap-6">
                                     <a href="#" id="nav-link-categories" class="flex items-start gap-3.5 group/item">
                                         <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i data-lucide="layout-grid" class="w-4 h-4 text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
+                                            <i class="ph-bold ph-layout icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
                                         </div>
                                         <div class="flex flex-col pt-0.5">
                                             <span data-i18n="dropdown_cat_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Список категорий</span>
@@ -96,7 +96,7 @@
                                     
                                     <a href="#" data-filter="text" class="flex items-start gap-3.5 group/item">
                                         <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i data-lucide="file-text" class="w-4 h-4 text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
+                                            <i class="ph-bold ph-file-text icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
                                         </div>
                                         <div class="flex flex-col pt-0.5">
                                             <span data-i18n="model_text_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Текст</span>
@@ -106,7 +106,7 @@
 
                                     <a href="#" data-filter="image" class="flex items-start gap-3.5 group/item">
                                         <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i data-lucide="image" class="w-4 h-4 text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
+                                            <i class="ph-bold ph-image icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
                                         </div>
                                         <div class="flex flex-col pt-0.5">
                                             <span data-i18n="model_image_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Изображение</span>
@@ -116,7 +116,7 @@
 
                                     <a href="#" data-filter="video" class="flex items-start gap-3.5 group/item">
                                         <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i data-lucide="video" class="w-4 h-4 text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
+                                            <i class="ph-bold ph-video icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
                                         </div>
                                         <div class="flex flex-col pt-0.5">
                                             <span data-i18n="model_video_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Видео</span>
@@ -126,7 +126,7 @@
 
                                     <a href="#" data-filter="audio" class="flex items-start gap-3.5 group/item">
                                         <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i data-lucide="headphones" class="w-4 h-4 text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
+                                            <i class="ph-bold ph-headphones icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
                                         </div>
                                         <div class="flex flex-col pt-0.5">
                                             <span data-i18n="model_audio_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Аудио</span>
@@ -142,7 +142,7 @@
                                 <div class="flex flex-col gap-6">
                                     <a href="#" id="nav-link-tags" class="flex items-start gap-3.5 group/item">
                                         <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i data-lucide="tag" class="w-4 h-4 text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
+                                            <i class="ph-bold ph-tag icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
                                         </div>
                                         <div class="flex flex-col pt-0.5">
                                             <span data-i18n="dropdown_tags_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Список тегов</span>
@@ -160,9 +160,9 @@
             <div class="flex items-center gap-2 md:gap-4">
                 <div class="relative group">
                     <button class="flex items-center gap-1.5 px-3 py-2 text-sm text-vercel-gray hover:text-white transition-colors duration-200 rounded-md hover:bg-[#111] font-medium border border-transparent hover:border-[#333]">
-                        <i data-lucide="globe" class="w-4 h-4"></i>
+                        <i class="ph-bold ph-globe icon-md"></i>
                         <span id="current-lang-indicator" class="hidden md:inline">RU</span>
-                        <i data-lucide="chevron-down" class="w-3.5 h-3.5 opacity-70 group-hover:rotate-180 transition-transform duration-300"></i>
+                        <i class="ph-bold ph-caret-down icon-sm opacity-70 group-hover:rotate-180 transition-transform duration-300"></i>
                     </button>
 
                     <div class="absolute top-full right-0 pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50">
@@ -189,7 +189,7 @@
                 </div>
 
                 <a data-i18n="nav_repo" href="https://github.com/Datvex/Datvex-prompt-LAB/tree/main" target="_blank" rel="noopener" class="hidden md:flex items-center gap-2 text-sm text-white hover:bg-[#111] transition-all duration-300 px-4 py-2 rounded-md border border-[#333] hover:border-white bg-black font-medium">
-                    <i data-lucide="github" class="w-4 h-4"></i>
+                    <i class="ph-bold ph-github-logo icon-md"></i>
                     Repository
                 </a>
             </div>
@@ -218,10 +218,18 @@
                 </a>
             </div>
 
+            <div class="flex items-center justify-center gap-3 mt-8">
+                <div class="flex items-center gap-2 bg-[#111] border border-[#222] rounded-full px-5 py-2.5">
+                    <i class="ph-bold ph-database icon-md text-[#888]"></i>
+                    <span class="text-[14px] text-[#888] font-medium">Prompts</span>
+                    <span id="hero-prompt-count" class="text-[14px] text-white font-semibold tabular-nums">—</span>
+                </div>
+            </div>
+
             <div class="w-full max-w-[1200px] grid grid-cols-1 md:grid-cols-3 gap-6 text-left mt-16 px-4 md:px-0">
                 <div class="bg-[#111] border border-[#222] p-8 rounded-2xl flex flex-col gap-4 hover:border-[#333] transition-colors duration-300 group">
                     <div class="w-12 h-12 bg-[#1A1A1A] border border-[#333] rounded-xl flex items-center justify-center group-hover:border-[#555] transition-colors duration-300">
-                        <i data-lucide="layers" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-stack icon-xl text-[#EDEDED]"></i>
                     </div>
                     <h3 data-i18n="feature_1_title" class="text-[17px] font-semibold text-white tracking-tight mt-2">Structured Library</h3>
                     <p data-i18n="feature_1_desc" class="text-[15px] text-[#888] leading-relaxed">Carefully categorized prompts for text, image, and video generation.</p>
@@ -229,7 +237,7 @@
                 
                 <div class="bg-[#111] border border-[#222] p-8 rounded-2xl flex flex-col gap-4 hover:border-[#333] transition-colors duration-300 group">
                     <div class="w-12 h-12 bg-[#1A1A1A] border border-[#333] rounded-xl flex items-center justify-center group-hover:border-[#555] transition-colors duration-300">
-                        <i data-lucide="cpu" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-cpu icon-xl text-[#EDEDED]"></i>
                     </div>
                     <h3 data-i18n="feature_2_title" class="text-[17px] font-semibold text-white tracking-tight mt-2">Multi-Model Support</h3>
                     <p data-i18n="feature_2_desc" class="text-[15px] text-[#888] leading-relaxed">Tested and optimized for ChatGPT, Claude, Midjourney, and more.</p>
@@ -237,7 +245,7 @@
 
                 <div class="bg-[#111] border border-[#222] p-8 rounded-2xl flex flex-col gap-4 hover:border-[#333] transition-colors duration-300 group">
                     <div class="w-12 h-12 bg-[#1A1A1A] border border-[#333] rounded-xl flex items-center justify-center group-hover:border-[#555] transition-colors duration-300">
-                        <i data-lucide="github" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-github-logo icon-xl text-[#EDEDED]"></i>
                     </div>
                     <h3 data-i18n="feature_3_title" class="text-[17px] font-semibold text-white tracking-tight mt-2">Open Source</h3>
                     <p data-i18n="feature_3_desc" class="text-[15px] text-[#888] leading-relaxed">Contribute, fork, and use the repository freely for your own projects.</p>
@@ -257,7 +265,7 @@
                         <div class="space-y-2">
                             <label data-i18n="search_label" class="text-[11px] font-semibold text-vercel-gray uppercase tracking-widest">Поиск</label>
                             <div class="relative group">
-                                <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-vercel-gray group-hover:text-white transition-colors duration-300"></i>
+                                <i class="ph-bold ph-magnifying-glass icon-md absolute left-3 top-1/2 -translate-y-1/2 text-vercel-gray group-hover:text-white transition-colors duration-300"></i>
                                 <input id="main-search" data-i18n="search_placeholder" type="text" placeholder="Поиск промптов..."
                                     class="w-full bg-[#1A1A1A] border border-[#333] rounded-xl py-2 pl-9 pr-3 text-sm text-white placeholder-vercel-gray hover:border-[#555] focus:outline-none focus:border-[#555] focus:bg-[#222] transition-all duration-300">
                             </div>
@@ -265,7 +273,7 @@
 
                         <div class="flex items-center justify-between pt-1">
                             <div class="flex items-center gap-2 text-sm font-medium text-white">
-                                <i data-lucide="sparkles" class="w-4 h-4 text-[#EDEDED]"></i>
+                                <i class="ph-bold ph-sparkle icon-md text-[#EDEDED]"></i>
                                 <span data-i18n="ai_search">AI Поиск</span>
                             </div>
                             <label class="relative inline-flex items-center cursor-pointer">
@@ -280,7 +288,7 @@
                             <label data-i18n="type_label" class="text-[11px] font-semibold text-vercel-gray uppercase tracking-widest">Тип</label>
                             <button class="dropdown-trigger w-full flex justify-between items-center bg-[#1A1A1A] border border-[#333] rounded-xl py-2.5 px-3 text-sm text-white hover:border-[#555] hover:bg-[#222] focus:outline-none focus:border-[#555] transition-all duration-300">
                                 <span data-i18n="filter_all" class="dropdown-selected">Все</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 text-vercel-gray transition-transform duration-300"></i>
+                                <i class="ph-bold ph-caret-down icon-md text-vercel-gray transition-transform duration-300"></i>
                             </button>
                             <div class="dropdown-menu absolute top-[calc(100%+6px)] left-0 w-full bg-[#1A1A1A] border border-[#333] rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.8)] z-50 overflow-hidden opacity-0 invisible scale-95 origin-top transition-all duration-200 p-1.5">
                                 <ul class="py-0 text-sm text-[#EDEDED] flex flex-col gap-0.5">
@@ -297,7 +305,7 @@
                             <label data-i18n="category_label" class="text-[11px] font-semibold text-vercel-gray uppercase tracking-widest">Категория</label>
                             <button class="dropdown-trigger w-full flex justify-between items-center bg-[#1A1A1A] border border-[#333] rounded-xl py-2.5 px-3 text-sm text-white hover:border-[#555] hover:bg-[#222] focus:outline-none focus:border-[#555] transition-all duration-300">
                                 <span data-i18n="filter_all" class="dropdown-selected truncate pr-2">Все</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 text-vercel-gray transition-transform duration-300 flex-shrink-0"></i>
+                                <i class="ph-bold ph-caret-down icon-md text-vercel-gray transition-transform duration-300 flex-shrink-0"></i>
                             </button>
                             <div class="dropdown-menu absolute top-[calc(100%+6px)] left-0 w-full bg-[#1A1A1A] border border-[#333] rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.8)] z-50 overflow-hidden opacity-0 invisible scale-95 origin-top transition-all duration-200 p-1.5">
                                 <ul class="py-0 text-sm text-[#EDEDED] max-h-[300px] overflow-y-auto custom-scrollbar flex flex-col gap-0.5" id="category-list">
@@ -310,7 +318,7 @@
                             <label data-i18n="sort_label" class="text-[11px] font-semibold text-vercel-gray uppercase tracking-widest">Сортировать по</label>
                             <button class="dropdown-trigger w-full flex justify-between items-center bg-[#1A1A1A] border border-[#333] rounded-xl py-2.5 px-3 text-sm text-white hover:border-[#555] hover:bg-[#222] focus:outline-none focus:border-[#555] transition-all duration-300">
                                 <span data-i18n="sort_newest" class="dropdown-selected">Новые</span>
-                                <i data-lucide="chevron-down" class="w-4 h-4 text-vercel-gray transition-transform duration-300"></i>
+                                <i class="ph-bold ph-caret-down icon-md text-vercel-gray transition-transform duration-300"></i>
                             </button>
                             <div class="dropdown-menu absolute top-[calc(100%+6px)] left-0 w-full bg-[#1A1A1A] border border-[#333] rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.8)] z-50 overflow-hidden opacity-0 invisible scale-95 origin-top transition-all duration-200 p-1.5">
                                 <ul class="py-0 text-sm text-[#EDEDED] flex flex-col gap-0.5">
@@ -325,7 +333,7 @@
                     <div class="space-y-3">
                         <label data-i18n="tags_label" class="text-[11px] font-semibold text-vercel-gray uppercase tracking-widest">Теги</label>
                         <div class="relative mb-3 group">
-                            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-vercel-gray group-hover:text-white transition-colors duration-300"></i>
+                            <i class="ph-bold ph-magnifying-glass icon-sm absolute left-3 top-1/2 -translate-y-1/2 text-vercel-gray group-hover:text-white transition-colors duration-300"></i>
                             <input id="sidebar-tag-search" data-i18n="tags_placeholder" type="text" placeholder="Поиск тегов..."
                                 class="w-full bg-[#1A1A1A] border border-[#333] rounded-xl py-1.5 pl-8 pr-3 text-xs text-white placeholder-vercel-gray hover:border-[#555] focus:outline-none focus:border-[#555] focus:bg-[#222] transition-all duration-300">
                         </div>
@@ -347,7 +355,7 @@
                         <h2 class="text-xl font-semibold text-white tracking-tight" id="filter-value-label"></h2>
                     </div>
                     <button id="clear-filter-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#2A2A2A] hover:bg-[#333] border border-[#333] hover:border-[#555] text-[#EDEDED] text-sm font-medium rounded-lg transition-colors shadow-sm">
-                        <i data-lucide="x" class="w-4 h-4"></i>
+                        <i class="ph-bold ph-x icon-md"></i>
                         Сбросить
                     </button>
                 </div>
@@ -357,7 +365,7 @@
                 
                 <div id="scroll-sentinel" class="w-full h-4"></div>
                 <div id="loading-spinner" class="hidden flex items-center justify-center py-4 gap-3 text-[#888] font-medium text-[15px] w-full">
-                    <i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i>
+                    <i class="ph-bold ph-spinner icon-lg animate-spin"></i>
                     <span data-i18n="loading">Загрузка...</span>
                 </div>
             </div>
@@ -394,7 +402,7 @@
                         <h3 class="text-[16px] font-medium text-[#EDEDED] group-hover:text-white transition-colors">awesome-nano-banana-pro-prompts</h3>
                         <span class="text-[13px] text-[#888]">github.com/YouMind-OpenLab</span>
                     </div>
-                    <i data-lucide="external-link" class="w-5 h-5 text-[#666] group-hover:text-white transition-colors"></i>
+                    <i class="ph-bold ph-external-link icon-lg text-[#666] group-hover:text-white transition-colors"></i>
                 </a>
 
                 <a href="https://github.com/f/prompts.chat?tab=readme-ov-file" target="_blank" rel="noopener" class="group bg-[#1A1A1A] border border-[#333] hover:border-[#555] rounded-xl p-5 transition-all duration-300 flex items-center justify-between">
@@ -402,7 +410,7 @@
                         <h3 class="text-[16px] font-medium text-[#EDEDED] group-hover:text-white transition-colors">prompts.chat</h3>
                         <span class="text-[13px] text-[#888]">github.com/f</span>
                     </div>
-                    <i data-lucide="external-link" class="w-5 h-5 text-[#666] group-hover:text-white transition-colors"></i>
+                    <i class="ph-bold ph-external-link icon-lg text-[#666] group-hover:text-white transition-colors"></i>
                 </a>
             </div>
         </div>
@@ -437,9 +445,9 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 order-2 md:order-1">
-                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i data-lucide="cpu" class="w-5 h-5 text-[#60A5FA]"></i><span class="text-[#EDEDED] text-sm">ChatGPT · Claude · Gemini · Grok</span></div>
-                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i data-lucide="monitor" class="w-5 h-5 text-[#4ADE80]"></i><span class="text-[#EDEDED] text-sm">Cursor · Windsurf · Copilot · v0</span></div>
-                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i data-lucide="layers" class="w-5 h-5 text-[#FBBF24]"></i><span class="text-[#EDEDED] text-sm">All prompt types: text, image, video</span></div>
+                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i class="ph-bold ph-cpu icon-lg text-[#60A5FA]"></i><span class="text-[#EDEDED] text-sm">ChatGPT · Claude · Gemini · Grok</span></div>
+                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i class="ph-bold ph-monitor icon-lg text-[#4ADE80]"></i><span class="text-[#EDEDED] text-sm">Cursor · Windsurf · Copilot · v0</span></div>
+                        <div class="flex items-center gap-3 p-3 bg-[#111] border border-[#333] rounded-xl"><i class="ph-bold ph-stack icon-lg text-[#FBBF24]"></i><span class="text-[#EDEDED] text-sm">All prompt types: text, image, video</span></div>
                     </div>
                     <div class="flex flex-col gap-5 order-1 md:order-2">
                         <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">One prompt, any model.</h2>
@@ -449,17 +457,17 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="github" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-github-logo icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Open Source</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Fork the repo, add your own prompts, and contribute to a growing community of developers.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="search" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-magnifying-glass icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Instant Search</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Find the exact prompt you need in milliseconds with real-time full-text search.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="tag" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-tag icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Tagged & Filtered</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Browse by language, framework, or task type with a powerful tag and category system.</p>
                     </div>
@@ -487,25 +495,25 @@
                         <p class="text-[#888] text-[16px] leading-relaxed">Prompts for Midjourney, DALL·E, Stable Diffusion, and more. Describe the exact mood, style, and composition you need.</p>
                     </div>
                     <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 grid grid-cols-2 gap-3">
-                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-[#333] flex items-center justify-center"><i data-lucide="image" class="w-8 h-8 text-[#60A5FA]"></i></div>
-                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a1a1a] to-[#2d1b69] border border-[#333] flex items-center justify-center"><i data-lucide="palette" class="w-8 h-8 text-[#C084FC]"></i></div>
-                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a2a1a] to-[#0d3321] border border-[#333] flex items-center justify-center"><i data-lucide="layers" class="w-8 h-8 text-[#4ADE80]"></i></div>
-                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#2a1a1a] to-[#3d1515] border border-[#333] flex items-center justify-center"><i data-lucide="sparkles" class="w-8 h-8 text-[#F87171]"></i></div>
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#16213e] border border-[#333] flex items-center justify-center"><i class="ph-bold ph-image icon-2xl text-[#60A5FA]"></i></div>
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a1a1a] to-[#2d1b69] border border-[#333] flex items-center justify-center"><i class="ph-bold ph-palette icon-2xl text-[#C084FC]"></i></div>
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#1a2a1a] to-[#0d3321] border border-[#333] flex items-center justify-center"><i class="ph-bold ph-stack icon-2xl text-[#4ADE80]"></i></div>
+                        <div class="aspect-square rounded-xl bg-gradient-to-br from-[#2a1a1a] to-[#3d1515] border border-[#333] flex items-center justify-center"><i class="ph-bold ph-sparkle icon-2xl text-[#F87171]"></i></div>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                     <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-4 order-2 md:order-1">
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i data-lucide="zap" class="w-4 h-4 text-[#FBBF24]"></i></div>
+                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i class="ph-bold ph-lightning icon-md text-[#FBBF24]"></i></div>
                             <div><p class="text-[#EDEDED] text-sm font-medium mb-1">Logos & Branding</p><p class="text-[#888] text-xs">Minimal, geometric, wordmark, emblem styles</p></div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i data-lucide="camera" class="w-4 h-4 text-[#60A5FA]"></i></div>
+                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i class="ph-bold ph-camera icon-md text-[#60A5FA]"></i></div>
                             <div><p class="text-[#EDEDED] text-sm font-medium mb-1">Photography Styles</p><p class="text-[#888] text-xs">Lighting, composition, mood presets</p></div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i data-lucide="pen-tool" class="w-4 h-4 text-[#C084FC]"></i></div>
+                            <div class="w-8 h-8 rounded-lg bg-[#1A1A1A] border border-[#333] flex items-center justify-center shrink-0"><i class="ph-bold ph-pen-nib icon-md text-[#C084FC]"></i></div>
                             <div><p class="text-[#EDEDED] text-sm font-medium mb-1">Illustration & Concept Art</p><p class="text-[#888] text-xs">Character design, environments, UI illustration</p></div>
                         </div>
                     </div>
@@ -517,17 +525,17 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="image" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-image icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Image Prompts</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Hundreds of curated prompts for Midjourney, DALL·E, Firefly, and Stable Diffusion.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="video" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-video icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Video & Motion</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Prompts for Sora, Runway, and Kling — storyboards, shot lists, cinematic styles.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="shopping-bag" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-shopping-bag icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Product & E-commerce</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Generate professional product shots and marketing visuals without a photo studio.</p>
                     </div>
@@ -586,17 +594,17 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="pen-line" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-pen-nib icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Writing Prompts</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Blog articles, email sequences, social posts, and long-form content at scale.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="mic" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-microphone icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Audio & Voice</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Voiceover scripts, podcast outlines, music mood descriptions, and SFX prompts.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="trending-up" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-trend-up icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Growth & Marketing</h3>
                         <p class="text-[#888] text-sm leading-relaxed">SEO, ad copy, growth hacks, and audience-building strategies — all prompted.</p>
                     </div>
@@ -624,16 +632,16 @@
                         <p class="text-[#888] text-[16px] leading-relaxed">From customer support scripts to internal documentation — deploy AI across your entire organization with battle-tested prompts.</p>
                     </div>
                     <div class="bg-[#0A0A0A] border border-[#222] rounded-2xl p-6 flex flex-col gap-3">
-                        <div class="flex items-center justify-between p-3 bg-[#111] border border-[#333] rounded-xl">
-                            <div class="flex items-center gap-3"><i data-lucide="headphones" class="w-4 h-4 text-[#60A5FA]"></i><span class="text-[#EDEDED] text-sm">Customer Support</span></div>
+                            <div class="flex items-center justify-between p-3 bg-[#111] border border-[#333] rounded-xl">
+                            <div class="flex items-center gap-3"><i class="ph-bold ph-headphones icon-md text-[#60A5FA]"></i><span class="text-[#EDEDED] text-sm">Customer Support</span></div>
                             <span class="text-[10px] text-[#4ADE80] uppercase tracking-wider font-medium">Active</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-[#111] border border-[#333] rounded-xl">
-                            <div class="flex items-center gap-3"><i data-lucide="bar-chart-2" class="w-4 h-4 text-[#FBBF24]"></i><span class="text-[#EDEDED] text-sm">Strategy & Analysis</span></div>
+                            <div class="flex items-center gap-3"><i class="ph-bold ph-chart-bar icon-md text-[#FBBF24]"></i><span class="text-[#EDEDED] text-sm">Strategy & Analysis</span></div>
                             <span class="text-[10px] text-[#4ADE80] uppercase tracking-wider font-medium">Active</span>
                         </div>
                         <div class="flex items-center justify-between p-3 bg-[#111] border border-[#333] rounded-xl">
-                            <div class="flex items-center gap-3"><i data-lucide="users" class="w-4 h-4 text-[#C084FC]"></i><span class="text-[#EDEDED] text-sm">HR & Hiring</span></div>
+                            <div class="flex items-center gap-3"><i class="ph-bold ph-users icon-md text-[#C084FC]"></i><span class="text-[#EDEDED] text-sm">HR & Hiring</span></div>
                             <span class="text-[10px] text-[#4ADE80] uppercase tracking-wider font-medium">Active</span>
                         </div>
                     </div>
@@ -666,17 +674,17 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="briefcase" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-briefcase icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Business Strategy</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Market analysis, competitive research, OKR planning, and executive communication.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="headphones" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-headphones icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Customer Success</h3>
                         <p class="text-[#888] text-sm leading-relaxed">Support scripts, onboarding flows, FAQ generation, and churn prevention templates.</p>
                     </div>
                     <div class="bg-[#111] border border-[#222] rounded-2xl p-6 flex flex-col gap-3 hover:border-[#333] transition-colors">
-                        <i data-lucide="workflow" class="w-6 h-6 text-[#EDEDED]"></i>
+                        <i class="ph-bold ph-flow-arrow icon-xl text-[#EDEDED]"></i>
                         <h3 class="text-white font-semibold text-[17px]">Workflow Automation</h3>
                         <p class="text-[#888] text-sm leading-relaxed">SOPs, meeting summaries, reporting templates, and productivity systems at scale.</p>
                     </div>
@@ -696,15 +704,15 @@
             <section class="w-full py-16 px-4">
                 <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 border border-[#222] divide-y md:divide-y-0 md:divide-x divide-[#222]">
                     <div class="p-10 flex flex-col gap-4 bg-[#0A0A0A]/50">
-                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                        <i class="ph-bold ph-lightning icon-2xl text-white"></i>
                         <p class="text-[16px] text-[#A0A0A0] leading-relaxed"><strong class="text-white font-semibold">Simple.</strong> Finding and using the perfect AI prompt should be as easy as a single click.</p>
                     </div>
                     <div class="p-10 flex flex-col gap-4 bg-[#0A0A0A]/50">
-                        <i data-lucide="globe" class="w-8 h-8 text-white"></i>
+                        <i class="ph-bold ph-globe icon-2xl text-white"></i>
                         <p class="text-[16px] text-[#A0A0A0] leading-relaxed"><strong class="text-white font-semibold">Universal.</strong> To connect the world, AI prompts should work across every model and use case.</p>
                     </div>
                     <div class="p-10 flex flex-col gap-4 bg-[#0A0A0A]/50">
-                        <i data-lucide="users" class="w-8 h-8 text-white"></i>
+                        <i class="ph-bold ph-users icon-2xl text-white"></i>
                         <p class="text-[16px] text-[#A0A0A0] leading-relaxed"><strong class="text-white font-semibold">Open.</strong> Great knowledge, shared openly, enables everyone to build better with AI.</p>
                     </div>
                 </div>
@@ -740,11 +748,11 @@
                     <p class="text-[#888] text-[16px] leading-relaxed">Datvex Prompt LAB is fully open source. Every prompt, every category, every tag — all available on GitHub for anyone to use, fork, and contribute to. We believe the best libraries are built by communities, not just companies.</p>
                     <div class="flex items-center gap-4 pt-2">
                         <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="flex items-center gap-2 bg-white text-black font-semibold text-[14px] px-6 py-3 rounded-full hover:bg-gray-200 transition-colors">
-                            <i data-lucide="github" class="w-4 h-4"></i>
+<i class="ph-bold ph-github-logo icon-md"></i>
                             View on GitHub
                         </a>
                         <button onclick="switchView('main-view')" class="flex items-center gap-2 bg-black text-white border border-[#333] hover:border-[#555] font-semibold text-[14px] px-6 py-3 rounded-full transition-colors">
-                            <i data-lucide="layout-grid" class="w-4 h-4"></i>
+                            <i class="ph-bold ph-layout-grid icon-md"></i>
                             Browse Prompts
                         </button>
                     </div>
@@ -757,7 +765,7 @@
                 <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
                     <p class="text-2xl md:text-3xl font-bold text-white tracking-tight">Join us and shape the future of AI.</p>
                     <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="flex items-center gap-2 bg-[#111] border border-[#333] hover:border-[#555] text-white font-semibold text-[14px] px-6 py-3 rounded-full transition-colors whitespace-nowrap">
-                        <i data-lucide="github" class="w-4 h-4"></i>
+<i class="ph-bold ph-github-logo icon-md"></i>
                         Contribute on GitHub
                     </a>
                 </div>
@@ -995,7 +1003,7 @@ npx serve .</pre>
                     <h2 id="doc-models" class="text-2xl font-semibold text-white tracking-tight mt-10 scroll-mt-28">Supported AI Models</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-2">
                         <div class="border border-[#222] rounded-xl p-5 bg-[#111]/50">
-                            <h4 class="text-white font-medium mb-4 flex items-center gap-2.5"><i data-lucide="message-square" class="w-4 h-4 text-[#888]"></i> Chat</h4>
+                            <h4 class="text-white font-medium mb-4 flex items-center gap-2.5"><i class="ph-bold ph-chat-text icon-md text-[#888]"></i> Chat</h4>
                             <div class="flex flex-col gap-3">
                                 <div class="flex items-center justify-between"><span class="text-[#EDEDED] text-[14px]">ChatGPT</span> <span class="text-[10px] uppercase font-medium tracking-wider text-[#666]">Web</span></div>
                                 <div class="flex items-center justify-between"><span class="text-[#EDEDED] text-[14px]">Claude</span> <span class="text-[10px] uppercase font-medium tracking-wider text-[#666]">Web</span></div>
@@ -1004,7 +1012,7 @@ npx serve .</pre>
                             </div>
                         </div>
                         <div class="border border-[#222] rounded-xl p-5 bg-[#111]/50">
-                            <h4 class="text-white font-medium mb-4 flex items-center gap-2.5"><i data-lucide="code" class="w-4 h-4 text-[#888]"></i> Code</h4>
+                            <h4 class="text-white font-medium mb-4 flex items-center gap-2.5"><i class="ph-bold ph-code icon-md text-[#888]"></i> Code</h4>
                             <div class="flex flex-col gap-3">
                                 <div class="flex items-center justify-between"><span class="text-[#EDEDED] text-[14px]">Windsurf</span> <span class="text-[10px] uppercase font-medium tracking-wider text-[#666]">App</span></div>
                                 <div class="flex items-center justify-between"><span class="text-[#EDEDED] text-[14px]">Cursor</span> <span class="text-[10px] uppercase font-medium tracking-wider text-[#666]">App</span></div>
@@ -1043,43 +1051,43 @@ npx serve .</pre>
                 <div id="ai-tabs-track">
                     <div id="ai-tab-chat" class="ai-tab-content p-1.5 max-h-[300px] overflow-y-auto custom-scrollbar">
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="chatgpt" data-type="web">
-                            <i data-lucide="globe" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">ChatGPT</span>
+                            <i class="ph-bold ph-globe icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">ChatGPT</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="claude" data-type="web">
-                            <i data-lucide="globe" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Claude</span>
+                            <i class="ph-bold ph-globe icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Claude</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="deepseek" data-type="modal" data-name="DeepSeek" data-url="https://chat.deepseek.com/">
-                            <i data-lucide="clipboard" class="w-4 h-4 text-[#888]"></i><span class="text-sm text-[#EDEDED] font-medium">DeepSeek</span>
+                            <i class="ph-bold ph-clipboard icon-md text-[#888]"></i><span class="text-sm text-[#EDEDED] font-medium">DeepSeek</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="gemini" data-type="modal" data-name="Gemini" data-url="https://gemini.google.com/app">
-                            <i data-lucide="clipboard" class="w-4 h-4 text-[#888]"></i><span class="text-sm text-[#EDEDED] font-medium">Gemini</span>
+                            <i class="ph-bold ph-clipboard icon-md text-[#888]"></i><span class="text-sm text-[#EDEDED] font-medium">Gemini</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="grok" data-type="web">
-                            <i data-lucide="globe" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Grok</span>
+                            <i class="ph-bold ph-globe icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Grok</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="manus" data-type="web">
-                            <i data-lucide="globe" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Manus</span>
+                            <i class="ph-bold ph-globe icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Manus</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="perplexity" data-type="web">
-                            <i data-lucide="globe" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Perplexity</span>
+                            <i class="ph-bold ph-globe icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Perplexity</span>
                         </button>
                     </div>
 
                     <div id="ai-tab-code" class="ai-tab-content p-1.5 max-h-[300px] overflow-y-auto custom-scrollbar">
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="windsurf" data-type="app" data-protocol="windsurf://">
-                            <i data-lucide="monitor" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Windsurf</span>
+                            <i class="ph-bold ph-monitor icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Windsurf</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="cursor" data-type="app" data-protocol="cursor://">
-                            <i data-lucide="monitor" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Cursor</span>
+                            <i class="ph-bold ph-monitor icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Cursor</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="copilot" data-type="app" data-protocol="vscode://">
-                            <i data-lucide="monitor" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">GitHub Copilot</span>
+                            <i class="ph-bold ph-monitor icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">GitHub Copilot</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="v0" data-type="web">
-                            <i data-lucide="globe" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">v0</span>
+                            <i class="ph-bold ph-globe icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">v0</span>
                         </button>
                         <button class="ai-model-btn w-full flex items-center gap-3 px-3 py-2 hover:bg-[#2A2A2A] rounded-md transition-colors text-left" data-model="bolt" data-type="web">
-                            <i data-lucide="globe" class="w-4 h-4 text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Bolt</span>
+                            <i class="ph-bold ph-globe icon-md text-[#EDEDED]"></i><span class="text-sm text-[#EDEDED] font-medium">Bolt</span>
                         </button>
                     </div>
                 </div>
@@ -1091,14 +1099,14 @@ npx serve .</pre>
             <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="ai-modal-backdrop"></div>
             <div class="bg-[#111] border border-[#333] w-full max-w-[420px] rounded-2xl shadow-2xl relative z-10 p-6 transform scale-95 transition-transform duration-300" id="ai-modal-content">
                 <button id="ai-modal-close-x" class="absolute top-4 right-4 text-[#888] hover:text-white transition-colors">
-                    <i data-lucide="x" class="w-5 h-5"></i>
+                    <i class="ph-bold ph-x icon-lg"></i>
                 </button>
                 <h3 class="text-xl font-semibold text-white mb-2" id="ai-modal-title" data-i18n="modal_copy_title">Промпт скопирован</h3>
                 <p class="text-[15px] text-[#888] mb-6" id="ai-modal-desc">Промпт скопирован в буфер обмена. Вставьте его в <span id="ai-modal-name" class="text-[#EDEDED] font-medium">AI</span> после открытия.</p>
                 <div class="flex justify-end gap-3">
                     <button id="ai-modal-cancel" class="px-4 py-2 text-sm font-medium text-white bg-transparent border border-[#333] rounded-lg hover:bg-[#222] transition-colors" data-i18n="modal_cancel">Отмена</button>
                     <a id="ai-modal-open" href="#" target="_blank" class="px-4 py-2 text-sm font-medium text-white bg-[#0070F3] rounded-lg hover:bg-[#0060df] transition-colors flex items-center gap-2">
-                        <i data-lucide="external-link" class="w-4 h-4"></i>
+                        <i class="ph-bold ph-arrow-square-out icon-md"></i>
                         <span id="ai-modal-btn-text">Открыть AI</span>
                     </a>
                 </div>
@@ -1115,7 +1123,7 @@ npx serve .</pre>
                         <h2 class="text-xl md:text-2xl font-semibold text-white tracking-tight leading-snug" id="prompt-modal-title"></h2>
                     </div>
                     <button id="prompt-modal-close" class="absolute top-5 right-5 md:top-6 md:right-6 text-[#888] hover:text-white transition-colors bg-[#222] hover:bg-[#333] rounded-full p-1.5 shrink-0">
-                        <i data-lucide="x" class="w-5 h-5"></i>
+                        <i class="ph-bold ph-x icon-lg"></i>
                     </button>
                 </div>
                 
@@ -1125,7 +1133,7 @@ npx serve .</pre>
                     <div class="flex flex-col flex-1 min-h-[150px] border border-[#333] rounded-xl bg-[#0A0A0A] overflow-hidden">
                         <div class="flex justify-end p-2 bg-[#111] border-b border-[#333]">
                             <button data-action="copy" class="p-1.5 bg-[#1A1A1A] border border-[#333] rounded-md hover:bg-[#2A2A2A] hover:text-white transition-colors text-[#888] shadow-sm flex items-center gap-1.5 px-3">
-                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                <i class="ph-bold ph-copy icon-sm"></i>
                                 <span class="text-xs font-medium">Copy</span>
                             </button>
                         </div>
@@ -1135,7 +1143,7 @@ npx serve .</pre>
                 
                 <div class="p-4 md:p-5 border-t border-[#222] flex justify-end bg-[#111] rounded-b-2xl shrink-0">
                      <button class="ai-trigger-btn flex items-center gap-2 px-5 py-2.5 bg-white text-black font-semibold rounded-xl hover:bg-gray-200 transition-all duration-200 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                        <i data-lucide="play" class="w-4 h-4 text-black"></i>
+                        <i class="ph-bold ph-play icon-md text-black"></i>
                         <span class="text-sm tracking-wide text-black">AI</span>
                     </button>
                 </div>
@@ -1186,7 +1194,7 @@ npx serve .</pre>
                     <div class="flex flex-col gap-4">
                         <h4 class="text-[12px] font-semibold text-white uppercase tracking-wider mb-1">Community</h4>
                         <a href="https://github.com/Datvex/Datvex-prompt-LAB" target="_blank" rel="noopener" class="flex items-center gap-2 text-[14px] text-[#888] hover:text-white transition-colors w-fit">
-                            <i data-lucide="github" class="w-4 h-4"></i> GitHub
+                            <i class="ph-bold ph-github-logo icon-md"></i> GitHub
                         </a>
                     </div>
                 </div>
