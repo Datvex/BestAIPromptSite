@@ -11,6 +11,7 @@ const translations = {
         sidebar_title: "Prompts",
         counter_total: "Total: ",
         counter_found: "Total: ",
+        prompts_word: "prompts",
         search_label: "Search",
         search_placeholder: "Search prompts...",
         ai_search: "AI Search",
@@ -47,9 +48,6 @@ const translations = {
         model_video_desc: "Prompts for video generation",
         model_audio_title: "Audio",
         model_audio_desc: "Prompts for audio generation",
-        sidebar_title: "Prompts",
-        counter_total: "Total: ",
-        counter_found: "Found: ",
         modal_copy_title: "Prompt copied",
         modal_cancel: "Cancel",
         modal_open: "Open ",
@@ -63,7 +61,11 @@ const translations = {
         feature_2_title: "Multi-Model Support",
         feature_2_desc: "Tested and optimized for ChatGPT, Claude, Midjourney, and more.",
         feature_3_title: "Open Source",
-        feature_3_desc: "Contribute, fork, and use the repository freely for your own projects."
+        feature_3_desc: "Contribute, fork, and use the repository freely for your own projects.",
+        favorites_empty_title: "No favorite prompts yet.",
+        favorites_empty_desc: "Open any prompt and click the heart icon to add.",
+        ai_tab_chat: "Chat",
+        ai_tab_code: "Code"
     },
     ru: {
         lang_menu: "Язык интерфейса",
@@ -77,6 +79,7 @@ const translations = {
         sidebar_title: "Промпты",
         counter_total: "Всего: ",
         counter_found: "Найдено: ",
+        prompts_word: "промптов",
         search_label: "Поиск",
         search_placeholder: "Поиск промптов...",
         ai_search: "AI Поиск",
@@ -126,7 +129,11 @@ const translations = {
         feature_2_title: "Поддержка ИИ-моделей",
         feature_2_desc: "Проверено и оптимизировано для работы с ChatGPT, Claude, Midjourney и другими.",
         feature_3_title: "Открытый исходный код",
-        feature_3_desc: "Вносите вклад, делайте форки и свободно используйте репозиторий в своих проектах."
+        feature_3_desc: "Вносите вклад, делайте форки и свободно используйте репозиторий в своих проектах.",
+        favorites_empty_title: "У вас пока нет избранных промптов.",
+        favorites_empty_desc: "Откройте любой промпт и нажмите иконку сердца чтобы добавить.",
+        ai_tab_chat: "Чат",
+        ai_tab_code: "Код"
     },
     zh: {
         lang_menu: "界面语言",
@@ -189,7 +196,11 @@ const translations = {
         feature_2_title: "多模型支持",
         feature_2_desc: "经过测试并针对 ChatGPT、Claude、Midjourney 等进行了优化。",
         feature_3_title: "开源",
-        feature_3_desc: "自由贡献、复刻并在您自己的项目中使用该代码库。"
+        feature_3_desc: "自由贡献、复刻并在您自己的项目中使用该代码库。",
+        favorites_empty_title: "暂无收藏提示词。",
+        favorites_empty_desc: "打开任何提示词并点击心形图标即可添加。",
+        ai_tab_chat: "聊天",
+        ai_tab_code: "代码"
     },
     es: {
         lang_menu: "Idioma de la interfaz",
@@ -252,7 +263,11 @@ const translations = {
         feature_2_title: "Soporte multi-modelo",
         feature_2_desc: "Probado y optimizado para ChatGPT, Claude, Midjourney y más.",
         feature_3_title: "Código abierto",
-        feature_3_desc: "Contribuye, bifurca y usa el repositorio libremente para tus propios proyectos."
+        feature_3_desc: "Contribuye, bifurca y usa el repositorio libremente para tus propios proyectos.",
+        favorites_empty_title: "Aún no hay prompts favoritos.",
+        favorites_empty_desc: "Abre cualquier prompt y haz clic en el ícono del corazón para agregarlo.",
+        ai_tab_chat: "Chat",
+        ai_tab_code: "Código"
     },
     de: {
         lang_menu: "Oberflächensprache",
@@ -315,7 +330,11 @@ const translations = {
         feature_2_title: "Multi-Modell-Unterstützung",
         feature_2_desc: "Getestet und optimiert für ChatGPT, Claude, Midjourney und mehr.",
         feature_3_title: "Open Source",
-        feature_3_desc: "Tragen Sie bei, forken Sie und nutzen Sie das Repository frei für Ihre eigenen Projekte."
+        feature_3_desc: "Tragen Sie bei, forken Sie und nutzen Sie das Repository frei für Ihre eigenen Projekte.",
+        favorites_empty_title: "Noch keine favorisierten Prompts.",
+        favorites_empty_desc: "Öffnen Sie einen beliebigen Prompt und klicken Sie auf das Herz-Symbol, um ihn hinzuzufügen.",
+        ai_tab_chat: "Chat",
+        ai_tab_code: "Code"
     },
     hi: {
         lang_menu: "इंटरफ़ेस भाषा",
@@ -378,7 +397,11 @@ const translations = {
         feature_2_title: "मल्टी-मॉडल सपोर्ट",
         feature_2_desc: "ChatGPT, Claude, Midjourney आदि के लिए परीक्षण और अनुकूलित।",
         feature_3_title: "ओपन सोर्स",
-        feature_3_desc: "अपने स्वयं के प्रोजेक्ट्स के लिए स्वतंत्र रूप से रिपॉजिटरी का योगदान, फोर्क और उपयोग करें।"
+        feature_3_desc: "अपने स्वयं के प्रोजेक्ट्स के लिए स्वतंत्र रूप से रिपॉजिटरी का योगदान, फोर्क और उपयोग करें।",
+        favorites_empty_title: "अभी तक कोई पसंदीदा प्रॉम्ट नहीं।",
+        favorites_empty_desc: "कोई भी प्रॉम्ट खोलें और जोड़ने के लिए हार्ट आइकन पर क्लिक करें।",
+        ai_tab_chat: "चैट",
+        ai_tab_code: "कोड"
     },
     fr: {
         lang_menu: "Langue de l'interface",
@@ -441,7 +464,11 @@ const translations = {
         feature_2_title: "Support multi-modèle",
         feature_2_desc: "Testé et optimisé pour ChatGPT, Claude, Midjourney, etc.",
         feature_3_title: "Open Source",
-        feature_3_desc: "Contribuez, forkez et utilisez librement le dépôt pour vos propres projets."
+        feature_3_desc: "Contribuez, forkez et utilisez librement le dépôt pour vos propres projets.",
+        favorites_empty_title: "Pas encore de prompts favoris.",
+        favorites_empty_desc: "Ouvrez n'importe quel prompt et cliquez sur l'icône en forme de cœur pour l'ajouter.",
+        ai_tab_chat: "Discussion",
+        ai_tab_code: "Code"
     },
     it: {
         lang_menu: "Lingua dell'interfaccia",
@@ -504,7 +531,11 @@ const translations = {
         feature_2_title: "Supporto multi-modello",
         feature_2_desc: "Testato e ottimizzato per ChatGPT, Claude, Midjourney e altri.",
         feature_3_title: "Open Source",
-        feature_3_desc: "Contribuisci, fai fork e usa liberamente il repository per i tuoi progetti."
+        feature_3_desc: "Contribuisci, fai fork e usa liberamente il repository per i tuoi progetti.",
+        favorites_empty_title: "Nessun prompt preferito ancora.",
+        favorites_empty_desc: "Apri qualsiasi prompt e fai clic sull'icona a forma di cuore per aggiungerlo.",
+        ai_tab_chat: "Chat",
+        ai_tab_code: "Codice"
     },
     pt: {
         lang_menu: "Idioma da interface",
@@ -567,7 +598,11 @@ const translations = {
         feature_2_title: "Suporte multi-modelo",
         feature_2_desc: "Testado e otimizado para ChatGPT, Claude, Midjourney e mais.",
         feature_3_title: "Código aberto",
-        feature_3_desc: "Contribua, faça fork e use o repositório livremente para seus próprios projetos."
+        feature_3_desc: "Contribua, faça fork e use o repositório livremente para seus próprios projetos.",
+        favorites_empty_title: "Ainda não há prompts favoritos.",
+        favorites_empty_desc: "Abra qualquer prompt e clique no ícone de coração para adicionar.",
+        ai_tab_chat: "Chat",
+        ai_tab_code: "Código"
     },
     ja: {
         lang_menu: "インターフェース言語",
@@ -630,7 +665,11 @@ const translations = {
         feature_2_title: "マルチモデルサポート",
         feature_2_desc: "ChatGPT、Claude、Midjourneyなど向けにテストおよび最適化されています。",
         feature_3_title: "オープンソース",
-        feature_3_desc: "独自プロジェクトのために自由に貢献、フォーク、使用できます。"
+        feature_3_desc: "独自プロジェクトのために自由に貢献、フォーク、使用できます。",
+        favorites_empty_title: "お気に入りのプロンプトはまだありません。",
+        favorites_empty_desc: "プロンプトを開き、ハートのアイコンをクリックして追加します。",
+        ai_tab_chat: "チャット",
+        ai_tab_code: "コード"
     },
     ko: {
         lang_menu: "인터페이스 언어",
@@ -693,7 +732,11 @@ const translations = {
         feature_2_title: "다중 모델 지원",
         feature_2_desc: "ChatGPT, Claude, Midjourney 등에 맞게 테스트 및 최적화되었습니다.",
         feature_3_title: "오픈 소스",
-        feature_3_desc: "자신만의 프로젝트를 위해 자유롭게 기여하고, 포크하고, 저장소를 사용하세요."
+        feature_3_desc: "자신만의 프로젝트를 위해 자유롭게 기여하고, 포크하고, 저장소를 사용하세요.",
+        favorites_empty_title: "아직 즐겨찾는 프롬프트가 없습니다.",
+        favorites_empty_desc: "프롬프트를 열고 하트 아이콘을 클릭하여 추가하세요.",
+        ai_tab_chat: "채팅",
+        ai_tab_code: "코드"
     }
 };
 
@@ -801,6 +844,8 @@ function setLanguage(lang, animate) {
                 sel.textContent = active.textContent;
             }
         }
+
+        updateResultsCounter();
     };
 
     if (animate) {
@@ -834,11 +879,11 @@ function switchView(viewId, pushHistory = true) {
         } catch (e) {}
     }
     
-    var views =['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view',
+    var views = ['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view',
+                'favorites-view',
                 'usecase-developers-view', 'usecase-designers-view', 'usecase-creators-view', 'usecase-businesses-view',
                 'company-about-view', 'company-privacy-view', 'company-terms-view'];
-    var header = document.getElementById('main-page-header');
-    
+
     var targetEl = document.getElementById(viewId);
     if (!targetEl) return;
 
@@ -888,10 +933,6 @@ function switchView(viewId, pushHistory = true) {
             }
         }
         
-        if (header) {
-            header.style.display = viewId === 'main-view' ? '' : 'none';
-        }
-        
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         requestAnimationFrame(() => {
@@ -901,6 +942,11 @@ function switchView(viewId, pushHistory = true) {
                 targetEl.style.transform = 'translateY(0)';
             });
         });
+        
+        if (viewId === 'main-view') {
+            updateResultsCounter();
+            updateResetBtn();
+        }
     }
 
     if (currentEl) {
@@ -914,7 +960,24 @@ function switchView(viewId, pushHistory = true) {
 }
 
 window.addEventListener('popstate', function(e) {
-    let view = e.state && e.state.view ? e.state.view : (location.hash ? location.hash.substring(1) : 'home-view');
+    let hash = location.hash;
+    
+    if (hash.startsWith('#/prompt/')) {
+        const targetId = hash.replace('#/prompt/', '');
+        const index = allPrompts.findIndex(p => String(p.numeric_id) === targetId);
+        if (index !== -1) {
+            openPromptModal(index);
+            return;
+        }
+    } else {
+        const modal = document.getElementById('prompt-modal');
+        if (modal && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    let view = e.state && e.state.view ? e.state.view : (hash ? hash.substring(1) : 'home-view');
     
     if (view.startsWith('doc-')) {
         switchView('docs-view', false);
@@ -923,7 +986,7 @@ window.addEventListener('popstate', function(e) {
     
     const validViews = ['home-view', 'main-view', 'tags-view', 'categories-view', 'sources-view', 'docs-view',
         'usecase-developers-view', 'usecase-designers-view', 'usecase-creators-view', 'usecase-businesses-view',
-        'company-about-view', 'company-privacy-view', 'company-terms-view'];
+        'company-about-view', 'company-privacy-view', 'company-terms-view', 'favorites-view'];
     if (!validViews.includes(view)) {
         view = 'home-view';
     }
@@ -942,7 +1005,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     initViewSwitcher();
     initAISelector();
     setLanguage(currentLang, false);
-    lucide.createIcons();
 
     $('#lang-buttons').addEventListener('click', function(e) {
         var btn = e.target.closest('.lang-btn');
@@ -978,6 +1040,160 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
 });
 
+function getFavorites() {
+    try {
+        return JSON.parse(localStorage.getItem('datvex_favorites') || '[]');
+    } catch(e) {
+        return [];
+    }
+}
+
+function saveFavorites(favs) {
+    try {
+        localStorage.setItem('datvex_favorites', JSON.stringify(favs));
+    } catch(e) {}
+}
+
+function toggleFavorite(numericId) {
+    let favs = getFavorites();
+    const idx = favs.indexOf(numericId);
+    if (idx === -1) {
+        favs.push(numericId);
+    } else {
+        favs.splice(idx, 1);
+    }
+    saveFavorites(favs);
+    return idx === -1;
+}
+
+function isFavorite(numericId) {
+    return getFavorites().includes(numericId);
+}
+
+function updateFavBtn(btn, isFav, animate = false) {
+    const icon = btn.querySelector('i');
+    if (!icon) return;
+    if (isFav) {
+        icon.className = 'ph-fill ph-heart icon-lg';
+        icon.style.color = '#ef4444';
+        btn.classList.add('fav-active');
+    } else {
+        icon.className = 'ph-bold ph-heart icon-lg';
+        icon.style.color = '';
+        btn.classList.remove('fav-active');
+    }
+    if (animate) {
+        btn.classList.remove('heart-pop');
+        void btn.offsetWidth;
+        btn.classList.add('heart-pop');
+    }
+}
+
+function renderFavoritesView() {
+    const grid = document.getElementById('favorites-grid');
+    if (!grid) return;
+    
+    const favs = getFavorites();
+    const favPrompts = allPrompts.filter(p => favs.includes(String(p.numeric_id)));
+    const emptyFav = document.getElementById('favorites-empty');
+    
+    if (favPrompts.length === 0) {
+        grid.innerHTML = '';
+        if (emptyFav) {
+            emptyFav.classList.remove('hidden');
+            emptyFav.classList.add('flex', 'flex-col');
+        }
+        return;
+    }
+    
+    if (emptyFav) {
+        emptyFav.classList.add('hidden');
+        emptyFav.classList.remove('flex', 'flex-col');
+    }
+    
+    let html = '';
+    for (const p of favPrompts) {
+        const idx = allPrompts.indexOf(p);
+        html += createPromptCardHTML(p, idx);
+    }
+    grid.innerHTML = html;
+}
+
+function fuzzyMatch(text, query) {
+    if (!query) return true;
+    text = text.toLowerCase();
+    query = query.toLowerCase().trim();
+    
+    if (text.includes(query)) return true;
+    
+    const words = query.split(/\s+/);
+    let allWordsMatch = true;
+    
+    for (const word of words) {
+        if (word.length < 2) continue;
+        let wordFound = false;
+        
+        if (text.includes(word)) {
+            wordFound = true;
+        } else {
+            let ti = 0, wi = 0, errors = 0;
+            const maxErrors = Math.floor(word.length / 4);
+            while (ti < text.length && wi < word.length) {
+                if (text[ti] === word[wi]) {
+                    wi++;
+                } else {
+                    errors++;
+                    if (errors > maxErrors) break;
+                }
+                ti++;
+            }
+            if (wi === word.length && errors <= maxErrors) wordFound = true;
+        }
+        
+        if (!wordFound) {
+            allWordsMatch = false;
+            break;
+        }
+    }
+    
+    return allWordsMatch;
+}
+
+function isAnyFilterActive() {
+    const typeItem = document.querySelector('#dropdown-type .dropdown-item.active');
+    const typeVal = typeItem ? typeItem.dataset.value : 'all';
+    const catItem = document.querySelector('#dropdown-category .dropdown-item.active');
+    const catVal = catItem ? catItem.dataset.value : 'all';
+    const searchVal = (document.querySelector('#main-search')?.value || '').trim();
+    const activeTag = document.querySelector('#tags-container .tag-active');
+    
+    return typeVal !== 'all' || catVal !== 'all' || searchVal !== '' || activeTag !== null;
+}
+
+function updateResetBtn() {
+    const btn = document.getElementById('reset-filters-btn');
+    if (!btn) return;
+    if (isAnyFilterActive()) {
+        btn.classList.remove('hidden');
+    } else {
+        btn.classList.add('hidden');
+    }
+}
+
+function updateResultsCounter() {
+    const el = document.getElementById('results-counter');
+    if (!el) return;
+    const t = translations[currentLang] || translations.ru;
+    
+    if (!isAnyFilterActive()) {
+        const total = allPrompts.length;
+        el.textContent = (t.counter_total || 'Всего: ') + total.toLocaleString() + ' ' + (t.prompts_word || 'промптов');
+    } else {
+        const found = filteredPrompts.length;
+        el.textContent = (t.counter_found || 'Найдено: ') + found.toLocaleString() + ' ' + (t.prompts_word || 'промптов');
+    }
+}
+
 function getPromptType(p) {
     const combined = ((p.category_id || '') + ' ' + (p.category || '')).toLowerCase();
     if (combined.includes('image') || combined.includes('photo') || combined.includes('art') || combined.includes('изображ')) return 'image';
@@ -996,7 +1212,7 @@ function updateSidebarFilters() {
 
     const sortVal = document.querySelector('#dropdown-sort .dropdown-item.active')?.dataset.value || 'newest';
     const searchInput = document.querySelector('#main-search');
-    const searchVal = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    const searchVal = searchInput ? searchInput.value.trim() : '';
     const activeTag = document.querySelector('#tags-container .tag-active')?.textContent || null;
 
     filteredPrompts = allPrompts.filter(p => {
@@ -1005,9 +1221,9 @@ function updateSidebarFilters() {
         if (activeTag && (!p.tags || !p.tags.some(t => t.toLowerCase() === activeTag.toLowerCase()))) return false;
         
         if (searchVal) {
-            const titleMatch = p.title && p.title.toLowerCase().includes(searchVal);
-            const descMatch = p.description && p.description.toLowerCase().includes(searchVal);
-            const promptMatch = p.prompt && p.prompt.toLowerCase().includes(searchVal);
+            const titleMatch = fuzzyMatch(p.title || '', searchVal);
+            const descMatch = fuzzyMatch(p.description || '', searchVal);
+            const promptMatch = fuzzyMatch(p.prompt || '', searchVal);
             if (!titleMatch && !descMatch && !promptMatch) return false;
         }
         return true;
@@ -1025,8 +1241,8 @@ function updateSidebarFilters() {
     const grid = document.getElementById('prompts-grid');
     if (grid) grid.innerHTML = '';
     
-    if (typeof lucide !== 'undefined' && lucide.createIcons) lucide.createIcons();
-    
+    updateResetBtn();
+    updateResultsCounter();
     loadMorePrompts();
 }
 
@@ -1232,7 +1448,10 @@ function initRadixNav() {
                 allTags.forEach(t => t.classList.remove('tag-active'));
                 
                 var filterHeader = document.getElementById('filter-header');
-                if (filterHeader) filterHeader.classList.add('hidden');
+                if (filterHeader) {
+                    filterHeader.classList.add('hidden');
+                    filterHeader.classList.remove('flex');
+                }
                 
                 var aside = document.querySelector('aside');
                 if (aside) aside.style.display = '';
@@ -1536,7 +1755,7 @@ function initViewSwitcher() {
                 switchView('main-view');
             } else {
                 const btnText = translations[currentLang]?.hero_btn_explore || 'Start Exploring';
-                const spinnerSvg = `<svg class="w-5 h-5 animate-spin text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>`;
+                const spinnerSvg = `<svg class="w-5 h-5 animate-spin text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>`;
                 this.innerHTML = spinnerSvg + `<span>${btnText}</span>`;
                 this.style.display = 'inline-flex';
                 this.style.alignItems = 'center';
@@ -1576,7 +1795,87 @@ function initViewSwitcher() {
         });
     }
 
-    // --- ОБРАБОТЧИКИ ДЛЯ ФУТЕРА ---
+    var linkFavorites = $('#nav-link-favorites');
+    if (linkFavorites) {
+        linkFavorites.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (closeRadixMenu) closeRadixMenu();
+            renderFavoritesView();
+            switchView('favorites-view');
+        });
+    }
+
+    var resetBtn = document.getElementById('reset-filters-btn');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            var catDropdown = document.querySelector('#dropdown-category');
+            if (catDropdown) {
+                catDropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+                var allItem = catDropdown.querySelector('[data-value="all"]');
+                if (allItem) { allItem.classList.add('active'); var sel = catDropdown.querySelector('.dropdown-selected'); if (sel) sel.textContent = allItem.textContent; }
+            }
+            var typeDropdown = document.querySelector('#dropdown-type');
+            if (typeDropdown) {
+                typeDropdown.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+                var allItem2 = typeDropdown.querySelector('[data-value="all"]');
+                if (allItem2) { allItem2.classList.add('active'); var sel2 = typeDropdown.querySelector('.dropdown-selected'); if (sel2) sel2.textContent = allItem2.textContent; }
+            }
+            var searchInput = document.querySelector('#main-search');
+            if (searchInput) searchInput.value = '';
+            document.querySelectorAll('#tags-container .tag-btn').forEach(t => t.classList.remove('tag-active'));
+            
+            currentFilter = { type: null, id: null, displayName: null };
+            filteredPrompts = allPrompts;
+            currentPromptIndex = 0;
+            const grid = document.getElementById('prompts-grid');
+            if (grid) grid.innerHTML = '';
+            
+            updateResetBtn();
+            updateResultsCounter();
+            loadMorePrompts();
+            checkEmptyState();
+        });
+    }
+
+    var burgerBtn = document.getElementById('burger-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var mobileMenuClose = document.getElementById('mobile-menu-close');
+    var mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+    function openMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.add('active');
+        if (mobileMenuBackdrop) mobileMenuBackdrop.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        if (!mobileMenu) return;
+        mobileMenu.classList.remove('active');
+        if (mobileMenuBackdrop) mobileMenuBackdrop.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (burgerBtn) burgerBtn.addEventListener('click', openMobileMenu);
+    if (mobileMenuClose) mobileMenuClose.addEventListener('click', closeMobileMenu);
+    if (mobileMenuBackdrop) mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+
+    document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeMobileMenu();
+            const view = link.dataset.view;
+            const filter = link.dataset.filter;
+            if (view) {
+                if (view === 'favorites-view') renderFavoritesView();
+                switchView(view);
+            } else if (filter) {
+                applyFilter('model', filter, link.textContent.trim());
+            }
+        });
+    });
+
     var footerCat = $('#footer-link-categories');
     if (footerCat) {
         footerCat.addEventListener('click', function(e) {
@@ -1673,31 +1972,22 @@ function initViewSwitcher() {
         });
     }
 
-    var footerModelLinks = document.querySelectorAll('a[data-footer-filter]');
-    for (var j = 0; j < footerModelLinks.length; j++) {
-        (function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                applyFilter('model', link.dataset.footerFilter, link.textContent.trim());
-            });
-        })(footerModelLinks[j]);
-    }
-    // --- КОНЕЦ ОБРАБОТЧИКОВ ФУТЕРА ---
+    document.querySelectorAll('a[data-footer-filter]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            applyFilter('model', link.dataset.footerFilter, link.textContent.trim());
+        });
+    });
 
-    var modelLinks = $$('#content-models a[data-filter]');
-    for (var i = 0; i < modelLinks.length; i++) {
-        (function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (closeRadixMenu) closeRadixMenu();
-                
-                var titleSpan = link.querySelector('span[data-i18n^="model_"]');
-                var displayName = titleSpan ? titleSpan.textContent.trim() : link.dataset.filter;
-                
-                applyFilter('model', link.dataset.filter, displayName);
-            });
-        })(modelLinks[i]);
-    }
+    document.querySelectorAll('#content-models a[data-filter]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (closeRadixMenu) closeRadixMenu();
+            var titleSpan = link.querySelector('span[data-i18n^="model_"]');
+            var displayName = titleSpan ? titleSpan.textContent.trim() : link.dataset.filter;
+            applyFilter('model', link.dataset.filter, displayName);
+        });
+    });
 }
 
 // --- ЛОГИКА МЕНЮ ВЫБОРА ИИ И ЗАПУСКА ПРОМПТОВ ---
@@ -1931,6 +2221,12 @@ function initAISelector() {
         }
         menu.style.left = `${rect.right + window.scrollX - 240}px`;
     });
+
+    document.addEventListener('scroll', function(e) {
+        if (menu.classList.contains('active') && !menu.contains(e.target)) {
+            closeMenu();
+        }
+    }, true);
 }
 
 function applyFilter(type, id, displayName) {
@@ -1964,6 +2260,7 @@ function applyFilter(type, id, displayName) {
         }
         
         filterHeader.classList.remove('hidden');
+        filterHeader.classList.add('flex');
         valueLabel.textContent = displayName || id;
         
         if (type === 'category') {
@@ -1986,6 +2283,7 @@ function applyFilter(type, id, displayName) {
     } else {
         aside.style.display = '';
         filterHeader.classList.add('hidden');
+        filterHeader.classList.remove('flex');
 
         var catDropdown = document.querySelector('#dropdown-category');
         if (catDropdown) {
@@ -2028,6 +2326,36 @@ function escapeHTML(str) {
         };
         return charsToReplace[tag] || tag;
     });
+}
+
+function createPromptCardHTML(p, realIndex) {
+    const title = escapeHTML(p.title);
+    const desc = escapeHTML(p.description);
+    const promptText = escapeHTML(p.prompt);
+    const type = escapeHTML(p.category || 'Text');
+    return `
+    <div data-index="${realIndex}" class="prompt-card group bg-[#1A1A1A] border border-[#333] rounded-2xl p-5 hover:border-[#555] hover:bg-[#222] transition-all duration-300 flex flex-col gap-3 cursor-pointer">
+        <div class="flex justify-between items-start">
+            <h3 class="font-semibold text-lg leading-tight text-[#EDEDED] group-hover:text-white transition-colors">${title}</h3>
+            <span class="text-[10px] uppercase tracking-wider border border-[#333] px-2 py-0.5 rounded-md text-[#888] bg-[#111] max-w-[120px] truncate text-right" title="${type}">${type}</span>
+        </div>
+        <p class="text-sm text-[#A0A0A0] line-clamp-2" title="${desc}">${desc}</p>
+        <div class="mt-2 flex flex-col gap-2">
+            <div class="relative">
+                <div class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+                    <button data-action="copy" class="p-1.5 bg-[#1A1A1A] border border-[#333] rounded-lg hover:bg-[#2A2A2A] hover:text-white transition-colors text-[#888]">
+                        <i class="ph-bold ph-copy icon-sm"></i>
+                    </button>
+                </div>
+                <pre class="prompt-content bg-[#0A0A0A] border border-[#222] group-hover:border-[#333] rounded-xl p-4 text-xs font-mono text-[#A0A0A0] overflow-x-auto h-32 whitespace-pre-wrap transition-colors duration-300">${promptText}</pre>
+            </div>
+            <div class="flex justify-end">
+                <button class="ai-trigger-btn flex items-center justify-center w-9 h-9 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] hover:text-white transition-all duration-200 text-[#888] cursor-pointer shadow-sm">
+                    <i class="ph-bold ph-play icon-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>`;
 }
 
 function shuffleArray(array) {
@@ -2093,6 +2421,8 @@ async function loadPrompts() {
         return;
     }
 
+    showSkeletons();
+
     try {
         const cacheKey = 'datvex_prompts';
         const cached = sessionStorage.getItem(cacheKey);
@@ -2112,6 +2442,20 @@ async function loadPrompts() {
 
     if (!Array.isArray(allPrompts)) allPrompts = [];
 
+    for (let i = 0; i < allPrompts.length; i++) {
+        let p = allPrompts[i];
+        if (p.numeric_id === undefined) {
+            let str = (p.title || '') + (p.prompt || '');
+            let hash = 0;
+            for (let j = 0; j < str.length; j++) {
+                hash = Math.imul(31, hash) + str.charCodeAt(j) | 0;
+            }
+            p.numeric_id = String(Math.abs(hash));
+        } else {
+            p.numeric_id = String(p.numeric_id);
+        }
+    }
+
     allPrompts = shuffleArray(allPrompts);
     filteredPrompts = allPrompts;
     currentPromptIndex = 0;
@@ -2123,6 +2467,16 @@ async function loadPrompts() {
     
     setupInfiniteScroll();
     loadMorePrompts(true);
+
+    if (location.hash && location.hash.startsWith('#/prompt/')) {
+        setTimeout(() => {
+            const targetId = location.hash.replace('#/prompt/', '');
+            const index = allPrompts.findIndex(p => String(p.numeric_id) === targetId);
+            if (index !== -1) {
+                openPromptModal(index);
+            }
+        }, 100);
+    }
 }
 
 function setAppReady() {
@@ -2191,6 +2545,7 @@ function loadMorePrompts(forceInitial) {
 
     if (isLoadingPrompts || currentPromptIndex >= sourceArray.length) {
         if (isInitial) setAppReady();
+        if (!isLoadingPrompts) checkEmptyState();
         return;
     }
     isLoadingPrompts = true;
@@ -2203,7 +2558,10 @@ function loadMorePrompts(forceInitial) {
         return;
     }
 
-    if (spinner && !isInitial) spinner.classList.remove('hidden');
+    if (spinner && !isInitial) {
+        spinner.classList.remove('hidden');
+        spinner.classList.add('flex');
+    }
 
     setTimeout(() => {
         try {
@@ -2212,54 +2570,23 @@ function loadMorePrompts(forceInitial) {
             
             for (let i = 0; i < nextPrompts.length; i++) {
                 const p = nextPrompts[i];
-                const title = escapeHTML(p.title);
-                const desc = escapeHTML(p.description);
-                const promptText = escapeHTML(p.prompt);
-                const type = escapeHTML(p.category || 'Text');
-
-                html += `
-                <div data-index="${currentFilter.type ? allPrompts.indexOf(p) : (currentPromptIndex + i)}" class="prompt-card group bg-[#1A1A1A] border border-[#333] rounded-2xl p-5 hover:border-[#555] hover:bg-[#222] transition-all duration-300 flex flex-col gap-3 cursor-pointer">
-                    <div class="flex justify-between items-start">
-                        <h3 class="font-semibold text-lg leading-tight text-[#EDEDED] group-hover:text-white transition-colors">${title}</h3>
-                        <span class="text-[10px] uppercase tracking-wider border border-[#333] px-2 py-0.5 rounded-md text-[#888] bg-[#111] max-w-[120px] truncate text-right" title="${type}">${type}</span>
-                    </div>
-                    <p class="text-sm text-[#A0A0A0] line-clamp-2" title="${desc}">${desc}</p>
-                    
-                    <div class="mt-2 flex flex-col gap-2">
-                        <div class="relative">
-                            <div class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-                                <button data-action="copy" class="p-1.5 bg-[#1A1A1A] border border-[#333] rounded-lg hover:bg-[#2A2A2A] hover:text-white transition-colors text-[#888]">
-                                    <i class="ph-bold ph-copy icon-sm"></i>
-                                </button>
-                            </div>
-                            <pre class="prompt-content bg-[#0A0A0A] border border-[#222] group-hover:border-[#333] rounded-xl p-4 text-xs font-mono text-[#A0A0A0] overflow-x-auto h-32 whitespace-pre-wrap transition-colors duration-300">${promptText}</pre>
-                        </div>
-                        <div class="flex justify-end">
-                            <button class="ai-trigger-btn flex items-center justify-center w-9 h-9 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] hover:text-white transition-all duration-200 text-[#888] cursor-pointer shadow-sm">
-                                <i class="ph-bold ph-play icon-sm"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>`;
+                const realIndex = currentFilter.type ? allPrompts.indexOf(p) : (currentPromptIndex + i);
+                html += createPromptCardHTML(p, realIndex);
             }
 
             grid.insertAdjacentHTML('beforeend', html);
             currentPromptIndex += PROMPTS_PER_PAGE;
-
-            if (typeof lucide !== 'undefined' && lucide.createIcons) {
-                lucide.createIcons();
-            }
         } catch (e) {}
 
         if (spinner) {
             spinner.classList.add('hidden');
+            spinner.classList.remove('flex');
         }
-
         isLoadingPrompts = false;
-
-        if (isInitial) {
-            setAppReady();
-        }
+        if (isInitial) setAppReady();
+        
+        updateResultsCounter();
+        checkEmptyState();
 
         const sentinel = document.querySelector('#scroll-sentinel');
         if (sentinel && sentinel.offsetParent !== null && currentPromptIndex < sourceArray.length) {
@@ -2269,6 +2596,95 @@ function loadMorePrompts(forceInitial) {
             }
         }
     }, isInitial ? 0 : 400);
+}
+function checkEmptyState() {
+    const grid = document.getElementById('prompts-grid');
+    const emptyState = document.getElementById('empty-state');
+    if (!grid || !emptyState) return;
+    
+    if (isLoadingPrompts) return;
+    
+    const sourceArray = currentFilter.type ? filteredPrompts : allPrompts;
+    
+    if (sourceArray.length === 0) {
+        emptyState.classList.remove('hidden');
+        grid.classList.add('hidden');
+    } else {
+        emptyState.classList.add('hidden');
+        grid.classList.remove('hidden');
+    }
+}
+
+function showSkeletons() {
+    const grid = document.getElementById('prompts-grid');
+    if (!grid) return;
+    
+    let html = '';
+    for (let i = 0; i < 9; i++) {
+        html += `
+        <div class="skeleton-card bg-[#1A1A1A] border border-[#333] rounded-2xl p-5 flex flex-col gap-3">
+            <div class="flex justify-between items-start gap-3">
+                <div class="skeleton-line h-5 w-3/4 rounded-lg"></div>
+                <div class="skeleton-line h-4 w-16 rounded-md"></div>
+            </div>
+            <div class="skeleton-line h-3 w-full rounded-md"></div>
+            <div class="skeleton-line h-3 w-4/5 rounded-md"></div>
+            <div class="skeleton-line h-32 w-full rounded-xl mt-2"></div>
+            <div class="flex justify-end">
+                <div class="skeleton-line h-9 w-9 rounded-xl"></div>
+            </div>
+        </div>`;
+    }
+    grid.innerHTML = html;
+}
+
+function handleCopyBtn(btn, isModal) {
+    const card = btn.closest(isModal ? '#prompt-modal-content' : '.group');
+    const content = card && card.querySelector(isModal ? '#prompt-modal-text' : '.prompt-content');
+    if (!content) return;
+    
+    navigator.clipboard.writeText(content.textContent).then(() => {
+        if (isModal) {
+            const icon = btn.querySelector('i');
+            const span = btn.querySelector('span');
+            if (icon) {
+                icon.className = 'ph-bold ph-check icon-sm';
+                icon.style.color = '#22c55e';
+            }
+            if (span) span.textContent = 'Copied';
+            btn.style.color = '#22c55e';
+            btn.style.borderColor = '#22c55e';
+            
+            setTimeout(() => {
+                if (icon) {
+                    icon.className = 'ph-bold ph-copy icon-sm';
+                    icon.style.color = '';
+                }
+                if (span) span.textContent = 'Copy';
+                btn.style.color = '';
+                btn.style.borderColor = '';
+            }, 2000);
+        } else {
+            const icon = btn.querySelector('i');
+            if (!icon) return;
+            
+            btn.style.transition = 'all 0.2s ease';
+            icon.style.transition = 'all 0.2s ease';
+            icon.className = 'ph-bold ph-check icon-sm';
+            icon.style.color = '#22c55e';
+            btn.style.borderColor = '#22c55e';
+            
+            setTimeout(() => {
+                icon.style.opacity = '0';
+                setTimeout(() => {
+                    icon.className = 'ph-bold ph-copy icon-sm';
+                    icon.style.color = '';
+                    btn.style.borderColor = '';
+                    icon.style.opacity = '1';
+                }, 200);
+            }, 1800);
+        }
+    });
 }
 
 function setupInfiniteScroll() {
@@ -2294,10 +2710,29 @@ function openPromptModal(index) {
     const descEl = document.getElementById('prompt-modal-desc');
     const textEl = document.getElementById('prompt-modal-text');
     const tagsEl = document.getElementById('prompt-modal-tags');
+    const tokenEl = document.getElementById('prompt-modal-tokens');
+    const favBtn = document.getElementById('prompt-modal-fav-btn');
     
     titleEl.textContent = prompt.title;
     descEl.textContent = prompt.description;
     textEl.textContent = prompt.prompt;
+
+    if (tokenEl) {
+        const tokenCount = (prompt.prompt || '').length;
+        tokenEl.textContent = 'Tokens: ' + tokenCount.toLocaleString();
+    }
+
+    if (favBtn && prompt.numeric_id !== undefined) {
+        updateFavBtn(favBtn, isFavorite(prompt.numeric_id));
+        favBtn.onclick = () => {
+            const nowFav = toggleFavorite(prompt.numeric_id);
+            updateFavBtn(favBtn, nowFav, true);
+            const favView = document.getElementById('favorites-view');
+            if (favView && !favView.classList.contains('hidden')) {
+                renderFavoritesView();
+            }
+        };
+    }
 
     let tagsHtml = `<span class="text-[10px] uppercase tracking-wider border border-[#333] px-2 py-0.5 rounded-md text-[#888] bg-[#111] font-medium">${escapeHTML(prompt.category || 'Text')}</span>`;
     
@@ -2310,8 +2745,11 @@ function openPromptModal(index) {
     }
     tagsEl.innerHTML = tagsHtml;
 
-    if (typeof lucide !== 'undefined' && lucide.createIcons) {
-        lucide.createIcons();
+    const numericId = prompt.numeric_id;
+    if (numericId) {
+        try {
+            history.pushState({ view: 'prompt', id: numericId }, '', `#/prompt/${numericId}`);
+        } catch(e) {}
     }
 
     modal.classList.add('active');
@@ -2323,6 +2761,11 @@ function closePromptModal() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        if (location.hash.startsWith('#/prompt/')) {
+            try {
+                history.pushState({ view: 'main-view' }, '', '#main-view');
+            } catch(e) {}
+        }
     }
 }
 
@@ -2345,9 +2788,16 @@ document.addEventListener('click', function(e) {
         return;
     }
 
-    if (e.target.closest('[data-action="copy"]') || e.target.closest('.ai-trigger-btn')) {
+    const copyBtn = e.target.closest('[data-action="copy"]');
+    if (copyBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isModal = !!copyBtn.closest('#prompt-modal-content');
+        handleCopyBtn(copyBtn, isModal);
         return;
     }
+
+    if (e.target.closest('.ai-trigger-btn')) return;
 
     const card = e.target.closest('.prompt-card');
     if (card) {
