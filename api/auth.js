@@ -1,23 +1,14 @@
-const { Pool } = require('pg');
+export default function handler(req, res) {
+    const provider = req.query.provider;
+    const name = req.query.name;
 
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
-
-export default async function handler(req, res) {
-    if (req.method === 'OPTIONS') {
-        return res.status(200).end();
-    }
-
-    try {
-        const client = await pool.connect();
-        const result = await client.query('SELECT NOW()');
-        client.release();
-        return res.status(200).json({ status: "Database connected successfully!", time: result.rows[0].now });
-    } catch (error) {
-        return res.status(500).json({ error: "Database connection failed" });
+    if (provider === 'github') {
+        const clientId = process.env.GITHUB_CLIENT_ID;
+        const state = Buffer.from(JSON.stringify({ name })).toString('base64');
+        const redirectUri = `https://github.com/login/oauth/authorize?client_id=${clientId}&state=${state}&scope=read:user`;
+        
+        res.redirect(302, redirectUri);
+    } else {
+        res.status(400).json({ error: 'Unsupported provider' });
     }
 }

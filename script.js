@@ -793,6 +793,25 @@ function initAuth() {
 
     let userName = '';
 
+    function getCookie(n) {
+        var m = document.cookie.match(new RegExp("(?:^|; )" + n.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));
+        return m ? decodeURIComponent(m[1]) : undefined;
+    }
+    
+    var c = getCookie('auth_user');
+    if (c) {
+        try {
+            var u = JSON.parse(c);
+            if (authButtons && userProfile && avatarText) {
+                authButtons.classList.add('hidden');
+                authButtons.classList.remove('md:flex');
+                userProfile.classList.remove('hidden');
+                userProfile.classList.add('md:flex');
+                avatarText.textContent = u.name.charAt(0).toUpperCase();
+            }
+        } catch(e) {}
+    }
+
     function openModal() {
         step1.classList.remove('hidden');
         step1.classList.add('flex');
@@ -841,6 +860,9 @@ function initAuth() {
     document.querySelectorAll('.oauth-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
+            if (btn.textContent.includes('GitHub')) {
+                window.location.href = '/api/auth?provider=github&name=' + encodeURIComponent(userName);
+            }
         });
     });
 }
