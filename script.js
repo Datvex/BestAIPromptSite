@@ -68,7 +68,7 @@ const translations = {
         ai_tab_code: "Code",
         nav_login: "Log In",
         nav_signup: "Sign Up",
-        signup_title_1: "Your first deploy<br>is just a sign-up away.",
+        signup_title_1: "Your perfect prompt<br>is just a sign-up away.",
         signup_name_label: "Your Name",
         signup_continue: "Continue",
         signup_title_2: "Let's create<br>your account"
@@ -142,7 +142,7 @@ const translations = {
         ai_tab_code: "Код",
         nav_login: "Вход",
         nav_signup: "Регистрация",
-        signup_title_1: "Ваш первый деплой<br>всего в шаге от вас.",
+        signup_title_1: "Ваш идеальный промпт<br>всего в шаге от вас.",
         signup_name_label: "Ваше имя",
         signup_continue: "Продолжить",
         signup_title_2: "Давайте создадим<br>ваш аккаунт"
@@ -839,15 +839,8 @@ function initAuth() {
     }
 
     document.querySelectorAll('.oauth-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            closeModal();
-            if (authButtons && userProfile && avatarText) {
-                authButtons.classList.add('hidden');
-                authButtons.classList.remove('md:flex');
-                userProfile.classList.remove('hidden');
-                userProfile.classList.add('md:flex');
-                avatarText.textContent = userName.charAt(0).toUpperCase();
-            }
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
         });
     });
 }
