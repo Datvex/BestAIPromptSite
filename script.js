@@ -2454,7 +2454,11 @@ function createPromptCardHTML(p, realIndex) {
                 </div>
                 <pre class="prompt-content bg-[#0A0A0A] border border-[#222] group-hover:border-[#333] rounded-xl p-4 text-xs font-mono text-[#A0A0A0] overflow-x-auto h-32 whitespace-pre-wrap transition-colors duration-300">${promptText}</pre>
             </div>
-            <div class="flex justify-end">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-1.5 text-[#666]">
+                    <i class="ph-bold ph-heart icon-sm"></i>
+                    <span class="card-likes-count text-[12px] font-medium">0</span>
+                </div>
                 <button class="ai-trigger-btn flex items-center justify-center w-9 h-9 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] hover:text-white transition-all duration-200 text-[#888] cursor-pointer shadow-sm">
                     <i class="ph-bold ph-play icon-sm"></i>
                 </button>
@@ -2681,6 +2685,21 @@ function loadMorePrompts(forceInitial) {
 
             grid.insertAdjacentHTML('beforeend', html);
             currentPromptIndex += PROMPTS_PER_PAGE;
+
+            const newCards = grid.querySelectorAll('.prompt-card:not([data-likes-loaded])');
+            newCards.forEach(card => {
+                card.setAttribute('data-likes-loaded', '1');
+                const idx = card.getAttribute('data-index');
+                const prompt = allPrompts[idx];
+                if (!prompt || !prompt.numeric_id) return;
+                fetch(`/api/likes?prompt_id=${prompt.numeric_id}`)
+                    .then(r => r.json())
+                    .then(data => {
+                        const countEl = card.querySelector('.card-likes-count');
+                        if (countEl) countEl.textContent = data.count;
+                    })
+                    .catch(() => {});
+            });
         } catch (e) {}
 
         if (spinner) {
@@ -2884,6 +2903,10 @@ function openPromptModal(index) {
                 return;
             }
 
+            likeIcon.classList.remove('like-pop');
+            void likeIcon.offsetWidth;
+            likeIcon.classList.add('like-pop');
+
             fetch(`/api/likes?prompt_id=${prompt.numeric_id}`, { method: 'POST' })
                 .then(r => r.json())
                 .then(data => {
@@ -2895,6 +2918,8 @@ function openPromptModal(index) {
                         likeIcon.className = 'ph-bold ph-heart icon-sm';
                         likeIcon.style.color = '';
                     }
+                    const cardLikes = document.querySelector(`.prompt-card[data-index="${index}"] .card-likes-count`);
+                    if (cardLikes) cardLikes.textContent = data.count;
                 })
                 .catch(() => {});
         };
