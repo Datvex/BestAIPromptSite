@@ -81,6 +81,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         modal_copy_title: 'Prompt copied',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
@@ -167,6 +168,7 @@ const translations = {
         account_saving: 'Сохранение...',
         account_logout: 'Выйти',
         account_network_error: 'Ошибка сети.',
+        account_nickname_taken: 'Этот никнейм уже занят.',
         favorites_empty_title: 'У вас пока нет избранных промптов.',
         favorites_empty_desc: 'Откройте любой промпт и нажмите на закладку чтобы добавить.',
     },
@@ -245,6 +247,7 @@ const translations = {
         account_saving: '保存中...',
         account_logout: '退出',
         account_network_error: '网络错误。',
+        account_nickname_taken: '该昵称已被使用。',
         favorites_empty_title: '暂无收藏提示词。',
         favorites_empty_desc: '打开任何提示词并点击书签图标即可添加。',
     },
@@ -323,6 +326,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -401,6 +405,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -479,6 +484,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -557,6 +563,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -635,6 +642,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -713,6 +721,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -791,6 +800,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -869,6 +879,7 @@ const translations = {
         account_saving: 'Saving...',
         account_logout: 'Log out',
         account_network_error: 'Network error.',
+        account_nickname_taken: 'This nickname is already taken.',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     }
@@ -3300,7 +3311,10 @@ function initAccountModal() {
                 });
                 const data = await res.json();
 
-                if (data.success) {
+                if (res.status === 409) {
+                    nicknameError.textContent = translations[currentLang]?.account_nickname_taken || 'This nickname is already taken.';
+                    nicknameError.classList.remove('hidden');
+                } else if (data.success) {
                     const match = document.cookie.match(/auth_user=([^;]+)/);
                     if (match) {
                         const u = JSON.parse(decodeURIComponent(match[1]));
@@ -3311,7 +3325,7 @@ function initAccountModal() {
                     if (avatarText) avatarText.textContent = nick.charAt(0).toUpperCase();
                     closeModal();
                 } else {
-                    nicknameError.textContent = data.error || translations[currentLang]?.account_network_error || 'Error saving.';
+                    nicknameError.textContent = data.error || translations[currentLang]?.account_network_error || 'Network error.';
                     nicknameError.classList.remove('hidden');
                 }
             } catch(e) {

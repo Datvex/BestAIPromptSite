@@ -41,6 +41,13 @@ export default async function handler(req, res) {
 
     const client = await pool.connect();
     try {
+        const existing = await client.query(
+            'SELECT id FROM users WHERE LOWER(name) = LOWER($1) AND id != $2',
+            [name, userId]
+        );
+        if (existing.rows.length > 0) {
+            return res.status(409).json({ error: 'This nickname is already taken.' });
+        }
         await client.query('UPDATE users SET name = $1 WHERE id = $2', [name, userId]);
         return res.status(200).json({ success: true });
     } catch(e) {
