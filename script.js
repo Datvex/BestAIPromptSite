@@ -891,6 +891,7 @@ let closeRadixMenu = null;
 let allPrompts = [];
 let filteredPrompts = [];
 let currentFilter = { type: null, id: null, displayName: null };
+let likesCache = {};
 let currentPromptIndex = 0;
 const PROMPTS_PER_PAGE = 15;
 let isLoadingPrompts = false;
@@ -1483,7 +1484,7 @@ function updateSidebarFilters() {
     if (sortVal === 'oldest') {
         filteredPrompts.reverse();
     } else if (sortVal === 'popular') {
-        filteredPrompts.sort((a, b) => (b.views || 0) - (a.views || 0));
+        filteredPrompts.sort((a, b) => (likesCache[b.numeric_id] || 0) - (likesCache[a.numeric_id] || 0));
     }
 
     currentFilter = { type: 'sidebar', id: 'mixed', displayName: 'Combined' };
@@ -2711,11 +2712,20 @@ async function loadPrompts() {
         }
     }
 
+    try {
+        const likesRes = await fetch('/api/likes-all');
+        if (likesRes.ok) {
+            likesCache = await likesRes.json();
+        }
+    } catch(e) {
+        console.warn('Failed to load likes', e);
+    }
+
     allPrompts = shuffleArray(allPrompts);
     filteredPrompts = allPrompts;
     currentPromptIndex = 0;
     grid.innerHTML = '';
-    
+
     try {
         await generateTagsPage();
     } catch(e) {}
@@ -2838,13 +2848,18 @@ function loadMorePrompts(forceInitial) {
                 const idx = card.getAttribute('data-index');
                 const prompt = allPrompts[idx];
                 if (!prompt || !prompt.numeric_id) return;
-                fetch(`/api/likes?prompt_id=${prompt.numeric_id}`)
-                    .then(r => r.json())
-                    .then(data => {
-                        const countEl = card.querySelector('.card-likes-count');
-                        if (countEl) countEl.textContent = data.count;
-                    })
-                    .catch(() => {});
+                const countEl = card.querySelector('.card-likes-count');
+                if (likesCache[prompt.numeric_id] !== undefined) {
+                    if (countEl) countEl.textContent = likesCache[prompt.numeric_id];
+                } else {
+                    fetch(`/api/likes?prompt_id=${prompt.numeric_id}`)
+                        .then(r => r.json())
+                        .then(data => {
+                            likesCache[prompt.numeric_id] = data.count;
+                            if (countEl) countEl.textContent = data.count;
+                        })
+                        .catch(() => {});
+                }
             });
         } catch (e) {}
 
@@ -3031,9 +3046,14 @@ function openPromptModal(index) {
         likeIcon.className = 'ph-bold ph-heart icon-sm';
         likeIcon.style.color = '';
 
+        if (likesCache[prompt.numeric_id] !== undefined) {
+            likesCount.textContent = likesCache[prompt.numeric_id];
+        }
+
         fetch(`/api/likes?prompt_id=${prompt.numeric_id}`)
             .then(r => r.json())
             .then(data => {
+                likesCache[prompt.numeric_id] = data.count;
                 likesCount.textContent = data.count;
                 if (data.liked) {
                     likeIcon.className = 'ph-fill ph-heart icon-sm';
@@ -3056,6 +3076,7 @@ function openPromptModal(index) {
             fetch(`/api/likes?prompt_id=${prompt.numeric_id}`, { method: 'POST' })
                 .then(r => r.json())
                 .then(data => {
+                    likesCache[prompt.numeric_id] = data.count;
                     likesCount.textContent = data.count;
                     if (data.liked) {
                         likeIcon.className = 'ph-fill ph-heart icon-sm';
