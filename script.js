@@ -899,6 +899,35 @@ let isAppReady = false;
 let pendingViewSwitch = null;
 let viewSwitchTimeout = null;
 
+let _categoriesPromise = null;
+let _tagsPromise = null;
+
+function ensureCategories() {
+    if (!_categoriesPromise) {
+        _categoriesPromise = fetch(
+            'https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/categories.json',
+            { cache: 'no-store' }
+        ).then(r => {
+            if (!r.ok) throw new Error('Failed to load categories');
+            return r.json();
+        });
+    }
+    return _categoriesPromise;
+}
+
+function ensureTags() {
+    if (!_tagsPromise) {
+        _tagsPromise = fetch(
+            'https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/tags.json',
+            { cache: 'no-store' }
+        ).then(r => {
+            if (!r.ok) throw new Error('Failed to load tags');
+            return r.json();
+        });
+    }
+    return _tagsPromise;
+}
+
 const $ = (s, c) => (c || document).querySelector(s);
 const $$ = (s, c) => (c || document).querySelectorAll(s);
 
@@ -1530,26 +1559,7 @@ function initDropdowns() {
 
 async function loadCategories() {
     try {
-        const cacheKey = 'datvex_categories';
-        let data;
-        const cached = sessionStorage.getItem(cacheKey);
-
-        if (cached) {
-            try {
-                data = JSON.parse(cached);
-            } catch(e) {
-                sessionStorage.removeItem(cacheKey);
-                var r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/categories.json');
-                if (!r.ok) throw new Error('Network error');
-                data = await r.json();
-                try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); } catch(e) {}
-            }
-        } else {
-            const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/categories.json');
-            if (!r.ok) throw new Error('Network error');
-            data = await r.json();
-            try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); } catch(e) {}
-        }
+        const data = await ensureCategories();
 
         const list = $('#category-list');
         if (!list) return;
@@ -1721,18 +1731,7 @@ async function initSidebarTags() {
 
     let data = [];
     try {
-        const cacheKey = 'datvex_tags';
-        const cached = sessionStorage.getItem(cacheKey);
-        
-        if (cached) {
-            data = JSON.parse(cached);
-        } else {
-            const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/tags.json');
-            if (r.ok) {
-                data = await r.json();
-                try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); } catch(e) {}
-            }
-        }
+        data = await ensureTags();
     } catch (e) {
         return;
     }
@@ -1793,18 +1792,7 @@ async function generateTagsPage() {
 
     let data = [];
     try {
-        const cacheKey = 'datvex_tags';
-        const cached = sessionStorage.getItem(cacheKey);
-        
-        if (cached) {
-            data = JSON.parse(cached);
-        } else {
-            const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/tags.json');
-            if (r.ok) {
-                data = await r.json();
-                try { sessionStorage.setItem(cacheKey, JSON.stringify(data)); } catch(e) {}
-            }
-        }
+        data = await ensureTags();
     } catch (e) {
         return;
     }
@@ -1876,66 +1864,33 @@ function pluralThemes(count, lang) {
     return count + ' ' + t;
 }
 
-function generateCategoriesPage() {
+async function generateCategoriesPage() {
     const container = $('#categories-container');
     if (!container) return;
 
-    const categoriesData = [
-        {
-            "group": "Text / LLM (Language Models)",
-            "icon": "ph-article",
-            "items": [
-                { "id": "programming", "name": "Programming & Tech" },
-                { "id": "writing", "name": "Writing & Content" },
-                { "id": "marketing", "name": "Marketing, SEO & Growth" },
-                { "id": "business", "name": "Business & Strategy" },
-                { "id": "productivity", "name": "Productivity & Workflow" },
-                { "id": "education", "name": "Education & Learning" },
-                { "id": "career", "name": "Career & Hiring" },
-                { "id": "customer_support", "name": "Customer Support & Success" }
-            ]
-        },
-        {
-            "group": "Image Generation",
-            "icon": "ph-image",
-            "items": [
-                { "id": "image_general", "name": "Image Prompts (General)" },
-                { "id": "image_product", "name": "Product & E-commerce" },
-                { "id": "image_branding", "name": "Logos & Branding" },
-                { "id": "image_concept_art", "name": "Illustration & Concept Art" },
-                { "id": "image_photography", "name": "Photography Styles & Lighting" }
-            ]
-        },
-        {
-            "group": "Video Generation",
-            "icon": "ph-video",
-            "items": [
-                { "id": "video_general", "name": "Video Prompts (General)" },
-                { "id": "video_storyboard", "name": "Storyboards & Shot Lists" },
-                { "id": "video_ads", "name": "Ads & Social Clips" },
-                { "id": "video_cinematic", "name": "Cinematic Styles & Camera Moves" }
-            ]
-        },
-        {
-            "group": "Audio / Music Generation",
-            "icon": "ph-music-note",
-            "items": [
-                { "id": "music_general", "name": "Music Prompts (General)" },
-                { "id": "music_genres", "name": "Genres, Mood & Structure" },
-                { "id": "music_lyrics", "name": "Lyrics & Songwriting" },
-                { "id": "audio_sfx", "name": "Sound Effects (SFX)" },
-                { "id": "voice_general", "name": "Voice Generation" }
-            ]
-        }
-    ];
+    let categoriesData;
+    try {
+        categoriesData = await ensureCategories();
+    } catch (e) {
+        console.error('Failed to load categories for page:', e);
+        return;
+    }
+
+    const groupIcons = {
+        'Text / LLM (Language Models)': 'ph-article',
+        'Image Generation': 'ph-image',
+        'Video Generation': 'ph-video',
+        'Audio / Music Generation': 'ph-music-note',
+        'Presentation': 'ph-presentation'
+    };
 
     let html = '';
 
     categoriesData.forEach(cat => {
         let itemsHtml = '';
+        const icon = groupIcons[cat.group] || 'ph-folder';
         
         cat.items.forEach(item => {
-            // Генерируем элементы (темы)
             itemsHtml += `
                 <a href="#" data-id="${item.id}" class="group py-3 px-4 -mx-4 hover:bg-[#111] rounded-lg transition-colors flex items-center justify-between">
                     <div>
@@ -1945,11 +1900,10 @@ function generateCategoriesPage() {
             `;
         });
 
-        // Генерируем саму группу (заголовок + список тем)
         html += `
             <div class="flex flex-col border-b border-[#222] pb-6 last:border-0">
                 <div class="flex items-center gap-2 mb-3">
-                    <i class="ph-bold ${cat.icon} icon-lg text-[#888]"></i>
+                    <i class="ph-bold ${icon} icon-lg text-[#888]"></i>
                     <h2 class="text-lg font-semibold text-white tracking-tight">${cat.group}</h2>
                     <i class="ph-bold ph-caret-right icon-md text-[#666]"></i>
                     <span class="text-[13px] text-[#888]">${pluralThemes(cat.items.length, currentLang)}</span>
