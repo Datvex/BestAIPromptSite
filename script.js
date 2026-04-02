@@ -25,6 +25,7 @@ const translations = {
         type_image: "Image",
         type_video: "Video",
         type_audio: "Audio",
+        type_presentation: "Presentation",
         sort_newest: "Newest",
         sort_popular: "Popular",
         sort_oldest: "Oldest",
@@ -112,6 +113,7 @@ const translations = {
         type_image: "Изображение",
         type_video: "Видео",
         type_audio: "Аудио",
+        type_presentation: "Презентация",
         sort_newest: "Новые",
         sort_popular: "Популярные",
         sort_oldest: "Старые",
@@ -197,6 +199,7 @@ const translations = {
         type_image: "图像",
         type_video: "视频",
         type_audio: "音频",
+        type_presentation: "演示文稿",
         sort_newest: "最新",
         sort_popular: "最热",
         sort_oldest: "最旧",
@@ -276,6 +279,7 @@ const translations = {
         type_image: "Imagen",
         type_video: "Video",
         type_audio: "Audio",
+        type_presentation: "Presentación",
         sort_newest: "Más nuevos",
         sort_popular: "Populares",
         sort_oldest: "Más antiguos",
@@ -355,6 +359,7 @@ const translations = {
         type_image: "Bild",
         type_video: "Video",
         type_audio: "Audio",
+        type_presentation: "Präsentation",
         sort_newest: "Neueste",
         sort_popular: "Beliebt",
         sort_oldest: "Älteste",
@@ -434,6 +439,7 @@ const translations = {
         type_image: "छवि",
         type_video: "वीडियो",
         type_audio: "ऑडियो",
+        type_presentation: "प्रस्तुति",
         sort_newest: "नवीनतम",
         sort_popular: "लोकप्रिय",
         sort_oldest: "सबसे पुराना",
@@ -513,6 +519,7 @@ const translations = {
         type_image: "Image",
         type_video: "Vidéo",
         type_audio: "Audio",
+        type_presentation: "Présentation",
         sort_newest: "Le plus récent",
         sort_popular: "Populaire",
         sort_oldest: "Le plus ancien",
@@ -592,6 +599,7 @@ const translations = {
         type_image: "Immagine",
         type_video: "Video",
         type_audio: "Audio",
+        type_presentation: "Presentazione",
         sort_newest: "Più recenti",
         sort_popular: "Popolari",
         sort_oldest: "Più vecchi",
@@ -671,6 +679,7 @@ const translations = {
         type_image: "Imagem",
         type_video: "Vídeo",
         type_audio: "Áudio",
+        type_presentation: "Apresentação",
         sort_newest: "Mais recentes",
         sort_popular: "Populares",
         sort_oldest: "Mais antigos",
@@ -750,6 +759,7 @@ const translations = {
         type_image: "画像",
         type_video: "動画",
         type_audio: "音声",
+        type_presentation: "プレゼンテーション",
         sort_newest: "新着順",
         sort_popular: "人気順",
         sort_oldest: "古い順",
@@ -829,6 +839,7 @@ const translations = {
         type_image: "이미지",
         type_video: "비디오",
         type_audio: "오디오",
+        type_presentation: "프레젠테이션",
         sort_newest: "최신순",
         sort_popular: "인기순",
         sort_oldest: "오래된순",
@@ -1480,6 +1491,7 @@ function getPromptType(p) {
     if (combined.includes('image') || combined.includes('photo') || combined.includes('art') || combined.includes('изображ')) return 'image';
     if (combined.includes('video') || combined.includes('film') || combined.includes('видео')) return 'video';
     if (combined.includes('audio') || combined.includes('music') || combined.includes('voice') || combined.includes('sound') || combined.includes('аудио') || combined.includes('музык') || combined.includes('голос')) return 'audio';
+    if (combined.includes('presentation') || combined.includes('презентаци') || combined.includes('slide') || combined.includes('powerpoint') || combined.includes('notebooklm') || combined.includes('notebook')) return 'presentation';
     return (p.type || 'text').toLowerCase();
 }
 
@@ -1684,45 +1696,6 @@ function initRadixNav() {
         });
     }
 
-    var modelLinks = $$('#content-models a[data-filter]');
-    for (var i = 0; i < modelLinks.length; i++) {
-        (function(link) {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (closeRadixMenu) closeRadixMenu();
-                
-                var catDropdown = document.querySelector('#dropdown-category');
-                if (catDropdown) {
-                    var catItems = catDropdown.querySelectorAll('.dropdown-item');
-                    catItems.forEach(item => item.classList.remove('active'));
-                    var allItem = catDropdown.querySelector('[data-value="all"]');
-                    if (allItem) {
-                        allItem.classList.add('active');
-                        var sel = catDropdown.querySelector('.dropdown-selected');
-                        if (sel) sel.textContent = allItem.textContent;
-                    }
-                }
-                
-                var searchInput = document.querySelector('#main-search');
-                if (searchInput) searchInput.value = '';
-                
-                var allTags = document.querySelectorAll('#tags-container .tag-btn');
-                allTags.forEach(t => t.classList.remove('tag-active'));
-                
-                var filterHeader = document.getElementById('filter-header');
-                if (filterHeader) {
-                    filterHeader.classList.add('hidden');
-                    filterHeader.classList.remove('flex');
-                }
-                
-                var aside = document.querySelector('aside');
-                if (aside) aside.style.display = '';
-
-                setTypeFilter(link.dataset.filter);
-                switchView('main-view');
-            });
-        })(modelLinks[i]);
-    }
 }
 
 async function initSidebarTags() {
@@ -2030,13 +2003,18 @@ function initViewSwitcher() {
             var searchInput = document.querySelector('#main-search');
             if (searchInput) searchInput.value = '';
             document.querySelectorAll('#tags-container .tag-btn').forEach(t => t.classList.remove('tag-active'));
-            
+
+            var filterHeader = document.getElementById('filter-header');
+            if (filterHeader) { filterHeader.classList.add('hidden'); filterHeader.classList.remove('flex'); }
+            var aside = document.querySelector('aside');
+            if (aside) aside.style.display = '';
+
             currentFilter = { type: null, id: null, displayName: null };
             filteredPrompts = allPrompts;
             currentPromptIndex = 0;
             const grid = document.getElementById('prompts-grid');
             if (grid) grid.innerHTML = '';
-            
+
             updateResetBtn();
             updateResultsCounter();
             loadMorePrompts();
@@ -2087,14 +2065,6 @@ function initViewSwitcher() {
         footerCat.addEventListener('click', function(e) {
             e.preventDefault();
             switchView('categories-view');
-        });
-    }
-
-    var footerModels = $('#footer-link-models');
-    if (footerModels) {
-        footerModels.addEventListener('click', function(e) {
-            e.preventDefault();
-            switchView('main-view');
         });
     }
 
@@ -2185,15 +2155,6 @@ function initViewSwitcher() {
         });
     });
 
-    document.querySelectorAll('#content-models a[data-filter]').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (closeRadixMenu) closeRadixMenu();
-            var titleSpan = link.querySelector('span[data-i18n^="model_"]');
-            var displayName = titleSpan ? titleSpan.textContent.trim() : link.dataset.filter;
-            applyFilter('model', link.dataset.filter, displayName);
-        });
-    });
 }
 
 // --- ЛОГИКА МЕНЮ ВЫБОРА ИИ И ЗАПУСКА ПРОМПТОВ ---
@@ -2636,17 +2597,52 @@ async function loadPrompts() {
     try {
         const cacheKey = 'datvex_prompts';
         const cached = sessionStorage.getItem(cacheKey);
-        
-        if (cached) {
-            allPrompts = JSON.parse(cached);
-        } else {
-            const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/prompts.json');
-            if (r.ok) {
-                allPrompts = await r.json();
+
+        const r = await fetch('https://raw.githubusercontent.com/Datvex/Datvex-prompt-LAB/main/data/prompts.json', { cache: 'no-store' });
+        if (r.ok) {
+            const remotePrompts = await r.json();
+            if (!Array.isArray(remotePrompts)) throw new Error('Invalid remote data');
+
+            const computeId = (p) => {
+                if (p.numeric_id !== undefined) return String(p.numeric_id);
+                let str = (p.title || '') + (p.prompt || '');
+                let hash = 0;
+                for (let j = 0; j < str.length; j++) {
+                    hash = Math.imul(31, hash) + str.charCodeAt(j) | 0;
+                }
+                return String(Math.abs(hash));
+            };
+
+            if (cached) {
+                const localPrompts = JSON.parse(cached);
+                const localIds = new Set(localPrompts.map(p => computeId(p)));
+                let hasNew = false;
+                for (const rp of remotePrompts) {
+                    const rid = computeId(rp);
+                    rp.numeric_id = rid;
+                    if (!localIds.has(rid)) {
+                        localPrompts.push(rp);
+                        hasNew = true;
+                    }
+                }
+                if (hasNew) {
+                    allPrompts = localPrompts;
+                    try { sessionStorage.setItem(cacheKey, JSON.stringify(allPrompts)); } catch(e) {}
+                } else {
+                    allPrompts = localPrompts;
+                }
+            } else {
+                allPrompts = remotePrompts;
                 try { sessionStorage.setItem(cacheKey, JSON.stringify(allPrompts)); } catch(e) {}
             }
+        } else if (cached) {
+            allPrompts = JSON.parse(cached);
         }
     } catch (e) {
+        try {
+            const cached = sessionStorage.getItem('datvex_prompts');
+            if (cached) allPrompts = JSON.parse(cached);
+        } catch(e2) {}
         console.warn('Failed to load prompts', e);
     }
 

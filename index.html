@@ -58,11 +58,6 @@
                         <i class="ph-bold ph-caret-down icon-sm opacity-70 transition-transform duration-200"></i>
                     </button>
 
-                    <button data-menu="models" data-i18n="nav_models" class="nav-trigger flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
-                        Модели
-                        <i class="ph-bold ph-caret-down icon-sm opacity-70 transition-transform duration-200"></i>
-                    </button>
-
                     <button data-menu="tags" data-i18n="nav_tags" class="nav-trigger flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
                         Теги
                         <i class="ph-bold ph-caret-down icon-sm opacity-70 transition-transform duration-200"></i>
@@ -92,53 +87,6 @@
                                             <span data-i18n="dropdown_cat_desc" class="text-[13px] text-[#888] group-hover/item:text-[#A0A0A0] transition-colors duration-200 leading-snug">Перейти к списку категорий</span>
                                         </div>
                                     </a>
-                                </div>
-                            </div>
-
-                            <div id="content-models" class="radix-content w-full h-full p-6 pt-7">
-                                <h4 data-i18n="nav_models" class="text-[12px] font-medium text-[#888] mb-5">Модели</h4>
-                                <div class="flex flex-col gap-5">
-                                    
-                                    <a href="#" data-filter="text" class="flex items-start gap-3.5 group/item">
-                                        <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i class="ph-bold ph-file-text icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
-                                        </div>
-                                        <div class="flex flex-col pt-0.5">
-                                            <span data-i18n="model_text_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Текст</span>
-                                            <span data-i18n="model_text_desc" class="text-[13px] text-[#888] group-hover/item:text-[#A0A0A0] transition-colors duration-200 leading-snug">Промпты для генерации текста</span>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" data-filter="image" class="flex items-start gap-3.5 group/item">
-                                        <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i class="ph-bold ph-image icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
-                                        </div>
-                                        <div class="flex flex-col pt-0.5">
-                                            <span data-i18n="model_image_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Изображение</span>
-                                            <span data-i18n="model_image_desc" class="text-[13px] text-[#888] group-hover/item:text-[#A0A0A0] transition-colors duration-200 leading-snug">Промпты для генерации изображений</span>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" data-filter="video" class="flex items-start gap-3.5 group/item">
-                                        <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i class="ph-bold ph-video icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
-                                        </div>
-                                        <div class="flex flex-col pt-0.5">
-                                            <span data-i18n="model_video_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Видео</span>
-                                            <span data-i18n="model_video_desc" class="text-[13px] text-[#888] group-hover/item:text-[#A0A0A0] transition-colors duration-200 leading-snug">Промпты для генерации видео</span>
-                                        </div>
-                                    </a>
-
-                                    <a href="#" data-filter="audio" class="flex items-start gap-3.5 group/item">
-                                        <div class="flex items-center justify-center w-8 h-8 rounded-md border border-[#333] bg-[#111] group-hover/item:bg-white group-hover/item:border-white transition-all duration-200 shrink-0">
-                                            <i class="ph-bold ph-headphones icon-md text-[#888] group-hover/item:text-black transition-colors duration-200"></i>
-                                        </div>
-                                        <div class="flex flex-col pt-0.5">
-                                            <span data-i18n="model_audio_title" class="text-[14px] font-medium text-[#EDEDED] group-hover/item:text-white transition-colors duration-200 mb-1 leading-none">Аудио</span>
-                                            <span data-i18n="model_audio_desc" class="text-[13px] text-[#888] group-hover/item:text-[#A0A0A0] transition-colors duration-200 leading-snug">Промпты для генерации аудио</span>
-                                        </div>
-                                    </a>
-
                                 </div>
                             </div>
 
@@ -319,6 +267,7 @@
                                     <li data-i18n="type_image" class="dropdown-item px-3 py-2 hover:bg-[#2A2A2A] cursor-pointer transition-colors duration-150 rounded-md" data-value="image">Изображение</li>
                                     <li data-i18n="type_video" class="dropdown-item px-3 py-2 hover:bg-[#2A2A2A] cursor-pointer transition-colors duration-150 rounded-md" data-value="video">Видео</li>
                                     <li data-i18n="type_audio" class="dropdown-item px-3 py-2 hover:bg-[#2A2A2A] cursor-pointer transition-colors duration-150 rounded-md" data-value="audio">Аудио</li>
+                                    <li data-i18n="type_presentation" class="dropdown-item px-3 py-2 hover:bg-[#2A2A2A] cursor-pointer transition-colors duration-150 rounded-md" data-value="presentation">Презентация</li>
                                 </ul>
                             </div>
                         </div>
@@ -1213,7 +1162,6 @@ npx serve .</pre>
                     <div class="flex flex-col gap-4">
                         <h4 class="text-[12px] font-semibold text-white uppercase tracking-wider mb-1">Explore</h4>
                         <a href="#" id="footer-link-categories" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Categories</a>
-                        <a href="#" id="footer-link-models" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Models</a>
                         <a href="#" id="footer-link-tags" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Tags</a>
                         <a href="#" id="footer-link-sources" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Sources</a>
                     </div>
@@ -1224,6 +1172,7 @@ npx serve .</pre>
                         <a href="#" data-footer-filter="image" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Image</a>
                         <a href="#" data-footer-filter="video" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Video</a>
                         <a href="#" data-footer-filter="audio" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Audio</a>
+                        <a href="#" data-footer-filter="presentation" class="text-[14px] text-[#888] hover:text-white transition-colors w-fit">Presentation</a>
                     </div>
                     
                     <div class="flex flex-col gap-4">
@@ -1333,6 +1282,9 @@ npx serve .</pre>
         </button>
         <button class="mobile-nav-link mobile-nav-item" data-view="main-view" data-filter="audio">
             <i class="ph-bold ph-headphones icon-md"></i> Аудио
+        </button>
+        <button class="mobile-nav-link mobile-nav-item" data-view="main-view" data-filter="presentation">
+            <i class="ph-bold ph-presentation icon-md"></i> Презентация
         </button>
         <button class="mobile-nav-link mobile-nav-item" data-view="tags-view">
             <i class="ph-bold ph-tag icon-md"></i> Теги
