@@ -49,10 +49,8 @@ const translations = {
         model_video_desc: "Prompts for video generation",
         model_audio_title: "Audio",
         model_audio_desc: "Prompts for audio generation",
-        modal_copy_title: "Prompt copied",
         modal_cancel: "Cancel",
         modal_open: "Open ",
-        modal_desc: "Prompt copied to clipboard. Paste it into {name} after opening.",
         hero_title: "Discover and deploy <br class=\"hidden md:block\" /> perfect AI Prompts.",
         hero_desc: "Datvex provides the professional structured repository of high-quality prompts to build, scale, and secure a faster AI experience.",
         hero_btn_explore: "Start Exploring",
@@ -83,7 +81,6 @@ const translations = {
         account_logout: 'Log out',
         account_network_error: 'Network error.',
         account_nickname_taken: 'This nickname is already taken.',
-        modal_copy_title: 'Prompt copied',
         favorites_empty_title: 'No favorite prompts yet.',
         favorites_empty_desc: 'Open any prompt and click the bookmark icon to add.',
     },
@@ -137,10 +134,8 @@ const translations = {
         model_video_desc: "Промпты для генерации видео",
         model_audio_title: "Аудио",
         model_audio_desc: "Промпты для генерации аудио",
-        modal_copy_title: "Промпт скопирован",
         modal_cancel: "Отмена",
         modal_open: "Открыть ",
-        modal_desc: "Промпт скопирован в буфер обмена. Вставьте его в {name} после открытия.",
         hero_title: "Находите и используйте <br class=\"hidden md:block\" /> идеальные AI Промпты.",
         hero_desc: "Datvex это профессиональный структурированный репозиторий высококачественных промптов для создания, масштабирования и ускорения работы с ИИ.",
         hero_btn_explore: "Начать работу",
@@ -223,10 +218,8 @@ const translations = {
         model_video_desc: "用于视频生成的提示词",
         model_audio_title: "音频",
         model_audio_desc: "用于音频生成的提示词",
-        modal_copy_title: "提示词已复制",
         modal_cancel: "取消",
         modal_open: "打开 ",
-        modal_desc: "提示词已复制到剪贴板。打开 {name} 后粘贴。",
         hero_title: "发现并部署 <br class=\"hidden md:block\" /> 完美的 AI 提示词。",
         hero_desc: "Datvex 提供专业、结构化的高质量提示词库，帮助构建、扩展和保障更快速的 AI 体验。",
         hero_btn_explore: "开始探索",
@@ -303,10 +296,8 @@ const translations = {
         model_video_desc: "Prompts para generación de video",
         model_audio_title: "Audio",
         model_audio_desc: "Prompts para generación de audio",
-        modal_copy_title: "Prompt copiado",
         modal_cancel: "Cancelar",
         modal_open: "Abrir ",
-        modal_desc: "Prompt copiado al portapapeles. Pégalo en {name} después de abrirlo.",
         hero_title: "Descubre y despliega <br class=\"hidden md:block\" /> prompts de IA perfectos.",
         hero_desc: "Datvex proporciona un repositorio estructurado y profesional de prompts de alta calidad para construir, escalar y asegurar una experiencia de IA más rápida.",
         hero_btn_explore: "Comenzar a explorar",
@@ -383,10 +374,8 @@ const translations = {
         model_video_desc: "Prompts für die Videoerstellung",
         model_audio_title: "Audio",
         model_audio_desc: "Prompts für die Audioerstellung",
-        modal_copy_title: "Prompt kopiert",
         modal_cancel: "Abbrechen",
         modal_open: "Öffnen ",
-        modal_desc: "Prompt in die Zwischenablage kopiert. Fügen Sie ihn nach dem Öffnen in {name} ein.",
         hero_title: "Entdecken und nutzen Sie <br class=\"hidden md:block\" /> perfekte KI-Prompts.",
         hero_desc: "Datvex bietet ein professionelles, strukturiertes Repository mit hochwertigen Prompts, um eine schnellere KI-Erfahrung aufzubauen, zu skalieren und zu sichern.",
         hero_btn_explore: "Jetzt entdecken",
@@ -463,10 +452,8 @@ const translations = {
         model_video_desc: "वीडियो जनरेशन के लिए प्रॉम्ट्स",
         model_audio_title: "ऑडियो",
         model_audio_desc: "ऑडियो जनरेशन के लिए प्रॉम्ट्स",
-        modal_copy_title: "प्रॉम्ट कॉपी किया गया",
         modal_cancel: "रद्द करें",
         modal_open: "खोलें ",
-        modal_desc: "प्रॉम्ट क्लिपबोर्ड पर कॉपी किया गया। {name} खोलने के बाद पेस्ट करें।",
         hero_title: "खोजें और डिप्लॉय करें <br class=\"hidden md:block\" /> बेहतरीन AI प्रॉम्ट्स।",
         hero_desc: "Datvex उच्च-गुणवत्ता वाले प्रॉम्ट्स का एक पेशेवर संरचित रिपॉजिटरी प्रदान करता है ताकि तेज़ AI अनुभव का निर्माण, स्केल और सुरक्षा की जा सके।",
         hero_btn_explore: "खोजना शुरू करें",
@@ -543,10 +530,8 @@ const translations = {
         model_video_desc: "Prompts pour la génération de vidéo",
         model_audio_title: "Audio",
         model_audio_desc: "Prompts pour la génération audio",
-        modal_copy_title: "Prompt copié",
         modal_cancel: "Annuler",
         modal_open: "Ouvrir ",
-        modal_desc: "Prompt copié dans le presse-papiers. Collez-le dans {name} après ouverture.",
         hero_title: "Découvrez et déployez <br class=\"hidden md:block\" /> des prompts IA parfaits.",
         hero_desc: "Datvex fournit un référentiel structuré et professionnel de prompts de haute qualité pour créer, faire évoluer et sécuriser une expérience IA plus rapide.",
         hero_btn_explore: "Commencer à explorer",
@@ -623,10 +608,8 @@ const translations = {
         model_video_desc: "Prompt per la generazione di video",
         model_audio_title: "Audio",
         model_audio_desc: "Prompt per la generazione di audio",
-        modal_copy_title: "Prompt copiato",
         modal_cancel: "Annulla",
         modal_open: "Apri ",
-        modal_desc: "Prompt copiato negli appunti. Incollalo in {name} dopo l'apertura.",
         hero_title: "Scopri e distribuisci <br class=\"hidden md:block\" /> prompt IA perfetti.",
         hero_desc: "Datvex fornisce un repository strutturato professionale di prompt di alta qualità per creare, scalare e proteggere un'esperienza IA più rapida.",
         hero_btn_explore: "Inizia a esplorare",
@@ -703,10 +686,8 @@ const translations = {
         model_video_desc: "Prompts para geração de vídeo",
         model_audio_title: "Áudio",
         model_audio_desc: "Prompts para geração de áudio",
-        modal_copy_title: "Prompt copiado",
         modal_cancel: "Cancelar",
         modal_open: "Abrir ",
-        modal_desc: "Prompt copiado para a área de transferência. Cole no {name} após abrir.",
         hero_title: "Descubra e implemente <br class=\"hidden md:block\" /> prompts de IA perfeitos.",
         hero_desc: "O Datvex fornece um repositório estruturado e profissional de prompts de alta qualidade para construir, escalar e proteger uma experiência de IA mais rápida.",
         hero_btn_explore: "Começar a explorar",
@@ -783,10 +764,8 @@ const translations = {
         model_video_desc: "動画生成用のプロンプト",
         model_audio_title: "オーディオ",
         model_audio_desc: "オーディオ生成用のプロンプト",
-        modal_copy_title: "プロンプトをコピーしました",
         modal_cancel: "キャンセル",
         modal_open: "開く ",
-        modal_desc: "プロンプトがクリップボードにコピーされました。{name} を開いた後に貼り付けてください。",
         hero_title: "完璧な AI プロンプトを <br class=\"hidden md:block\" /> 発見し、デプロイする。",
         hero_desc: "Datvex は、より高速な AI エクスペリエンスを構築、スケーリング、保護するための、高品質なプロンプトの専門的かつ構造化されたリポジトリを提供します。",
         hero_btn_explore: "探索を始める",
@@ -863,10 +842,8 @@ const translations = {
         model_video_desc: "비디오 생성을 위한 프롬프트",
         model_audio_title: "오디오",
         model_audio_desc: "오디오 생성을 위한 프롬프트",
-        modal_copy_title: "프롬프트가 복사되었습니다",
         modal_cancel: "취소",
         modal_open: "열기 ",
-        modal_desc: "프롬프트가 클립보드에 복사되었습니다. {name}을 연 후 붙여넣으세요.",
         hero_title: "완벽한 AI 프롬프트를 <br class=\"hidden md:block\" /> 발견하고 배포하세요.",
         hero_desc: "Datvex는 더 빠르고 안전한 AI 경험을 구축, 확장 및 보호할 수 있도록 고품질 프롬프트의 전문적인 구조화된 저장소를 제공합니다.",
         hero_btn_explore: "탐색 시작",
@@ -2274,20 +2251,6 @@ function initAISelector() {
     });
 
     document.addEventListener('click', e => {
-        var copyBtn = e.target.closest('[data-action="copy"]');
-        if (copyBtn) {
-            e.preventDefault();
-            var card = copyBtn.closest('.group');
-            var content = card && card.querySelector('.prompt-content');
-            if (content) {
-                navigator.clipboard.writeText(content.textContent).then(function() {
-                    copyBtn.style.color = '#22c55e';
-                    setTimeout(function() { copyBtn.style.color = ''; }, 1500);
-                });
-            }
-            return;
-        }
-
         const triggerBtn = e.target.closest('.ai-trigger-btn');
         if (triggerBtn) {
             e.preventDefault();
@@ -2326,7 +2289,7 @@ function initAISelector() {
                     $('#ai-modal-open').href = aiUrl;
 
                     var descEl = $('#ai-modal-desc');
-                    var descParts = (t.modal_desc || 'Промпт скопирован в буфер обмена. Вставьте его в {name} после открытия.').split('{name}');
+                    var descParts = (t.modal_desc || 'Вставьте промпт в {name} после открытия.').split('{name}');
                     descEl.textContent = '';
                     descEl.append(descParts[0]);
                     var nameSpan = document.createElement('span');
@@ -2508,14 +2471,7 @@ function createPromptCardHTML(p, realIndex) {
         </div>
         <p class="text-sm text-[#A0A0A0] line-clamp-2" title="${desc}">${desc}</p>
         <div class="mt-2 flex flex-col gap-2">
-            <div class="relative">
-                <div class="absolute top-2 right-2 flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-                    <button data-action="copy" class="p-1.5 bg-[#1A1A1A] border border-[#333] rounded-lg hover:bg-[#2A2A2A] hover:text-white transition-colors text-[#888]">
-                        <i class="ph-bold ph-copy icon-sm"></i>
-                    </button>
-                </div>
-                <pre class="prompt-content bg-[#0A0A0A] border border-[#222] group-hover:border-[#333] rounded-xl p-4 text-xs font-mono text-[#A0A0A0] overflow-x-auto h-32 whitespace-pre-wrap transition-colors duration-300">${promptText}</pre>
-            </div>
+            <pre class="prompt-content bg-[#0A0A0A] border border-[#222] group-hover:border-[#333] rounded-xl p-4 text-xs font-mono text-[#A0A0A0] overflow-x-auto h-32 whitespace-pre-wrap transition-colors duration-300">${promptText}</pre>
             <div class="flex justify-between items-center">
                 <div class="flex items-center gap-1.5 text-[#666]">
                     <i class="ph-bold ph-heart icon-sm"></i>
@@ -2873,55 +2829,6 @@ function showSkeletons() {
     grid.innerHTML = html;
 }
 
-function handleCopyBtn(btn, isModal) {
-    const card = btn.closest(isModal ? '#prompt-modal-content' : '.group');
-    const content = card && card.querySelector(isModal ? '#prompt-modal-text' : '.prompt-content');
-    if (!content) return;
-    
-    navigator.clipboard.writeText(content.textContent).then(() => {
-        if (isModal) {
-            const icon = btn.querySelector('i');
-            const span = btn.querySelector('span');
-            if (icon) {
-                icon.className = 'ph-bold ph-check icon-sm';
-                icon.style.color = '#22c55e';
-            }
-            if (span) span.textContent = 'Copied';
-            btn.style.color = '#22c55e';
-            btn.style.borderColor = '#22c55e';
-            
-            setTimeout(() => {
-                if (icon) {
-                    icon.className = 'ph-bold ph-copy icon-sm';
-                    icon.style.color = '';
-                }
-                if (span) span.textContent = 'Copy';
-                btn.style.color = '';
-                btn.style.borderColor = '';
-            }, 2000);
-        } else {
-            const icon = btn.querySelector('i');
-            if (!icon) return;
-            
-            btn.style.transition = 'all 0.2s ease';
-            icon.style.transition = 'all 0.2s ease';
-            icon.className = 'ph-bold ph-check icon-sm';
-            icon.style.color = '#22c55e';
-            btn.style.borderColor = '#22c55e';
-            
-            setTimeout(() => {
-                icon.style.opacity = '0';
-                setTimeout(() => {
-                    icon.className = 'ph-bold ph-copy icon-sm';
-                    icon.style.color = '';
-                    btn.style.borderColor = '';
-                    icon.style.opacity = '1';
-                }, 200);
-            }, 1800);
-        }
-    });
-}
-
 function setupInfiniteScroll() {
     const sentinel = document.querySelector('#scroll-sentinel');
     if (!sentinel) return;
@@ -3075,15 +2982,6 @@ document.addEventListener('click', function(e) {
             targetEl.scrollIntoView({ behavior: 'smooth' });
             history.replaceState({ view: 'docs-view' }, '', '#' + targetId);
         }
-        return;
-    }
-
-    const copyBtn = e.target.closest('[data-action="copy"]');
-    if (copyBtn) {
-        e.preventDefault();
-        e.stopPropagation();
-        const isModal = !!copyBtn.closest('#prompt-modal-content');
-        handleCopyBtn(copyBtn, isModal);
         return;
     }
 
