@@ -335,10 +335,10 @@
                     </button>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-start" id="prompts-grid">
+                <div class="masonry-grid" id="prompts-grid">
                 </div>
-                
-                <div id="empty-state" class="hidden col-span-full">
+
+                <div id="empty-state" class="hidden masonry-empty-state">
                     <i class="ph-bold ph-magnifying-glass icon-2xl text-[#333]"></i>
                     <p class="text-white font-semibold text-[17px]">Ничего не найдено</p>
                     <p class="text-[#888] text-[14px] max-w-xs">Попробуйте изменить запрос или сбросить фильтры</p>
@@ -411,7 +411,7 @@
                     <p class="text-[#888] text-[14px]" data-i18n="favorites_empty_desc">Откройте любой промпт и нажмите <i class="ph-bold ph-bookmark icon-sm mx-1"></i> чтобы добавить.</p>
                 </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-start" id="favorites-grid"></div>
+            <div class="masonry-grid" id="favorites-grid"></div>
         </div>
 
         <div id="usecase-developers-view" class="hidden flex-col w-full">
