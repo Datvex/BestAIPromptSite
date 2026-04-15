@@ -1,3 +1,6 @@
+(function() {
+'use strict';
+
 const translations = {
     en: {
         lang_menu: "Interface Language",
@@ -1018,7 +1021,7 @@ function initAuth() {
                     }
                 }
             }
-        } catch(e) {}
+        } catch(e) { console.error('Error:', e); }
     }
 
     function openAuth() {
@@ -1029,6 +1032,11 @@ function initAuth() {
                 authView.classList.add('active');
             });
         });
+        // Prevent layout shift when scrollbar disappears
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = scrollbarWidth + 'px';
+        }
         document.body.style.overflow = 'hidden';
     }
 
@@ -1038,6 +1046,7 @@ function initAuth() {
             authView.classList.add('hidden');
             authView.classList.remove('flex');
             document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
         }, 300);
     }
 
@@ -1080,7 +1089,7 @@ function initAuth() {
 function setLanguage(lang, animate) {
     if (!translations[lang]) return;
     currentLang = lang;
-    try { localStorage.setItem('appLang', lang); } catch(e) {}
+    try { localStorage.setItem('appLang', lang); } catch(e) { console.error('Error:', e); }
 
     const langBtns = document.querySelectorAll('.lang-btn');
     for (let i = 0; i < langBtns.length; i++) {
@@ -1093,6 +1102,10 @@ function setLanguage(lang, animate) {
     const doUpdate = () => {
         const indicator = document.querySelector('#current-lang-indicator');
         if (indicator) indicator.textContent = lang.toUpperCase();
+
+        // Обновляем lang атрибут для скринридеров
+        const langMap = { en: 'en', ru: 'ru', zh: 'zh-CN', es: 'es', hi: 'hi', fr: 'fr', de: 'de', it: 'it', pt: 'pt-BR', ja: 'ja', ko: 'ko' };
+        document.documentElement.lang = langMap[lang] || 'en';
 
         const els = document.querySelectorAll('[data-i18n]');
         const t = translations[lang];
@@ -1145,7 +1158,7 @@ function setLanguage(lang, animate) {
                         }
                     }
                 }
-            } catch(e) {}
+            } catch(e) { console.error('Error:', e); }
         }
 
         const dropdowns = document.querySelectorAll('.custom-dropdown');
@@ -1210,7 +1223,8 @@ function switchView(viewId, pushHistory = true) {
 
     var logoMain = document.getElementById('logo-text-main');
     var logoDocs = document.getElementById('logo-text-docs');
-    
+    var navRandom = document.getElementById('nav-link-random');
+
     if (logoMain && logoDocs) {
         if (viewId === 'docs-view') {
             logoMain.classList.add('hidden');
@@ -1220,6 +1234,15 @@ function switchView(viewId, pushHistory = true) {
             logoMain.classList.remove('hidden');
             logoDocs.classList.add('hidden');
             logoDocs.classList.remove('flex');
+        }
+    }
+
+    // Скрываем кнопку "Случайный" на главной странице
+    if (navRandom) {
+        if (viewId === 'home-view') {
+            navRandom.classList.add('hidden');
+        } else {
+            navRandom.classList.remove('hidden');
         }
     }
 
@@ -1295,6 +1318,14 @@ window.addEventListener('popstate', function(e) {
             openPromptModal(index);
             return;
         }
+    } else if (location.hash && location.hash.startsWith('#/prompt/')) {
+        // Fallback для старых закладок с хешем
+        const targetId = location.hash.replace('#/prompt/', '');
+        const index = allPrompts.findIndex(p => String(p.numeric_id) === targetId);
+        if (index !== -1) {
+            openPromptModal(index);
+            return;
+        }
     } else {
         const modal = document.getElementById('prompt-modal');
         if (modal && modal.classList.contains('active')) {
@@ -1321,6 +1352,13 @@ window.addEventListener('popstate', function(e) {
 });
 
 document.addEventListener('DOMContentLoaded', async function() {
+    // Регистрация Service Worker для оффлайн-поддержки
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch((err) => {
+            console.error('Service Worker registration failed:', err);
+        });
+    }
+
     loadHeroCounter();
     loadPrompts();
     initDropdowns();
@@ -1366,6 +1404,24 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
         switchView(initialView, false);
     }
+
+    // Кнопка «Наверх»
+    var scrollTopBtn = document.getElementById('scroll-to-top-btn');
+    if (scrollTopBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 600) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.pointerEvents = 'auto';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.pointerEvents = 'none';
+            }
+        }, { passive: true });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
 });
 
 function getFavorites() {
@@ -1379,7 +1435,7 @@ function getFavorites() {
 function saveFavorites(favs) {
     try {
         localStorage.setItem('datvex_favorites', JSON.stringify(favs));
-    } catch(e) {}
+    } catch(e) { console.error('Error:', e); }
 }
 
 function toggleFavorite(numericId) {
@@ -1829,7 +1885,8 @@ async function generateTagsPage() {
         const item = data[i];
         const c = colors[i % colors.length];
         const a = document.createElement('a');
-        a.href = '#';
+        const slug = item.name.toLowerCase().replace(/\s+/g, '-');
+        a.href = '/tags/' + slug;
         a.className = 'custom-tag-pill';
         a.style.cssText = '--tag-r:' + c[0] + ';--tag-g:' + c[1] + ';--tag-b:' + c[2];
 
@@ -1847,12 +1904,12 @@ async function generateTagsPage() {
         a.appendChild(dot);
         a.appendChild(label);
         a.appendChild(count);
-        
+
         a.addEventListener('click', function(e) {
             e.preventDefault();
             applyFilter('tag', item.name, item.name);
         });
-        
+
         frag.appendChild(a);
     }
 
@@ -1900,8 +1957,9 @@ async function generateCategoriesPage() {
         const icon = groupIcons[cat.group] || 'ph-folder';
         
         cat.items.forEach(item => {
+            const slug = item.name.toLowerCase().replace(/\s+/g, '-');
             itemsHtml += `
-                <a href="#" data-id="${item.id}" class="group py-3 px-4 -mx-4 hover:bg-[#111] rounded-lg transition-colors flex items-center justify-between">
+                <a href="/categories/${slug}" data-id="${item.id}" class="group py-3 px-4 -mx-4 hover:bg-[#111] rounded-lg transition-colors flex items-center justify-between">
                     <div>
                         <h3 class="text-[15px] text-[#EDEDED] font-medium group-hover:text-white transition-colors">${item.name}</h3>
                     </div>
@@ -2020,6 +2078,17 @@ function initViewSwitcher() {
         });
     }
 
+    var linkRandom = $('#nav-link-random');
+    if (linkRandom) {
+        linkRandom.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (closeRadixMenu) closeRadixMenu();
+            if (allPrompts.length === 0) return;
+            const randomIndex = Math.floor(Math.random() * allPrompts.length);
+            openPromptModal(randomIndex);
+        });
+    }
+
     var resetBtn = document.getElementById('reset-filters-btn');
     if (resetBtn) {
         resetBtn.addEventListener('click', function(e) {
@@ -2067,6 +2136,11 @@ function initViewSwitcher() {
         if (!mobileMenu) return;
         mobileMenu.classList.add('active');
         if (mobileMenuBackdrop) mobileMenuBackdrop.classList.add('active');
+        // Prevent layout shift when scrollbar disappears
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = scrollbarWidth + 'px';
+        }
         document.body.style.overflow = 'hidden';
     }
 
@@ -2075,6 +2149,7 @@ function initViewSwitcher() {
         mobileMenu.classList.remove('active');
         if (mobileMenuBackdrop) mobileMenuBackdrop.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
     }
 
     if (burgerBtn) burgerBtn.addEventListener('click', openMobileMenu);
@@ -2095,6 +2170,28 @@ function initViewSwitcher() {
             }
         });
     });
+
+    // Мобильный поиск — переход на /prompts и фокус на поиск
+    var mobileSearchInput = document.getElementById('mobile-search-input');
+    if (mobileSearchInput) {
+        mobileSearchInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const query = mobileSearchInput.value.trim();
+                closeMobileMenu();
+                switchView('main-view');
+                setTimeout(() => {
+                    const mainSearch = document.getElementById('main-search');
+                    if (mainSearch && query) {
+                        mainSearch.value = query;
+                        updateSidebarFilters();
+                    } else if (mainSearch) {
+                        mainSearch.focus();
+                    }
+                }, 400);
+            }
+        });
+    }
 
     var footerCat = $('#footer-link-categories');
     if (footerCat) {
@@ -2420,11 +2517,11 @@ function initAISelector() {
 
 function applyFilter(type, id, displayName) {
     currentFilter = { type, id, displayName };
-    
+
     const aside = document.querySelector('aside');
     const filterHeader = document.getElementById('filter-header');
-    const typeLabel = document.getElementById('filter-type-label');
     const valueLabel = document.getElementById('filter-value-label');
+    const breadcrumbHome = document.getElementById('breadcrumb-home');
     
     if (type !== 'sidebar-tag') {
         const sidebarTags = document.querySelectorAll('#tags-container .tag-btn');
@@ -2434,23 +2531,33 @@ function applyFilter(type, id, displayName) {
     }
     
     if (type) {
+        let breadcrumbText = '';
         if (type === 'sidebar-tag') {
             aside.style.display = '';
-            typeLabel.textContent = translations[currentLang]?.tags_label || 'Тег';
+            breadcrumbText = (translations[currentLang]?.tags_label || 'Тег');
         } else {
             aside.style.display = 'none';
             if (type === 'category') {
-                typeLabel.textContent = translations[currentLang]?.category_label || 'Категория';
+                breadcrumbText = (translations[currentLang]?.category_label || 'Категория');
             } else if (type === 'model') {
-                typeLabel.textContent = translations[currentLang]?.nav_models || 'Модели';
+                breadcrumbText = (translations[currentLang]?.nav_models || 'Модели');
             } else {
-                typeLabel.textContent = translations[currentLang]?.tags_label || 'Тег';
+                breadcrumbText = (translations[currentLang]?.tags_label || 'Тег');
             }
         }
-        
+
         filterHeader.classList.remove('hidden');
         filterHeader.classList.add('flex');
         valueLabel.textContent = displayName || id;
+
+        // Обновляем breadcrumb: «Тип: значение»
+        if (breadcrumbHome) {
+            breadcrumbHome.textContent = breadcrumbText + ':';
+            breadcrumbHome.onclick = function(e) {
+                e.preventDefault();
+                applyFilter(null, null, null);
+            };
+        }
         
         if (type === 'category') {
             filteredPrompts = allPrompts.filter(p => p.category_id === id || p.category === id || p.category === displayName);
@@ -2523,7 +2630,7 @@ function createPromptCardHTML(p, realIndex) {
     const promptText = escapeHTML(p.prompt);
     const type = escapeHTML(p.category || 'Text');
     return `
-    <div data-index="${realIndex}" class="prompt-card group bg-[#1A1A1A] border border-[#333] rounded-2xl p-5 hover:border-[#555] hover:bg-[#222] transition-all duration-300 flex flex-col gap-3 cursor-pointer">
+    <div tabindex="0" role="button" data-index="${realIndex}" class="prompt-card group bg-[#1A1A1A] border border-[#333] rounded-2xl p-5 hover:border-[#555] hover:bg-[#222] transition-all duration-300 flex flex-col gap-3 cursor-pointer">
         <div class="flex justify-between items-start">
             <h3 class="font-semibold text-lg leading-tight text-[#EDEDED] group-hover:text-white transition-colors">${title}</h3>
             <span class="text-[10px] uppercase tracking-wider border border-[#333] px-2 py-0.5 rounded-md text-[#888] bg-[#111] max-w-[120px] truncate text-right" title="${type}">${type}</span>
@@ -2609,7 +2716,17 @@ async function loadPrompts() {
 
     showSkeletons();
 
-    try {
+    const LOAD_TIMEOUT = 20000; // 20 секунд
+    let loadTimedOut = false;
+
+    const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => {
+            loadTimedOut = true;
+            reject(new Error('Load timeout'));
+        }, LOAD_TIMEOUT);
+    });
+
+    const fetchPromise = (async () => {
         const cacheKey = 'datvex_prompts';
         const cached = sessionStorage.getItem(cacheKey);
 
@@ -2642,23 +2759,58 @@ async function loadPrompts() {
                 }
                 if (hasNew) {
                     allPrompts = localPrompts;
-                    try { sessionStorage.setItem(cacheKey, JSON.stringify(allPrompts)); } catch(e) {}
+                    try { sessionStorage.setItem(cacheKey, JSON.stringify(allPrompts)); } catch(e) { console.error('SessionStorage set error:', e); }
                 } else {
                     allPrompts = localPrompts;
                 }
             } else {
                 allPrompts = remotePrompts;
-                try { sessionStorage.setItem(cacheKey, JSON.stringify(allPrompts)); } catch(e) {}
+                try { sessionStorage.setItem(cacheKey, JSON.stringify(allPrompts)); } catch(e) { console.error('SessionStorage set error:', e); }
             }
         } else if (cached) {
             allPrompts = JSON.parse(cached);
+        } else {
+            throw new Error('No data and no cache');
         }
+    })();
+
+    try {
+        await Promise.race([fetchPromise, timeoutPromise]);
     } catch (e) {
-        try {
-            const cached = sessionStorage.getItem('datvex_prompts');
-            if (cached) allPrompts = JSON.parse(cached);
-        } catch(e2) {}
-        console.warn('Failed to load prompts', e);
+        console.error('Failed to load prompts:', e);
+
+        // Если была загрузка из кеша — показываем то что есть
+        if (allPrompts.length > 0) {
+            console.warn('Using cached prompts after failed fetch');
+        } else if (loadTimedOut) {
+            // Таймаут — показываем ошибку с кнопкой перезагрузки
+            grid.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-20 gap-4 text-center" style="grid-column: 1 / -1;">
+                    <i class="ph-bold ph-warning-circle icon-2xl text-[#666]"></i>
+                    <p class="text-white font-semibold text-[17px]">Не удалось загрузить промпты</p>
+                    <p class="text-[#888] text-[14px] max-w-xs">Превышено время ожидания. Проверьте подключение к интернету и перезагрузите страницу.</p>
+                    <button onclick="location.reload()" class="mt-2 px-5 py-2.5 bg-[#1A1A1A] border border-[#333] hover:border-[#555] text-white text-[14px] font-medium rounded-xl transition-colors">
+                        Перезагрузить страницу
+                    </button>
+                </div>
+            `;
+            setAppReady();
+            return;
+        } else {
+            // Полная ошибка — тоже показываем ошибку
+            grid.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-20 gap-4 text-center" style="grid-column: 1 / -1;">
+                    <i class="ph-bold ph-warning-circle icon-2xl text-[#666]"></i>
+                    <p class="text-white font-semibold text-[17px]">Не удалось загрузить промпты</p>
+                    <p class="text-[#888] text-[14px] max-w-xs">Произошла ошибка при загрузке данных. Попробуйте перезагрузить страницу.</p>
+                    <button onclick="location.reload()" class="mt-2 px-5 py-2.5 bg-[#1A1A1A] border border-[#333] hover:border-[#555] text-white text-[14px] font-medium rounded-xl transition-colors">
+                        Перезагрузить страницу
+                    </button>
+                </div>
+            `;
+            setAppReady();
+            return;
+        }
     }
 
     if (!Array.isArray(allPrompts)) allPrompts = [];
@@ -2693,25 +2845,30 @@ async function loadPrompts() {
 
     try {
         await generateTagsPage();
-    } catch(e) {}
-    
+    } catch(e) { console.error('Tags page generation error:', e); }
+
     setupInfiniteScroll();
     loadMorePrompts(true);
 
-    if (location.hash && location.hash.startsWith('#/prompt/')) {
+    // Обработка прямых ссылок на промпты (чистые URL + fallback для старых хешей)
+    if (location.pathname.startsWith('/prompt/')) {
+        setTimeout(() => {
+            const targetId = location.pathname.replace('/prompt/', '');
+            const index = allPrompts.findIndex(p => String(p.numeric_id) === targetId);
+            if (index !== -1) openPromptModal(index);
+        }, 100);
+    } else if (location.hash && location.hash.startsWith('#/prompt/')) {
         setTimeout(() => {
             const targetId = location.hash.replace('#/prompt/', '');
             const index = allPrompts.findIndex(p => String(p.numeric_id) === targetId);
-            if (index !== -1) {
-                openPromptModal(index);
-            }
+            if (index !== -1) openPromptModal(index);
         }, 100);
     }
 }
 
 function setAppReady() {
     isAppReady = true;
-    
+
     const count = allPrompts.length;
     const el = document.getElementById('hero-prompt-count');
     if (el) {
@@ -2721,6 +2878,9 @@ function setAppReady() {
             el.textContent = '0';
         }
     }
+
+    // Инициализируем навигацию стрелками
+    try { initArrowKeyNavigation(); } catch(e) { console.error('Arrow key nav init error:', e); }
 
     if (pendingViewSwitch) {
         const targetView = pendingViewSwitch;
@@ -2902,6 +3062,45 @@ function setupInfiniteScroll() {
     observer.observe(sentinel);
 }
 
+// Навигация стрелками по карточкам промптов
+function initArrowKeyNavigation() {
+    const grid = document.querySelector('#prompts-grid');
+    if (!grid) return;
+
+    let focusedCardIndex = -1;
+
+    grid.addEventListener('keydown', function(e) {
+        const cards = grid.querySelectorAll('.prompt-card');
+        if (cards.length === 0) return;
+
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusedCardIndex = (focusedCardIndex + 1) % cards.length;
+            cards[focusedCardIndex].focus();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            focusedCardIndex = focusedCardIndex <= 0 ? cards.length - 1 : focusedCardIndex - 1;
+            cards[focusedCardIndex].focus();
+        } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const activeCard = document.activeElement;
+            if (activeCard && activeCard.classList.contains('prompt-card')) {
+                const idx = activeCard.getAttribute('data-index');
+                openPromptModal(idx);
+            }
+        }
+    });
+
+    // Отслеживаем фокус на карточках
+    grid.addEventListener('focusin', function(e) {
+        const card = e.target.closest('.prompt-card');
+        if (card) {
+            const cards = grid.querySelectorAll('.prompt-card');
+            cards.forEach((c, i) => { if (c === card) focusedCardIndex = i; });
+        }
+    });
+}
+
 function openPromptModal(index) {
     const prompt = allPrompts[index];
     if (!prompt) return;
@@ -2913,10 +3112,63 @@ function openPromptModal(index) {
     const tagsEl = document.getElementById('prompt-modal-tags');
     const tokenEl = document.getElementById('prompt-modal-tokens');
     const favBtn = document.getElementById('prompt-modal-fav-btn');
-    
+    const copyBtn = document.getElementById('prompt-modal-copy-btn');
+
     titleEl.textContent = prompt.title;
     descEl.textContent = prompt.description;
     textEl.textContent = prompt.prompt;
+
+    // Copy button handler
+    if (copyBtn) {
+        copyBtn.onclick = function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const promptText = textEl?.textContent;
+            if (!promptText) return;
+
+            const copyIcon = this.querySelector('.copy-icon');
+            const copyText = this.querySelector('.copy-text');
+
+            navigator.clipboard.writeText(promptText).then(() => {
+                copyIcon.className = 'ph-bold ph-check icon-sm copy-icon transition-all duration-300';
+                copyIcon.style.color = '#4ADE80';
+                copyText.textContent = 'Скопировано!';
+                copyText.style.color = '#4ADE80';
+
+                setTimeout(() => {
+                    copyIcon.className = 'ph-bold ph-copy icon-sm copy-icon transition-all duration-300';
+                    copyIcon.style.color = '';
+                    copyText.textContent = 'Копировать';
+                    copyText.style.color = '';
+                }, 2000);
+            }).catch(() => {
+                const textarea = document.createElement('textarea');
+                textarea.value = promptText;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    copyIcon.className = 'ph-bold ph-check icon-sm copy-icon transition-all duration-300';
+                    copyIcon.style.color = '#4ADE80';
+                    copyText.textContent = 'Скопировано!';
+                    copyText.style.color = '#4ADE80';
+
+                    setTimeout(() => {
+                        copyIcon.className = 'ph-bold ph-copy icon-sm copy-icon transition-all duration-300';
+                        copyIcon.style.color = '';
+                        copyText.textContent = 'Копировать';
+                        copyText.style.color = '';
+                    }, 2000);
+                } catch (err) {
+                    console.error('Copy failed:', err);
+                }
+                document.body.removeChild(textarea);
+            });
+        };
+    }
 
     if (tokenEl) {
         const tokenCount = (prompt.prompt || '').length;
@@ -2949,8 +3201,8 @@ function openPromptModal(index) {
     const numericId = prompt.numeric_id;
     if (numericId) {
         try {
-            history.pushState({ view: 'prompt', id: numericId }, '', `#/prompt/${numericId}`);
-        } catch(e) {}
+            history.pushState({ view: 'prompt', id: numericId }, '', '/prompt/' + numericId);
+        } catch(e) { console.error('History pushState failed:', e); }
     }
 
     const likeBtn = document.getElementById('prompt-modal-like-btn');
@@ -3009,6 +3261,11 @@ function openPromptModal(index) {
     }
 
     modal.classList.add('active');
+    // Prevent layout shift when scrollbar disappears
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) {
+        document.body.style.paddingRight = scrollbarWidth + 'px';
+    }
     document.body.style.overflow = 'hidden';
 }
 
@@ -3017,15 +3274,21 @@ function closePromptModal() {
     if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = '';
-        if (location.hash.startsWith('#/prompt/')) {
+        document.body.style.paddingRight = '';
+        if (location.pathname.startsWith('/prompt/') || location.hash.startsWith('#/prompt/')) {
             try {
-                history.pushState({ view: 'main-view' }, '', '#main-view');
-            } catch(e) {}
+                history.pushState({ view: 'main-view' }, '', '/prompts');
+            } catch(e) { console.error('History pushState on close failed:', e); }
         }
     }
 }
 
 document.addEventListener('click', function(e) {
+    // Ignore clicks inside the prompt modal
+    if (e.target.closest('#prompt-modal')) {
+        return;
+    }
+
     if (e.target.closest('#clear-filter-btn')) {
         e.preventDefault();
         applyFilter(null, null, null);
@@ -3058,15 +3321,37 @@ document.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     const modalCloseBtn = document.getElementById('prompt-modal-close');
     const modalBackdrop = document.getElementById('prompt-modal-backdrop');
+    
     if (modalCloseBtn) modalCloseBtn.addEventListener('click', closePromptModal);
     if (modalBackdrop) modalBackdrop.addEventListener('click', closePromptModal);
 });
 
 document.addEventListener('keydown', function(e) {
+    // Escape — закрытие модалок
     if (e.key === 'Escape') {
         const promptModal = document.getElementById('prompt-modal');
         if (promptModal && promptModal.classList.contains('active')) {
             closePromptModal();
+            return;
+        }
+    }
+
+    // / или Ctrl+K — фокус на поиске
+    if ((e.key === '/' && !e.ctrlKey && !e.metaKey) || (e.ctrlKey && e.key === 'k') || (e.metaKey && e.key === 'k')) {
+        const mainSearch = document.getElementById('main-search');
+        if (mainSearch) {
+            const tag = e.target.tagName;
+            const isEditable = e.target.isContentEditable || tag === 'INPUT' || tag === 'TEXTAREA';
+            if (!isEditable) {
+                e.preventDefault();
+                const mainView = document.getElementById('main-view');
+                if (mainView && mainView.classList.contains('hidden')) {
+                    switchView('main-view');
+                    setTimeout(() => { mainSearch.focus(); }, 400);
+                } else {
+                    mainSearch.focus();
+                }
+            }
         }
     }
 });
@@ -3195,15 +3480,21 @@ function initAccountModal() {
             const u = JSON.parse(decodeURIComponent(match[1]));
             if (avatarImg) avatarImg.src = u.avatar || '';
             if (nicknameInput) nicknameInput.value = u.name || '';
-        } catch(e) {}
+        } catch(e) { console.error('Error:', e); }
 
-        modal.classList.add('active');
+        // Prevent layout shift when scrollbar disappears
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = scrollbarWidth + 'px';
+        }
         document.body.style.overflow = 'hidden';
+        modal.classList.add('active');
     }
 
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
         if (nicknameError) nicknameError.classList.add('hidden');
     }
 
@@ -3277,3 +3568,8 @@ function initAccountModal() {
         if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
     });
 }
+
+// Экспортируем switchView в глобальную область (нужен для inline onclick в HTML)
+window.switchView = switchView;
+
+})();

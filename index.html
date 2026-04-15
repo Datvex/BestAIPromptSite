@@ -1,10 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="ru" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datvex Prompt LAB</title>
     <meta name="description" content="Professional structured repository of high-quality prompts for AI systems">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Datvex Prompt LAB">
+    <meta property="og:description" content="Professional structured repository of high-quality prompts for AI systems">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://datvex.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Datvex Prompt LAB">
+    <meta name="twitter:description" content="Professional structured repository of high-quality prompts for AI systems">
+    <meta name="twitter:image" content="logo.png">
     <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
     <link rel="icon" type="image/png" sizes="16x16" href="logo.png">
     <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
@@ -76,6 +90,11 @@
                         Источники
                     </button>
 
+                    <button id="nav-link-random" class="flex items-center gap-1 px-3 py-1.5 hover:text-white transition-colors duration-200 rounded-full hover:bg-[#1A1A1A]">
+                        <i class="ph-bold ph-dice-five icon-sm"></i>
+                        Случайный
+                    </button>
+
                     <div id="radix-positioner" class="absolute top-full left-0 pt-3 z-50" style="pointer-events: none;">
                         <div id="radix-viewport" class="radix-viewport bg-[#1A1A1A] border border-[#333] rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.8)] relative overflow-hidden pointer-events-auto" data-state="closed" style="display: none;">
 
@@ -145,7 +164,7 @@
                     </div>
                 </div>
 
-                <button id="burger-btn" class="md:hidden flex items-center justify-center w-9 h-9 rounded-md border border-[#333] text-[#888] hover:text-white hover:border-[#555] transition-colors">
+                <button id="burger-btn" aria-label="Открыть меню" class="md:hidden flex items-center justify-center w-9 h-9 rounded-md border border-[#333] text-[#888] hover:text-white hover:border-[#555] transition-colors">
                     <i class="ph-bold ph-list icon-lg"></i>
                 </button>
 
@@ -323,11 +342,12 @@
             <div class="flex-1 flex flex-col gap-8 min-w-0 md:pt-[25px]">
                 <!-- Заголовок, описание и горизонтальный скролл удалены -->
                 
-                <!-- Хедер фильтра -->
+                <!-- Хедер фильтра / Breadcrumb -->
                 <div id="filter-header" class="hidden items-center justify-between bg-[#1A1A1A] border border-[#333] p-4 rounded-xl">
-                    <div class="flex flex-col">
-                        <span class="text-[11px] font-semibold text-vercel-gray uppercase tracking-widest mb-1" id="filter-type-label"></span>
-                        <h2 class="text-xl font-semibold text-white tracking-tight" id="filter-value-label"></h2>
+                    <div class="flex items-center gap-2 flex-wrap" id="breadcrumb-container">
+                        <a href="#" id="breadcrumb-home" class="text-[13px] text-[#888] hover:text-white transition-colors">Главная</a>
+                        <span class="text-[#333]">/</span>
+                        <span class="text-[13px] text-white font-medium" id="filter-value-label"></span>
                     </div>
                     <button id="clear-filter-btn" class="flex items-center gap-1.5 px-3 py-1.5 bg-[#2A2A2A] hover:bg-[#333] border border-[#333] hover:border-[#555] text-[#EDEDED] text-sm font-medium rounded-lg transition-colors shadow-sm">
                         <i class="ph-bold ph-x icon-md"></i>
@@ -1094,10 +1114,10 @@ npx serve .</pre>
         </div>
 
         <!-- Модальное окно копирования (DeepSeek / Gemini) -->
-        <div id="ai-modal" class="fixed inset-0 z-[300] flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <div id="ai-modal" role="dialog" aria-modal="true" aria-labelledby="ai-modal-title" class="fixed inset-0 z-[300] flex items-center justify-center opacity-0 invisible transition-all duration-300">
             <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="ai-modal-backdrop"></div>
             <div class="bg-[#111] border border-[#333] w-full max-w-[420px] rounded-2xl shadow-2xl relative z-10 p-6 transform scale-95 transition-transform duration-300" id="ai-modal-content">
-                <button id="ai-modal-close-x" class="absolute top-4 right-4 text-[#888] hover:text-white transition-colors bg-[#222] hover:bg-[#333] rounded-full w-8 h-8 flex items-center justify-center">
+                <button id="ai-modal-close-x" aria-label="Закрыть" class="absolute top-4 right-4 text-[#888] hover:text-white transition-colors bg-[#222] hover:bg-[#333] rounded-full w-8 h-8 flex items-center justify-center">
                     <i class="ph-bold ph-x icon-lg"></i>
                 </button>
                 <h3 class="text-xl font-semibold text-white mb-2" id="ai-modal-title" data-i18n="modal_copy_title">Промпт скопирован</h3>
@@ -1112,7 +1132,7 @@ npx serve .</pre>
             </div>
         </div>
         
-        <div id="prompt-modal" class="fixed inset-0 z-[150] flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <div id="prompt-modal" role="dialog" aria-modal="true" aria-labelledby="prompt-modal-title" class="fixed inset-0 z-[150] flex items-center justify-center opacity-0 invisible transition-all duration-300">
             <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" id="prompt-modal-backdrop"></div>
             <div class="group bg-[#151515] border border-[#333] w-full max-w-[800px] max-h-[90vh] rounded-2xl shadow-2xl relative z-10 flex flex-col transform scale-95 transition-transform duration-300 mx-4" id="prompt-modal-content">
                 
@@ -1121,25 +1141,33 @@ npx serve .</pre>
                         <div class="flex items-center gap-2 flex-wrap" id="prompt-modal-tags"></div>
                         <h2 class="text-xl md:text-2xl font-semibold text-white tracking-tight leading-snug" id="prompt-modal-title"></h2>
                     </div>
-                    <button id="prompt-modal-close" class="absolute top-5 right-5 md:top-6 md:right-6 text-[#888] hover:text-white transition-colors bg-[#222] hover:bg-[#333] rounded-full p-0 w-8 h-8 flex items-center justify-center shrink-0">
+                    <button id="prompt-modal-close" aria-label="Закрыть" class="absolute top-5 right-5 md:top-6 md:right-6 text-[#888] hover:text-white transition-colors bg-[#222] hover:bg-[#333] rounded-full p-0 w-8 h-8 flex items-center justify-center shrink-0">
                         <i class="ph-bold ph-x icon-lg"></i>
                     </button>
                 </div>
                 
                 <div class="p-5 md:p-6 overflow-y-auto custom-scrollbar flex-1 flex flex-col gap-5 min-h-0">
                     <p class="text-[14px] md:text-[15px] text-[#A0A0A0] leading-relaxed shrink-0" id="prompt-modal-desc"></p>
-                    
-                    <div class="flex flex-col flex-1 min-h-[150px] border border-[#333] rounded-xl bg-[#0A0A0A] overflow-hidden">
-                        <pre class="prompt-content p-4 md:p-5 text-xs md:text-sm font-mono text-[#A0A0A0] overflow-x-auto whitespace-pre-wrap flex-1 shadow-inner leading-relaxed m-0 bg-transparent border-0" id="prompt-modal-text"></pre>
+
+                    <div class="flex flex-col flex-1 min-h-[150px] overflow-hidden">
+                        <div class="flex justify-end px-1 pb-2">
+                            <button id="prompt-modal-copy-btn" aria-label="Копировать промпт" class="flex items-center gap-1.5 px-2.5 py-1.5 bg-[#1A1A1A] border border-[#333] rounded-lg hover:bg-[#2A2A2A] hover:border-[#555] transition-all duration-300 text-[#888] hover:text-white text-xs font-medium">
+                                <i class="ph-bold ph-copy icon-sm copy-icon transition-all duration-300"></i>
+                                <span class="copy-text transition-all duration-300">Копировать</span>
+                            </button>
+                        </div>
+                        <div class="flex flex-col flex-1 border border-[#333] rounded-xl bg-[#0A0A0A] overflow-hidden">
+                            <pre class="prompt-content p-4 md:p-5 text-xs md:text-sm font-mono text-[#A0A0A0] overflow-x-auto whitespace-pre-wrap flex-1 shadow-inner leading-relaxed m-0 bg-transparent border-0" id="prompt-modal-text"></pre>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="p-4 md:p-5 border-t border-[#222] flex items-center justify-between bg-[#111] rounded-b-2xl shrink-0">
                     <div class="flex items-center gap-3">
-                        <button id="prompt-modal-fav-btn" class="flex items-center justify-center w-9 h-9 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] transition-all duration-200 text-[#888]">
+                        <button id="prompt-modal-fav-btn" aria-label="Добавить в избранное" class="flex items-center justify-center w-9 h-9 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] transition-all duration-200 text-[#888]">
                             <i class="ph-bold ph-bookmark icon-lg"></i>
                         </button>
-                        <button id="prompt-modal-like-btn" class="flex items-center gap-1.5 h-9 px-3 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] transition-all duration-200 text-[#888]">
+                        <button id="prompt-modal-like-btn" aria-label="Нравится" class="flex items-center gap-1.5 h-9 px-3 bg-[#1A1A1A] border border-[#333] rounded-xl hover:bg-[#2A2A2A] hover:border-[#555] transition-all duration-200 text-[#888]">
                             <i class="ph-bold ph-heart icon-sm"></i>
                             <span id="prompt-modal-likes-count" class="text-[13px] font-medium">0</span>
                         </button>
@@ -1204,7 +1232,7 @@ npx serve .</pre>
             </footer>
 
         <div id="auth-view" class="hidden fixed inset-0 z-[400] bg-black flex flex-col items-center justify-center px-4">
-            <button id="auth-view-close" class="absolute top-6 left-6 flex items-center gap-2 text-[#888] hover:text-white transition-colors text-[14px] font-medium">
+            <button id="auth-view-close" aria-label="Назад" class="absolute top-6 left-6 flex items-center gap-2 text-[#888] hover:text-white transition-colors text-[14px] font-medium">
                 <i class="ph-bold ph-arrow-left icon-md"></i>
                 Back
             </button>
@@ -1230,10 +1258,10 @@ npx serve .</pre>
         </div>
     </main>
 
-    <div id="account-modal" class="fixed inset-0 z-[400] flex items-center justify-center opacity-0 invisible transition-all duration-300">
+    <div id="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-modal-content" class="fixed inset-0 z-[400] flex items-center justify-center opacity-0 invisible transition-all duration-300">
         <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" id="account-modal-backdrop"></div>
         <div class="relative z-10 bg-[#111] border border-[#333] rounded-2xl shadow-2xl w-full max-w-[420px] mx-4 transform scale-95 transition-transform duration-300" id="account-modal-content">
-            <button id="account-modal-close" class="absolute top-4 right-4 text-[#888] hover:text-white transition-colors bg-[#222] hover:bg-[#333] rounded-full p-0 w-8 h-8 flex items-center justify-center">
+            <button id="account-modal-close" aria-label="Закрыть" class="absolute top-4 right-4 text-[#888] hover:text-white transition-colors bg-[#222] hover:bg-[#333] rounded-full p-0 w-8 h-8 flex items-center justify-center">
                 <i class="ph-bold ph-x icon-lg"></i>
             </button>
             <div class="flex flex-col items-center gap-6 p-8">
@@ -1258,14 +1286,26 @@ npx serve .</pre>
     </div>
 
     <div id="mobile-menu-backdrop" class="md:hidden"></div>
+
+    <!-- Кнопка «Наверх» -->
+    <button id="scroll-to-top-btn" aria-label="Наверх" class="fixed bottom-6 right-6 z-[100] w-11 h-11 bg-[#1A1A1A] border border-[#333] hover:border-[#555] hover:bg-[#2A2A2A] text-[#888] hover:text-white rounded-full flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 shadow-lg">
+        <i class="ph-bold ph-caret-up icon-lg"></i>
+    </button>
+
     <div id="mobile-menu" class="md:hidden">
         <div class="flex items-center justify-between mb-6">
             <span class="text-white font-semibold text-lg">Меню</span>
-            <button id="mobile-menu-close" class="text-[#888] hover:text-white transition-colors">
+            <button id="mobile-menu-close" aria-label="Закрыть меню" class="text-[#888] hover:text-white transition-colors">
                 <i class="ph-bold ph-x icon-lg"></i>
             </button>
         </div>
-        
+
+        <div class="relative mb-4">
+            <i class="ph-bold ph-magnifying-glass icon-md absolute left-3 top-1/2 -translate-y-1/2 text-[#888]"></i>
+            <input id="mobile-search-input" type="text" placeholder="Поиск промптов..."
+                class="w-full bg-[#1A1A1A] border border-[#333] rounded-xl py-2.5 pl-9 pr-3 text-sm text-white placeholder-[#555] hover:border-[#555] focus:outline-none focus:border-[#555] transition-all duration-300">
+        </div>
+
         <button class="mobile-nav-link mobile-nav-item" data-view="categories-view">
             <i class="ph-bold ph-layout icon-md"></i> Категории
         </button>

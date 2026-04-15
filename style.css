@@ -5,9 +5,9 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-*:focus {
-  outline: none !important;
-  box-shadow: none !important;
+*:focus-visible {
+    outline: none;
+    box-shadow: none;
 }
 
 html { scrollbar-width: thin; scrollbar-color: #333 transparent; }
